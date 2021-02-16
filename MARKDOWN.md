@@ -19,7 +19,6 @@ Automatic payments with companies such as Venmo, PayPal, Stripe, and ApplePay wi
 **User Authentication :** Firebase SDK - https://firebase.google.com/docs/auth/ios/start
 
 **Payment Processing :** Stripes - https://stripe.com/docs/mobile/ios/basic  
-
                          BrainTree - https://developers.braintreepayments.com/guides/client-sdk/setup/ios/v4
                      
 **Bank Integration :** Plaid - https://plaid.com/docs/api/
