@@ -13,5 +13,7 @@ Automatic payments with companies such as Venmo, PayPal, Stripe, and ApplePay wi
   
 # Links
 ## Paul Tsvirinko -
+  ### Rough flow and very very very early UI brainstorming.
   ### https://xd.adobe.com/view/b888d80d-efd9-40ea-b771-1bd90dd750dd-eddb/
+  
 # Other
