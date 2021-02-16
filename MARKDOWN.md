@@ -11,6 +11,9 @@ Automatic payments with companies such as Venmo, PayPal, Stripe, and ApplePay wi
 ## Paul Tsvirinko - 
  Started working on the UI Flow and design using Adobe XD. Currently researching possible API's we can use.
   
+## Jocelyn Park -
+ Research plaid
+
 # Links
 ## Paul Tsvirinko -
 
