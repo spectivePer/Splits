@@ -9,11 +9,21 @@ Automatic payments with companies such as Venmo, PayPal, Stripe, and ApplePay wi
 
 # Notes
 ## Paul Tsvirinko - 
-### Started working on the UI Flow and design using Adobe XD. Currently researching possible API's we can use.
+ Started working on the UI Flow and design using Adobe XD. Currently researching possible API's we can use.
   
 # Links
 ## Paul Tsvirinko -
-  ### Rough flow and very very very early UI brainstorming.
-  ### https://xd.adobe.com/view/b888d80d-efd9-40ea-b771-1bd90dd750dd-eddb/
+
+**Rough flow and very very very early UI brainstorming :** https://xd.adobe.com/view/b888d80d-efd9-40ea-b771-1bd90dd750dd-eddb/
+
+**User Authentication :** Firebase SDK - https://firebase.google.com/docs/auth/ios/start
+
+**Payment Processing :** Stripes - https://stripe.com/docs/mobile/ios/basic
+                     BrainTree - https://developers.braintreepayments.com/guides/client-sdk/setup/ios/v4
+                     
+**Bank Integration :** Plaid - https://plaid.com/docs/api/
+
+**UI Design :** material.io - https://material.io/
+  
   
 # Other
