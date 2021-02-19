@@ -12,8 +12,6 @@ Paul: Setup Firebase Database and App, incorporated the FirebaseUI for login
 
 Jocelyn: Email Firebase, Plaid, Braintree, Stripe, Dwolla for sponsorship
 
-### Task Commits
-
 ### In-progress Tasks
 
 Paul: Working on setting up Login Flow up to the HomeView
