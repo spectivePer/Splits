@@ -6,7 +6,10 @@ Use a whiteboard and take pictures, or better yet use a tool like Balsamiq that 
 
 ### Third Party Libraries
 Server support for your app. If you plan to roll your own server support, a full listing of the APIs you plan to build
-
+- Firebase (https://firebase.google.com/docs/functions)
+- login/auth: [Facebook](https://developers.facebook.com/docs/facebook-login/ios/) [Apple](https://developer.apple.com/documentation/authenticationservices/implementing_user_authentication_with_sign_in_with_apple) [Google](https://developers.google.com/identity/sign-in/ios)
+- Stripe/Braintree/Dwollo: move money
+- Plaid: Showing transactions
 
 ### Models
 A listing of all of the models you plan to include in your app
@@ -20,11 +23,15 @@ A listing of all of the models you plan to include in your app
 
 ### Project Timeline
 A list of approximately week long tasks and a timeline of when each of them will be done
+- SP 1: Topic Research
+- SP 2: Planning
+- SP 3: Implementation
+- SP 4: Testing
+- SP 5: Demo
 
 
 ### Trello Board
-A trello board that includes all of the tasks and their state (up next, in progress, blocked, done). 
-These tasks need to include an owner from the start, but the owner can change during the quarter as needed
+https://trello.com/b/Ez0aGlsI/splits
 
 
 ### Testing Plan
