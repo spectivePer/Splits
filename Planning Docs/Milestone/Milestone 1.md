@@ -15,7 +15,19 @@ Use a whiteboard and take pictures, or better yet use a tool like Balsamiq that 
 - Showing transactions: [Plaid](https://plaid.com)
 
 ## Models
-A listing of all of the models you plan to include in your app
+- Transaction Model: will facilitate interactions between user to user transactions and the controller
+- User Model: will facilitate interactions between the user table and the controller
+- Collection Model: will facilitate interactions between users to collections and the controller
+   - This will be the model we base off of splitting certain items between a group AKA a collection
+
+## Server Support
+Server will be based in Firebase Functions
+- Transaction API: this api will be based off of which 3rd party library we choose for transactions
+   - Examples: Pay, Request, Split, etc.. 
+- User API: this api will encompass login, authentication, updating and getting user's information and will also use 3rd party authentication such as Google, Facebook, Apple and other sign in options
+   - Examples: Login, Authenticate/Verify, UpdateName, GetUser(id) etc..
+- Collection API: this api will encompass interactions between collections and will be using the Transactions API to facilitate these interactions
+   - Examples: addToCollection(userID), createCollection(userIDList), deleteCollection(collectionID) etc...
 
 ## View Controllers
 - Please include how you plan to navigate to / from each ViewController and any protocols / delegates / variables you plan to use for ViewController / 
