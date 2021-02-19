@@ -9,7 +9,7 @@ B.S. Computer Science '20
 <img src = "https://github.com/ECS189E/project-w21-splits/blob/main/Pictures/Jocelyn%20Park.png" width="300">
 Jocelyn Park
 
-B.S. Electrical Engineer '23
+B.S. Electrical Engineering '23
 
 
 Shaumik Pathak
