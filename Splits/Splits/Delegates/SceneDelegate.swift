@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,26 +19,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let defaults = UserDefaults.standard
+        
+        if let _ = Auth.auth().currentUser,
+           let userData = defaults.object(forKey: "currentUser") as? Data,
+           let user = try? JSONDecoder().decode(User.self, from: userData) {
+            User.setCurrent(user)
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
 
-/*
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-             
-        //if authToken is found, skip login and verification
-         if Storage.authToken != nil {
-             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-             let navigationController = UINavigationController()
-             let viewController = storyboard.instantiateViewController(identifier: "home")
-             
-            navigationController.pushViewController(viewController, animated: true) //set view to home view controller
-             
-             self.window?.windowScene = windowScene
-             self.window?.rootViewController = navigationController
-             self.window?.makeKeyAndVisible()
-         }
- */
+            if let initialViewController = storyboard.instantiateInitialViewController() {
+                
+                window?.rootViewController = initialViewController
+                window?.makeKeyAndVisible()
+            }
+        } else {
+            let storyboard = UIStoryboard(name: "Login", bundle: .main)
+
+            if let initialViewController = storyboard.instantiateInitialViewController() {
+                
+                window?.rootViewController = initialViewController
+                window?.makeKeyAndVisible()
+            }
+        }
         
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -67,4 +88,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

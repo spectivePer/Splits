@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 typealias FIRUser = FirebaseAuth.User
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet var gradientView: UIView!
     
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
         let providers: [FUIAuthProvider] = [
             FUIGoogleAuth(),
-            //FUIFacebookAuth(),
+            FUIFacebookAuth(),
             FUIEmailAuth()
         ]
         authUI.providers = providers
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 
     // MARK: - Extensions
 
-extension ViewController: FUIAuthDelegate {
+extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let error = error {
                 assertionFailure("Error signing in: \(error.localizedDescription)")
@@ -72,8 +72,8 @@ extension ViewController: FUIAuthDelegate {
                     
                 } else {
                     // handle new user
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "authView")
+                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "userInfoView")
                     // set the stack so that it only contains main and animate it
                     let viewControllers = [vc]
                     self.navigationController?.setViewControllers(viewControllers, animated: true)

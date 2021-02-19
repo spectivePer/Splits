@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //welcomeLabel.text = FIRUser.
+        welcomeLabel.text?.append(User.current.username)
+        
     }
     
     

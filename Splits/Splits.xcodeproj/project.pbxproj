@@ -10,15 +10,16 @@
 		8EF79B8E2429BDF62C7BF638 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DD13DBBD7BB42E82ED1655 /* Pods_Splits.framework */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
 		ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */; };
-		ACD30CB525DE60FF00229D65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB425DE60FF00229D65 /* ViewController.swift */; };
+		ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB425DE60FF00229D65 /* LoginViewController.swift */; };
 		ACD30CBA25DE610300229D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD30CB925DE610300229D65 /* Assets.xcassets */; };
 		ACD30CC825DE622300229D65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACD30CC725DE622300229D65 /* GoogleService-Info.plist */; };
-		ACD30CE625DEEE2700229D65 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CE525DEEE2700229D65 /* AuthViewController.swift */; };
+		ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CE525DEEE2700229D65 /* UserInfoViewController.swift */; };
 		ACD30D0D25DEFC6800229D65 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD30D0C25DEFC6800229D65 /* Launch Screen.storyboard */; };
 		ACD30D2E25DF04FC00229D65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30D2D25DF04FC00229D65 /* User.swift */; };
 		ACD30D3625DF399400229D65 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30D3525DF399400229D65 /* HomeViewController.swift */; };
 		ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30D3925DF3E2300229D65 /* UserService.swift */; };
 		ACD30D4025DF4A6000229D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD30D3F25DF4A6000229D65 /* Main.storyboard */; };
+		ACD30D4625DF7D7E00229D65 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD30D4525DF7D7E00229D65 /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,16 +29,18 @@
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ACD30CB425DE60FF00229D65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACD30CB425DE60FF00229D65 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ACD30CB925DE610300229D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACD30CBE25DE610300229D65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD30CC725DE622300229D65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		ACD30CE525DEEE2700229D65 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		ACD30CE525DEEE2700229D65 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		ACD30D0C25DEFC6800229D65 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		ACD30D2D25DF04FC00229D65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACD30D3525DF399400229D65 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ACD30D3925DF3E2300229D65 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		ACD30D3F25DF4A6000229D65 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ACD30D4525DF7D7E00229D65 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		ACD30D6B25DFC2F700229D65 /* Splits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Splits.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,14 +93,15 @@
 		ACD30CAF25DE60FF00229D65 /* Splits */ = {
 			isa = PBXGroup;
 			children = (
+				ACD30D6B25DFC2F700229D65 /* Splits.entitlements */,
+				ACD30CBE25DE610300229D65 /* Info.plist */,
+				ACD30CC725DE622300229D65 /* GoogleService-Info.plist */,
 				ACD30D3225DF33A900229D65 /* Storyboards */,
 				ACD30D3325DF33C800229D65 /* Delegates */,
 				ACD30D3425DF33DB00229D65 /* View Controllers */,
+				ACD30D4B25DFACBF00229D65 /* Support Files */,
 				ACD30D3825DF3E0900229D65 /* Services */,
 				ACD30D2C25DF04DC00229D65 /* Models */,
-				ACD30CBE25DE610300229D65 /* Info.plist */,
-				ACD30CC725DE622300229D65 /* GoogleService-Info.plist */,
-				ACD30CB925DE610300229D65 /* Assets.xcassets */,
 			);
 			path = Splits;
 			sourceTree = "<group>";
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				ACD30D0C25DEFC6800229D65 /* Launch Screen.storyboard */,
+				ACD30D4525DF7D7E00229D65 /* Login.storyboard */,
 				ACD30D3F25DF4A6000229D65 /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -131,8 +136,8 @@
 		ACD30D3425DF33DB00229D65 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ACD30CB425DE60FF00229D65 /* ViewController.swift */,
-				ACD30CE525DEEE2700229D65 /* AuthViewController.swift */,
+				ACD30CB425DE60FF00229D65 /* LoginViewController.swift */,
+				ACD30CE525DEEE2700229D65 /* UserInfoViewController.swift */,
 				ACD30D3525DF399400229D65 /* HomeViewController.swift */,
 			);
 			path = "View Controllers";
@@ -144,6 +149,14 @@
 				ACD30D3925DF3E2300229D65 /* UserService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		ACD30D4B25DFACBF00229D65 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACD30CB925DE610300229D65 /* Assets.xcassets */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +222,7 @@
 				ACD30D4025DF4A6000229D65 /* Main.storyboard in Resources */,
 				ACD30CBA25DE610300229D65 /* Assets.xcassets in Resources */,
 				ACD30D0D25DEFC6800229D65 /* Launch Screen.storyboard in Resources */,
+				ACD30D4625DF7D7E00229D65 /* Login.storyboard in Resources */,
 				ACD30CC825DE622300229D65 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,8 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */,
-				ACD30CE625DEEE2700229D65 /* AuthViewController.swift in Sources */,
-				ACD30CB525DE60FF00229D65 /* ViewController.swift in Sources */,
+				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
+				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				ACD30D2E25DF04FC00229D65 /* User.swift in Sources */,
 				ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */,
@@ -414,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92C9W249HN;
 				INFOPLIST_FILE = Splits/Info.plist;
@@ -434,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92C9W249HN;
 				INFOPLIST_FILE = Splits/Info.plist;

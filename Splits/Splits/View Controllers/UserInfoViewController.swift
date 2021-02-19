@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class AuthViewController: UIViewController {
+class UserInfoViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     
