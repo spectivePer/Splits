@@ -5,11 +5,14 @@ Use a whiteboard and take pictures, or better yet use a tool like Balsamiq that 
 
 
 ### Third Party Libraries
-Server support for your app. If you plan to roll your own server support, a full listing of the APIs you plan to build
-- [Firebase](https://firebase.google.com/docs/functions)
-- login/auth: [Facebook](https://developers.facebook.com/docs/facebook-login/ios/) [Apple](https://developer.apple.com/documentation/authenticationservices/implementing_user_authentication_with_sign_in_with_apple) [Google](https://developers.google.com/identity/sign-in/ios)
-- Stripe/Braintree/Dwollo: move money
-- Plaid: Showing transactions
+- Server support: [Firebase](https://firebase.google.com/docs/functions)
+- login/auth: [Facebook](https://developers.facebook.com/docs/facebook-login/ios/)
+/[Apple](https://developer.apple.com/documentation/authenticationservices/implementing_user_authentication_with_sign_in_with_apple)
+/[Google](https://developers.google.com/identity/sign-in/ios)
+- Move money: [Stripe](https://stripe.com)
+/[Braintree](https://www.braintreepayments.com)
+/[Dwollo](https://www.dwolla.com)
+- Showing transactions: [Plaid](https://plaid.com)
 
 ### Models
 A listing of all of the models you plan to include in your app
