@@ -8,13 +8,17 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 ### Completed Tasks
 
-Paul: Setup Firebase Database and App, incorporated the FirebaseUI for login
+Paul: Setup Firebase Database and App, incorporated the FirebaseUI for login 
+
+  - https://firebase.google.com/docs/auth/ios/firebaseui
 
 Jocelyn: Email Firebase, Plaid, Braintree, Stripe, Dwolla for sponsorship
 
 ### In-progress Tasks
 
 Paul: Working on setting up Login Flow up to the HomeView
+
+  - https://www.makeschool.com/academy/track/build-ios-apps/build-a-photo-sharing-app/implementing-login-flow
 
 Jocelyn: Create list of view controllers, timeline of project, testing plan for feedback, and integration of Stripe
 
