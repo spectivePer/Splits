@@ -12,7 +12,7 @@ Paul: Setup Firebase Database and App, incorporated the FirebaseUI for login
 
   - https://firebase.google.com/docs/auth/ios/firebaseui
 
-Jocelyn: Email Firebase, Plaid, Braintree, Stripe, Dwolla for sponsorship
+Jocelyn: Email Firebase, Plaid, Braintree, Stripe, Dwolla for sponsorship; finish project timeline
 
 ### Commit History
 [Paul] 03cf6e9476d2461e3545ef382881cfe1fb49f61b: login screen 
@@ -23,6 +23,6 @@ Paul: Working on setting up Login Flow up to the HomeView
 
   - https://www.makeschool.com/academy/track/build-ios-apps/build-a-photo-sharing-app/implementing-login-flow
 
-Jocelyn: Create list of view controllers, timeline of project, testing plan for feedback, and integration of Stripe
+Jocelyn: Create list of view controllers, testing plan for feedback, and integration of Stripe
 
 Shaumik: Currently working on scanning receipts to assign due payment to each user. This will be done by using an OCR model.
