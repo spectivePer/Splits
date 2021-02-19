@@ -26,7 +26,7 @@ Server will be based in Firebase Functions
 - Transaction API: this api will be based off of which 3rd party library we choose for transactions
    - Examples: Pay, Request, Split, etc.. 
 - User API: this api will encompass login, authentication, updating and getting user's information and will also use 3rd party authentication such as Google, Facebook, Apple and other sign in options
-   - Examples: Login, Authenticate/Verify, UpdateName, GetUser(id) etc..
+   - Examples: Login, Authenticate/Verify, UpdateName(userID, newName), GetUserInformation(userId), addFriend(userID) etc..
 - Collection API: this api will encompass interactions between collections and will be using the Transactions API to facilitate these interactions
    - Examples: addToCollection(userID), createCollection(userIDList), deleteCollection(collectionID) etc...
 
