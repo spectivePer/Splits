@@ -26,8 +26,9 @@ A listing of all of the models you plan to include in your app
 
 ## Project Timeline
 A list of approximately week long tasks and a timeline of when each of them will be done
-- Thursday, 2/11/2021 Topic Research + Testing 1
+- Thursday, 2/11/2021 Topic Research
 - Friday, 2/19/2021   Finish planning
+- Monday 2/22/2021    Testing 1
 - Friday, 2/26/2021   Implementation of all view controllers listed
 - Monday, 3/1/2021    Testing 2
 - Friday, 3/5/2021    Implementation from the testing feedback
@@ -42,17 +43,12 @@ https://trello.com/b/Ez0aGlsI/splits
 We plan to have three testing phases using Google Forms.
 
 ### Phase 1
-The first testing phase was already implemented when we reached out to friends and family, asking if they would use our app if we created it.
-From the feedback, there were a few concerns.
-The first concern was that there were already many apps in the app store.
-After consulting Dr. King, we are going to focus on improving the UI as well as focusing on how to make the split between bills really good in order to distinguish between other apps. 
-We also believe providing the OCR feature for free will help gain attractive users.
-The second concern was people didn't want to have to an app just to perform calculations and then have to open another app to pay another person.
-We are going to implement direct payment within our app to address this issue.
-However, implementing direct payment doesn't address the problem that many people don't use a bill splitting app because they simply can estimate how much they owe and Venmo the other person. 
+- Do you own a bill splitting app? 
+   * Yes: what is the name of the bill splitting app you have installed? what do you like about your bill spllitting app? what features would you like it to have? how often do you use your bill splitting app during quaratine?
+   * No: why do you not use a bill splitting app?
+- Do you own an apple device?
 
 ### Phase 2
-Questions for the second phase.
 - From a scale of 1-5 (1 being easy, 5 being hard), how easy was it to signup?
 - From a scale of 1-5, how easy was it to create a new split by manually inputting a number?
 - From a scale of 1-5, how easy was it to create a new split using OCR function?
@@ -60,5 +56,5 @@ Questions for the second phase.
 - Would you use this app? Y/N Why?
 
 ### Phase 3
-Questions for the third phase.
+Ask questions based off of things we changed from phase 2 feedback
 - Would you use this app? Y/N Why?
