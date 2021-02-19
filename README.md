@@ -7,7 +7,7 @@ Keith Choung
 B.S. Computer Science '20
 
 
-![Jocelyn Park](https://github.com/ECS189E/project-w21-splits/blob/Pictures/Jocelyn Park.png)
+![Jocelyn Park]("https://github.com/ECS189E/project-w21-splits/blob/Pictures/Jocelyn Park.png")
 
 Jocelyn Park
 
