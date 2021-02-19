@@ -10,8 +10,8 @@ Use a whiteboard and take pictures, or better yet use a tool like Balsamiq that 
 , [Apple](https://developer.apple.com/documentation/authenticationservices/implementing_user_authentication_with_sign_in_with_apple)
 , [Google](https://developers.google.com/identity/sign-in/ios)
 - Move money: [Stripe](https://stripe.com)
-/[Braintree](https://www.braintreepayments.com)
-/[Dwollo](https://www.dwolla.com)
+/ [Braintree](https://www.braintreepayments.com)
+/ [Dwollo](https://www.dwolla.com)
 - Showing transactions: [Plaid](https://plaid.com)
 
 ### Models
