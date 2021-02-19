@@ -7,7 +7,7 @@ Keith Choung
 B.S. Computer Science '20
 
 
-![Jocelyn Park][(Pictures/Jocelyn Park.png)
+![Jocelyn Park](/Pictures/Jocelyn Park.png)
 Jocelyn Park
 
 B.S. Electrical Engineer '23
