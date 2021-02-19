@@ -17,3 +17,5 @@ Jocelyn: Email Firebase, Plaid, Braintree, Stripe, Dwolla for sponsorship
 Paul: Working on setting up Login Flow up to the HomeView
 
 Jocelyn: Create list of view controllers, timeline of project, testing plan for feedback, and integration of Stripe
+
+Shaumik: Currently working on scanning receipts to assign due payment to each user. This will be done by using an OCR model.
