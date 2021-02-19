@@ -8,7 +8,7 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 ### Completed Tasks
 
-Paul: Setup Firebase Database and App, incorporated the FirebaseUI for login 
+Paul: Setup Firebase Database and App, incorporated the FirebaseUI for login (Commit: 03cf6e9476d2461e3545ef382881cfe1fb49f61b)
 
   - https://firebase.google.com/docs/auth/ios/firebaseui
 
