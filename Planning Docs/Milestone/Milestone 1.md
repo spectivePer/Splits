@@ -46,15 +46,18 @@ We plan to have three testing phases using Google Forms.
 - Do you own a bill splitting app? 
    * Yes: what is the name of the bill splitting app you have installed? what do you like about your bill spllitting app? what features would you like it to have? how often do you use your bill splitting app during quaratine?
    * No: why do you not use a bill splitting app?
-- Do you own an apple device?
+- Do you own an iPhone?
+   * Yes: check which payment apps you use: Google Pay, Apple Pay, Venmo, Square Cash, Paypal, Other
 
 ### Phase 2
 - From a scale of 1-5 (1 being easy, 5 being hard), how easy was it to signup?
 - From a scale of 1-5, how easy was it to create a new split by manually inputting a number?
 - From a scale of 1-5, how easy was it to create a new split using OCR function?
 - What additional features would you like to see in the app?
+- What can we improve on?
 - Would you use this app? Y/N Why?
 
 ### Phase 3
 Ask questions based off of things we changed from phase 2 feedback
+- What can we improve on?
 - Would you use this app? Y/N Why?
