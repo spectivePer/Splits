@@ -15,6 +15,7 @@ Use a whiteboard and take pictures, or better yet use a tool like Balsamiq that 
 - Showing transactions: [Plaid](https://plaid.com)
 
 ## Models
+The database we plan to use will be served on Firebase Cloudstore which will host tables of each category below:
 - Transaction Model: will facilitate interactions between user to user transactions and the controller
 - User Model: will facilitate interactions between the user table and the controller
 - Collection Model: will facilitate interactions between users to collections and the controller
