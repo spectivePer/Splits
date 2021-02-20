@@ -13,3 +13,6 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### In-progress Tasks
+
+### Notes
+Open venmo: https://developers.braintreepayments.com/guides/venmo/client-side/ios/v4
