@@ -51,7 +51,7 @@ A list of approximately week long tasks and a timeline of when each of them will
 - Thursday, 2/11/2021 Topic Research
 - Friday, 2/19/2021   Finish planning
 - Monday 2/22/2021    Testing 1
-- Friday, 2/26/2021   Implementation of all view controllers listed
+- Friday, 2/26/2021   Implementation of all view controllers listed and APIs
 - Monday, 3/1/2021    Testing 2
 - Friday, 3/5/2021    Implementation from the testing feedback
 - Monday, 3/8/2021    Testing 3
