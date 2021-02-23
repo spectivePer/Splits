@@ -66,7 +66,7 @@ We plan to have three testing phases using Google Forms.
 ### Phase 1 Results
 Total Responses: 34
 
-Who do you split bills, recipts, or payments with? Check all that apply.
+Who do you split bills, receipts, or payments with? Check all that apply.
 - 94.1% Friends
 - 64.7% Roommates
 - 38.2% Family
@@ -105,9 +105,9 @@ Do you currently own an expense splitting app?
 - 91.2% No
 - 8.8% Yes
 
-Users who don't have a splitting app installed don't like the UI or don't know that splitting apps existed.
+Users who don't have a splitting app installed don't like the UI or didn't know that splitting apps existed.
 Others are too lazy, estimate splits and then venmo, or use a calculator (venmo can now multiply, divide, add, and subtract).
-Finally, there are useres who don't believe they have a need for a splitting app or believe that splitting apps are inconvenient.
+Finally, there are users who don't believe they have a need for a splitting app or believe that splitting apps are inconvenient.
 
 Users who have splitting apps installed use Zoom (2 people) or Splitwise (1 person).
 They like the convenience, ease of use, and quick money transfer without cash.
