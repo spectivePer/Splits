@@ -32,11 +32,11 @@ Server will be based in Firebase Functions
 
 ## View Controllers
 - View Controllers
-   - Launch: appears when the app opens
+   - Launch: appears when the app opens, navigates to login or register vc
    - Login: appears when login button is clicked on launch vc, navigates to home vc
    - Register: appears when register button is clicked on launch vc, navigates to verification vc
    - Verification: appears after register vc, navigates to home vc
-   - Home: appears after verification/login vc
+   - Home: appears after verification/login vc, navigates to paymentSplit, historySplit, and newSplit vcs
    - PaymentSplit: appears when you click on a split on the home vc that has not been paid, navigates back to home vc
    - HistorySplit: appears when you click on a split on the home vc that was previously paid, navigates back to home vc
    - NewSplit: appears when you click on the create button on the home vc, navigates to the home vc
