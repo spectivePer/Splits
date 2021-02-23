@@ -1,7 +1,6 @@
 # Checklist
 ## UI Designs
-These designs do not need to be pixel perfect, and in fact they shouldn't be. 
-Use a whiteboard and take pictures, or better yet use a tool like Balsamiq that lets you draw sketch / wireframe designs easily.
+https://xd.adobe.com/view/b888d80d-efd9-40ea-b771-1bd90dd750dd-eddb/
 
 
 ## Third Party Libraries
