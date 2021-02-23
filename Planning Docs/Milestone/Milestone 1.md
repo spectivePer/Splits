@@ -41,8 +41,7 @@ Server will be based in Firebase Functions
    - HistorySplit: appears when you click on a split on the home vc that was previously paid, navigates back to home vc
    - NewSplit: appears when you click on the create button on the home vc, navigates to the home vc
    - OCR: appears when you click on the camera icon on the newSplit vc, navigates back to the newSplit vc
-- Delegates
-- Variables
+- Protocals/Delegates/Variables used for view controller/view controller communication
 
 
 ## Project Timeline
