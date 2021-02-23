@@ -69,50 +69,46 @@ Total Responses: 34
 
 Who do you split bills, recipts, or payments with? Check all that apply.
 - 94.1% Friends
-- 38.2% Family
 - 64.7% Roommates
+- 38.2% Family
 - 35.3% Coworkers
 
 When do you split a bill, receipt, or payment? Check all that apply.
 - 97.1% Food
 - 76.5% Housing (Rent/Utilities)
-- 44.1% Transportation
 - 64.7% Entertainment
+- 44.1% Transportation
 
 How often do you split payments during quaratine? [Question added late, only 5 responses]
+- 40% Occasionally (1-2 times/month)
 - 20% Rarely/Never
 - 20% Often (3-4 times/week)
 - 20% Always (5+ times/week)
-- 40% Occasionally (1-2 times/month)
 
 Would you prefer making payments through Splits?
-- 2.9% Depends
-- 47.1% Yes, pay in app
 - 50% No, pay in another app
+- 47.1% Yes, pay in app
+- 2.9% Depends
 
 Do you own an iPhone?
 - 73.5% Yes
 - 26.5% No
 
 [iPhone user only] Which payment apps do you use? Check all that apply 
-- 20% Google Pay
+- 100% Venmo
 - 56% Apple Pay
 - 56% Paypal
-- 100% Venmo
-- 8% Square Cash
 - 56% Zelle
+- 20% Google Pay
+- 8% Square Cash
 
 Do you currently own an expense splitting app?
-- 8.8% Yes
 - 91.2% No
+- 8.8% Yes
 
-[no splitting app installed] Why do you not use a bill splitting app?
-- Hate the UI
-- Estimate payments and then venmo
-- Lazy
-- Use calculator
-- Didn't know splitting apps existed
-- Not convenient/haven't had a need
+Users who don't have a splitting app installed don't like the UI or don't know that splitting apps existed.
+Others are too lazy, estimate splits and then venmo, or use a calculator (venmo can now multiply, divide, add, and subtract).
+Finally, there are useres who don't believe they have a need for a splitting app or believe that splitting apps are inconvenient.
 
 Users who have splitting apps installed use Zoom (2 people) or Splitwise (1 person).
 They like the convenience, ease of use, and quick money transfer without cash.
