@@ -55,12 +55,60 @@ https://trello.com/b/Ez0aGlsI/splits
 ## Testing Plan
 We plan to have three testing phases using Google Forms.
 
-### Phase 1
-- Do you own a bill splitting app? 
-   * Yes: what is the name of the bill splitting app you have installed? what do you like about your bill spllitting app? what features would you like it to have? how often do you use your bill splitting app during quaratine?
-   * No: why do you not use a bill splitting app?
-- Do you own an iPhone?
-   * Yes: check which payment apps you use: Google Pay, Apple Pay, Venmo, Square Cash, Paypal, Other
+### Phase 1 Results
+Total Responses: 34
+
+Who do you split bills, recipts, or payments with? Check all that apply.
+- 94.1% Friends
+- 38.2% Family
+- 64.7% Roommates
+- 35.3% Coworkers
+
+When do you split a bill, receipt, or payment? Check all that apply.
+- 97.1% Food
+- 76.5% Housing (Rent/Utilities)
+- 44.1% Transportation
+- 64.7% Entertainment
+
+How often do you split payments during quaratine? [Question added late, only 5 responses]
+- 20% Rarely/Never
+- 20% Often (3-4 times/week)
+- 20% Always (5+ times/week)
+- 40% Occasionally (1-2 times/month)
+
+Would you prefer making payments through Splits?
+- 2.9% Depends
+- 47.1% Yes, pay in app
+- 50% No, pay in another app
+
+Do you own an iPhone?
+- 73.5% Yes
+- 26.5% No
+
+[iPhone user only] Which payment apps do you use? Check all that apply 
+- 20% Google Pay
+- 56% Apple Pay
+- 56% Paypal
+- 100% Venmo
+- 8% Square Cash
+- 56% Zelle
+
+Do you currently own an expense splitting app?
+- 8.8% Yes
+- 91.2% No
+
+[no splitting app installed] Why do you not use a bill splitting app?
+- Hate the UI
+- Estimate payments and then venmo
+- Lazy
+- Use calculator
+- Didn't know splitting apps existed
+- Not convenient/haven't had a need
+
+Users who have splitting apps installed use Zoom (2 people) or Splitwise (1 person).
+They like the convenience, ease of use, and quick money transfer without cash.
+They would like finance tracking and an option to make payments in the app.
+
 
 ### Phase 2
 - From a scale of 1-5 (1 being easy, 5 being hard), how easy was it to signup?
