@@ -31,18 +31,18 @@ Server will be based in Firebase Functions
    - Examples: addToCollection(userID), createCollection(userIDList), deleteCollection(collectionID) etc...
 
 ## View Controllers
-- Launch screen appears when the app opens with a Login/Register button
-- When the login button is clicked on the launch screen, it opens up the signIn view controller with an option to sign in with google, facebook, twitter, phone, or email
-- When the user presses the register button, the registration view controller appears where the user enters a username, their phone number, and their preferred payment method.
-- The next button on the registration view controllers open to the home view controller
-   - The home controller will have a welcome message, history of previous splits, and current splits due
-   - Home controller will also have a create new split button
-- If the user clicks on a split in the home vc, a splits vc is opened. 
-   - The splits vc will have the name of the split, payment method option, and the amount that the user will send
-   - The splits vc will also have a bar to swipe across the screen to pay for the split
-   - A cancel button will be put at the top of the splits vc
-- If the user clicks on the create new splits button on the home vc, newSplits vc will appear with a keypad to enter the payment, a camera icon, cancel button, and add members button
-   - If the user clicks on the camera icon, the ocr vc will open where the user can scan their recipt
+- View Controllers
+   - Launch: appears when the app opens
+   - Login: appears when login button is clicked on launch vc, navigates to home vc
+   - Register: appears when register button is clicked on launch vc, navigates to verification vc
+   - Verification: appears after register vc, navigates to home vc
+   - Home: appears after verification/login vc
+   - PaymentSplit: appears when you click on a split on the home vc that has not been paid, navigates back to home vc
+   - HistorySplit: appears when you click on a split on the home vc that was previously paid, navigates back to home vc
+   - NewSplit: appears when you click on the create button on the home vc, navigates to the home vc
+   - OCR: appears when you click on the camera icon on the newSplit vc, navigates back to the newSplit vc
+- Delegates
+- Variables
 
 
 ## Project Timeline
