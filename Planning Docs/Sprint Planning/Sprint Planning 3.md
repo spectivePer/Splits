@@ -1,6 +1,6 @@
 ### Summary
 
-Splits is an app that conveniently splits a bill, receipt, or payment among two or more people. Integration of OCR, flexibility between users who have the app installed and those who don't, as well as autosuggesting which items on a bill are personal or group use will be some key features of Splits. Automatic payments with companies such as Venmo, PayPal, Stripe, and ApplePay will be used for ease of use.
+Splits is an app that conveniently splits a bill, receipt, or payment among two or more people. Splits allows you to take a picture of your receipt and directly pay participants within the app.
 
 
 ### Trello Board Link
@@ -15,7 +15,7 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### In-progress Tasks
-Jocelyn: Add new split view controller
+Jocelyn: Add new split vc
 
 
 ### Notes
