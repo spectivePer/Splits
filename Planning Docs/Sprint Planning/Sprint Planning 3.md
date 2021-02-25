@@ -9,13 +9,13 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### Completed Tasks
-
+Jocelyn: testing plan and results, project timeline, list of vcs
 
 ### Commit History
 
 
 ### In-progress Tasks
-Jocelyn: Add new split vc
+Jocelyn: Add new split vc with OCR
 
 
 ### Notes
