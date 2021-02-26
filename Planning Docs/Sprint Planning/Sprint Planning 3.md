@@ -15,6 +15,7 @@ Keith: created the collections model and its branch in the DB, updated the user 
 
 
 ### Commit History
+keith: (created collections model, updated user model) https://github.com/ECS189E/project-w21-splits/commit/c51dc4bc8db214abc2949169a2e8a20e7bf50a6b
 
 
 ### In-progress Tasks
