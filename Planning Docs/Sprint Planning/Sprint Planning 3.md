@@ -13,6 +13,7 @@ Jocelyn: testing plan and results, project timeline, list of vcs
 
 Keith: created the collections model and its branch in the DB, updated the user model to support collections and a default phone number for now.
 
+Paul: added sign in with phone feature to login.
 
 ### Commit History
 keith: (created collections model, updated user model) https://github.com/ECS189E/project-w21-splits/commit/c51dc4bc8db214abc2949169a2e8a20e7bf50a6b
@@ -23,6 +24,7 @@ Jocelyn: Add new split vc with OCR
 
 Keith: need to finish the collections services with the DB
 
+Paul: currently working on finalizing the UI and login mechanics for the Login Flow.
 
 ### Notes
 Open venmo: https://developers.braintreepayments.com/guides/venmo/client-side/ios/v4
