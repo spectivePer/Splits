@@ -10,15 +10,19 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 ### Completed Tasks
 Jocelyn: testing plan and results, project timeline, list of vcs
+Keith: created the collections model and its branch in the DB, updated the user model to support collections and a default phone number for now.
 
 ### Commit History
 
 
 ### In-progress Tasks
 Jocelyn: Add new split vc with OCR
+Keith: need to finish the collections services with the DB
 
 
 ### Notes
 Open venmo: https://developers.braintreepayments.com/guides/venmo/client-side/ios/v4
 
 OCR: https://www.raywenderlich.com/2010498-tesseract-ocr-tutorial-for-ios#
+
+Some efficient way of storing friends? 
