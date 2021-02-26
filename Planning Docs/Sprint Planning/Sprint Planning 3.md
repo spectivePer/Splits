@@ -9,15 +9,15 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### Completed Tasks
-Jocelyn: testing plan and results, project timeline, list of vcs
-Keith: created the collections model and its branch in the DB, updated the user model to support collections and a default phone number for now.
+Jocelyn: testing plan and results, project timeline, list of vcs_
+Keith: created the collections model and its branch in the DB, updated the user model to support collections and a default phone number for now._
 
 ### Commit History
 
 
 ### In-progress Tasks
-Jocelyn: Add new split vc with OCR
-Keith: need to finish the collections services with the DB
+Jocelyn: Add new split vc with OCR_
+Keith: need to finish the collections services with the DB_
 
 
 ### Notes
