@@ -36,16 +36,21 @@ class User: Codable {
 
         _current = user
     }
+    
     // MARK: - Properties
 
-    let uid: String
-    let username: String
+    let uid: String           // unique id
+    let username: String      // user's name
+    let phoneNumber: String   // user's phone number
+    let collections: [String] // array of collection IDs the user is a part of
 
     // MARK: - Init
 
-    init(uid: String, username: String) {
+    init(uid: String, username: String, phoneNumber: String) {
         self.uid = uid
         self.username = username
+        self.phoneNumber = "+14157777777"  // Default until we add phone number capability
+        self.collections = [String]()
     }
 
     init?(snapshot: DataSnapshot) {
@@ -55,5 +60,7 @@ class User: Codable {
 
         self.uid = snapshot.key
         self.username = username
+        self.phoneNumber = "+14157777777" // Default until we add phone number capability
+        self.collections = [String]()
     }
 }
