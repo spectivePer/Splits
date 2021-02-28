@@ -10,6 +10,7 @@ exports.createStripeCustomer = functions.firestore.document('users/{uid}').onCre
   const email = snap.email();
 
   const customer = await stripe.customers.create({ email: email })
+  return admin.firestore().collection('users').doc(data.id).update({ stripeId: customer.id})
 
 });
 
