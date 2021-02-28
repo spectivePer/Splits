@@ -11,8 +11,11 @@ target 'Splits' do
 	pod 'FirebaseUI/Auth'
 	pod 'FirebaseUI/Google'
 	pod 'FirebaseUI/Email'
+	pod 'Firebase/Functions'
   pod 'FirebaseUI/Facebook'
   pod 'FirebaseDatabase'
   pod 'FBSDKLoginKit'
+  pod 'Stripe'
+  pod 'Alamofire'	
   
 end

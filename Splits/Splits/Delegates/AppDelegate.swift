@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import Stripe
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        StripeAPI.defaultPublishableKey = "pk_test_51IOs2MAm2RBXjNdn62b4IoSAOrsaYULdgDgfjbaO0wK36ylUzq4Wv6KTIZCNOydieDRKjJgyTqilPfwpKAmy2oun006U485mMs"
         
         return true
     }
