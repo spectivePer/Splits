@@ -1,6 +1,6 @@
 ### Summary
 
-Splits is an app that conveniently splits a bill, receipt, or payment among two or more people. Splits allows you to take a picture of your receipt, which automatically imports the item descriptions and prices so you can directly pay participants within the app.
+Splits is an app that conveniently splits a bill, receipt, or payment among two or more people. Take a picture of your receipt to automatically import your item descriptions and prices, and directly pay participants all within the app.
 
 
 ### Trello Board Link
