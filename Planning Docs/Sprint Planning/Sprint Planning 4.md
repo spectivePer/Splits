@@ -9,7 +9,7 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### Completed Tasks
-Jocelyn: split evenly with manual input (commit: [24db720366fb8ad7e6bec647971e64183c128c5b](https://github.com/ECS189E/project-w21-splits/tree/24db720366fb8ad7e6bec647971e64183c128c5b))
+Jocelyn: split evenly with manual input ([24db720366fb8ad7e6bec647971e64183c128c5b](https://github.com/ECS189E/project-w21-splits/tree/24db720366fb8ad7e6bec647971e64183c128c5b))
 
 ### Commit History
 [Jocelyn] [Rough newSplit vc layout](https://github.com/ECS189E/project-w21-splits/tree/cd46710246286602f4b1597eba23a75794a2cf95)
