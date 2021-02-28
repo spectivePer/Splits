@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
     }
     
     
+    @IBAction func createSplitButton(_ sender: Any) {
+        displayAddContactsView()
+    }
     /*
     // MARK: - Navigation
 
@@ -29,5 +32,14 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func displayAddContactsView() {
+        // handle new user
+        let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "addContactsView")
+        // set the stack so that it only contains main and animate it
+        let viewControllers = [vc]
+        self.navigationController?.setViewControllers(viewControllers, animated: true)
+    }
 
 }
