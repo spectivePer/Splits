@@ -176,6 +176,14 @@
                                     <action selector="button4Pressed:" destination="vlw-i9-lPD" eventType="touchUpInside" id="D2t-JF-vrJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTw-dJ-SBZ">
+                                <rect key="frame" x="166" y="384" width="82" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="5"/>
+                                <connections>
+                                    <action selector="button5Pressed:" destination="vlw-i9-lPD" eventType="touchUpInside" id="tiy-V8-egX"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POd-KF-oQB">
                                 <rect key="frame" x="312" y="384" width="82" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -207,11 +215,6 @@
                                 <connections>
                                     <action selector="button9Pressed:" destination="vlw-i9-lPD" eventType="touchUpInside" id="DNP-4a-WOp"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-vT-Bnf">
-                                <rect key="frame" x="20" y="724" width="180" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa3-zZ-KV8">
                                 <rect key="frame" x="166" y="629" width="82" height="79"/>
@@ -266,13 +269,10 @@
                                     <action selector="buttonPeriodPressed:" destination="vlw-i9-lPD" eventType="touchUpInside" id="kBO-pS-BTZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTw-dJ-SBZ">
-                                <rect key="frame" x="166" y="384" width="82" height="79"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-vT-Bnf">
+                                <rect key="frame" x="20" y="734" width="180" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="5"/>
-                                <connections>
-                                    <action selector="button5Pressed:" destination="vlw-i9-lPD" eventType="touchUpInside" id="tiy-V8-egX"/>
-                                </connections>
+                                <state key="normal" title="Camera"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xp-hb-GtE"/>

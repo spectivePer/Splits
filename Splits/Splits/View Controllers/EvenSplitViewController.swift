@@ -36,6 +36,7 @@ class EvenSplitViewController:UIViewController {
         buttonBack.isEnabled = false
         buttonPeriod.isEnabled = true
         
+        //initialize states
         tenthsPlace = false
         hundredthsPlace = false
         stopInput = false
@@ -94,7 +95,8 @@ class EvenSplitViewController:UIViewController {
         }
     }
     
-    @IBAction func button9Pressed(_ sender: Any) {        if !stopInput{
+    @IBAction func button9Pressed(_ sender: Any) {
+        if !stopInput{
         updateTotalAmountLabel(buttonName: "9")
     }
 }
@@ -188,9 +190,6 @@ class EvenSplitViewController:UIViewController {
         
         return
     }
-    
-    
-    
 }
 
 
