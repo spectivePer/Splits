@@ -42,6 +42,18 @@
                                     <constraint firstItem="4gN-2k-6Eb" firstAttribute="centerY" secondItem="Qpw-qU-4Ot" secondAttribute="centerY" id="Th5-HG-S1a"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s13-sB-HTm">
+                                <rect key="frame" x="118" y="785" width="179" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Create Split">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="createSplitButton:" destination="VsL-Cr-BYs" eventType="touchUpInside" id="was-Cv-Yjt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uq0-rQ-sw8"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
@@ -58,7 +70,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="v5N-Uj-UnV"/>
                     <connections>
-                        <outlet property="welcomeLabel" destination="4gN-2k-6Eb" id="R0D-KY-P7y"/>
+                        <outlet property="welcomeLabel" destination="4gN-2k-6Eb" id="3RD-Al-sr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sh2-A3-IlU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -85,6 +97,9 @@
     </scenes>
     <resources>
         <image name="Launch Screen – 1" width="375" height="812"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

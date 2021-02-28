@@ -34,7 +34,7 @@ class UserInfoViewController: UIViewController {
             
             // Allows to verify user later
             User.setCurrent(user, writeToUserDefaults: true)
-            
+
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "homeView")
             // set the stack so that it only contains main and animate it
@@ -43,7 +43,6 @@ class UserInfoViewController: UIViewController {
             
             self.view.window?.rootViewController = vc
             self.view.window?.makeKeyAndVisible()
-            
         }
     }
 }

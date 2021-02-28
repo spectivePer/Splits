@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4B88C93C25E8BDD6005AEE92 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88C93B25E8BDD6005AEE92 /* Collections.swift */; };
 		4B88C93F25E8C615005AEE92 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88C93E25E8C615005AEE92 /* CollectionService.swift */; };
+		7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */; };
+		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
+		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
 		8EF79B8E2429BDF62C7BF638 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DD13DBBD7BB42E82ED1655 /* Pods_Splits.framework */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
 		ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */; };
@@ -30,6 +33,9 @@
 		4B88C93B25E8BDD6005AEE92 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		4B88C93E25E8C615005AEE92 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
 		66D3A3FD1E9AFEB4FCDE8E32 /* Pods-Splits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splits.release.xcconfig"; path = "Target Support Files/Pods-Splits/Pods-Splits.release.xcconfig"; sourceTree = "<group>"; };
+		7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = newSplit.storyboard; sourceTree = "<group>"; };
+		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
+		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 		ACD30D3225DF33A900229D65 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */,
 				ACD30D0C25DEFC6800229D65 /* Launch Screen.storyboard */,
 				ACD30D4525DF7D7E00229D65 /* Login.storyboard */,
 				ACD30D3F25DF4A6000229D65 /* Main.storyboard */,
@@ -144,6 +151,8 @@
 				ACD30CB425DE60FF00229D65 /* LoginViewController.swift */,
 				ACD30CE525DEEE2700229D65 /* UserInfoViewController.swift */,
 				ACD30D3525DF399400229D65 /* HomeViewController.swift */,
+				7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */,
+				7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -227,6 +236,7 @@
 			files = (
 				ACD30D4025DF4A6000229D65 /* Main.storyboard in Resources */,
 				ACD30CBA25DE610300229D65 /* Assets.xcassets in Resources */,
+				7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */,
 				ACD30D0D25DEFC6800229D65 /* Launch Screen.storyboard in Resources */,
 				ACD30D4625DF7D7E00229D65 /* Login.storyboard in Resources */,
 				ACD30CC825DE622300229D65 /* GoogleService-Info.plist in Resources */,
@@ -302,11 +312,13 @@
 				ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */,
 				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
+				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
 				4B88C93C25E8BDD6005AEE92 /* Collections.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				ACD30D2E25DF04FC00229D65 /* User.swift in Sources */,
 				4B88C93F25E8C615005AEE92 /* CollectionService.swift in Sources */,
 				ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */,
+				7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */,
 				ACD30D3625DF399400229D65 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
