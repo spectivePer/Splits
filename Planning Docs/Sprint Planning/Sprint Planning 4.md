@@ -22,3 +22,9 @@ Jocelyn: split evenly with manual input ([24db720366fb8ad7e6bec647971e64183c128c
 Jocelyn: add participants to split
 
 ### Notes
+Jocelyn plan:
+1. Add participants to split (Milestone 2)
+2. Split unevenly with manual input (Milestone 2)
+3. Add camera for receipt scanning (SP 4)
+4. OCR (SP 4)
+5. NewSplit UI (SP 5)
