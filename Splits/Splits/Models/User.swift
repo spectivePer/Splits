@@ -43,24 +43,29 @@ class User: Codable {
     let username: String      // user's name
     let phoneNumber: String   // user's phone number
     let collections: [String] // array of collection IDs the user is a part of
+    let stripeId: String
 
     // MARK: - Init
 
-    init(uid: String, username: String, phoneNumber: String) {
+    init(uid: String, username: String, phoneNumber: String, stripeId: String) {
         self.uid = uid
         self.username = username
         self.phoneNumber = "+14157777777"  // Default until we add phone number capability
         self.collections = [String]()
+        self.stripeId = stripeId
     }
 
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
-            let username = dict["username"] as? String
+              let stripeId = dict["stripeId"] as? String,
+              let username = dict["username"] as? String
             else { return nil }
 
         self.uid = snapshot.key
         self.username = username
         self.phoneNumber = "+14157777777" // Default until we add phone number capability
         self.collections = [String]()
+        self.stripeId = stripeId
+        
     }
 }

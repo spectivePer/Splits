@@ -26,7 +26,7 @@ class UserInfoViewController: UIViewController {
               !username.isEmpty else { return }
         
         // Set Root View Controller
-        UserService.create(firUser, username: username, phoneNumber: phoneNumber) { (user) in
+        UserService.create(firUser, username: username, phoneNumber: phoneNumber, stripeId: "") { (user) in
             guard let user = user else {
                 // handle error
                 return
