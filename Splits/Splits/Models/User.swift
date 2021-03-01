@@ -26,7 +26,6 @@ class User: Codable {
     // MARK: - Class Methods
 
     static func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
-            
             if writeToUserDefaults {
                 
                 if let data = try? JSONEncoder().encode(user) {
@@ -63,6 +62,7 @@ class User: Codable {
         self.phoneNumber = "+14157777777"  // Default until we add phone number capability
         self.groups = [String]()
         self.friends = [String: String]()
+
     }
 
     init?(snapshot: DataSnapshot) {

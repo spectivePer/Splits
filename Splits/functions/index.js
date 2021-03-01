@@ -5,14 +5,36 @@ admin.initializeApp();
 
 const stripe = require("stripe")(functions.config().stripe.secret_test_key);
 
-exports.createStripeCustomer = functions.firestore.document('users/{uid}').onCreate(async (snap, context) => {
-  const data = snap.data();
-  const email = snap.email();
-
-  const customer = await stripe.customers.create({ email: email })
-  return admin.firestore().collection('users').doc(data.id).update({ stripeId: customer.id})
-
+exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
+  return stripe.customers.create({
+    email: user.email,
+  }).then((customer) => {
+    // var usersRef = admin.database.ref.child("users").child(user.uid);
+    // return usersRef.update({stripeId:customer.id});
+    return admin.database().ref(`/stripe_customers/${user.uid}/customer_id`).set(customer.id);
+  });
 });
+
+exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
+  const customerId = data.customer_id;
+  const stripeVersion = data.stripe_version;
+  const uid = context.auth.uid;
+
+  if (uid === null){
+    console.log("illegal access attempt due to unauthenticated user");
+    throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt')
+  }
+
+  return stripe.ephemeralKeys.create(
+    {customer: customer_id},
+    {stripe_version: stripeVersion}
+  ).then((key) => {
+      return key
+  }).catch((err) => {
+      console.log(err)
+      throw new functions.https.HttpsError('internal','Unable to create epheremal key.')
+  })
+})
 
 
 
