@@ -12,6 +12,7 @@ import FirebaseDatabase
 class UserInfoViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var phoneNumberField: UITextField! // Will change to phoneNumber Kit later on
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,12 @@ class UserInfoViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        let phoneNumber = "+14157777777" // Default until we add phone number capability
+        //let phoneNumber = "+14157777777" // Default until we add phone number capability
         guard let firUser = Auth.auth().currentUser,
-              let username = usernameTextField.text,
+              let phoneNumber = phoneNumberField.text, // Phone Number
+              let username = usernameTextField.text, // Username
               !username.isEmpty else { return }
+            
         
         // Set Root View Controller
         UserService.create(firUser, username: username, phoneNumber: phoneNumber) { (user) in
@@ -41,8 +44,6 @@ class UserInfoViewController: UIViewController {
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
             
-            self.view.window?.rootViewController = vc
-            self.view.window?.makeKeyAndVisible()
         }
     }
 }

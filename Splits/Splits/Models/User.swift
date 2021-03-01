@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase.FIRDataSnapshot
+import FirebaseAuth
 
 class User: Codable {
     // MARK: - Singleton
@@ -37,17 +38,25 @@ class User: Codable {
         _current = user
     }
     
+    static func removeCurrent(_ user: User) {
+            
+        UserDefaults.standard.removeObject(forKey: "currentUser")
+        _current = User(uid: "", name: "", username: "", phoneNumber: "")
+    }
+    
     // MARK: - Properties
 
     let uid: String           // unique id
+    let name: String          // user's name
     let username: String      // user's name
     let phoneNumber: String   // user's phone number
     let collections: [String] // array of collection IDs the user is a part of
 
     // MARK: - Init
 
-    init(uid: String, username: String, phoneNumber: String) {
+    init(uid: String, name: String, username: String, phoneNumber: String) {
         self.uid = uid
+        self.name = name
         self.username = username
         self.phoneNumber = "+14157777777"  // Default until we add phone number capability
         self.collections = [String]()
@@ -55,10 +64,12 @@ class User: Codable {
 
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
-            let username = dict["username"] as? String
-            else { return nil }
-
+              let username = dict["username"] as? String,
+              let name = dict["name"] as? String
+        else { return nil }
+            
         self.uid = snapshot.key
+        self.name = name
         self.username = username
         self.phoneNumber = "+14157777777" // Default until we add phone number capability
         self.collections = [String]()
