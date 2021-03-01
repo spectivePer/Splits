@@ -1,21 +1,20 @@
 //
-//  CollectionService.swift
+//  TransactionService.swift
 //  Splits
 //
-//  Created by Keith Choung on 2/25/21.
+//  Created by Keith Choung on 2/28/21.
 //
+
 import Foundation
-import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
-struct GroupService {
+struct TransactionService {
     // Database Create Collection
-    static func createGroup(users: [String], completion: @escaping (Group?) -> Void) {   // takes in an array of user IDs to add
+    static func createGroup(groupName: String, users: [String], completion: @escaping (Group?) -> Void) {   // takes in an array of user IDs to add
         let uuid = UUID().uuidString
         print(uuid)
-        let ref = Database.database().reference().child("collections").child(uuid)
-        
-        let groupAttrs = ["users": users]
+        let ref = Database.database().reference().child("transactions").child(uuid)
+        let groupAttrs = ["name": groupName, "users": users] as [String : Any]
         
         ref.setValue(groupAttrs) { (error, ref) in
             if let error = error {

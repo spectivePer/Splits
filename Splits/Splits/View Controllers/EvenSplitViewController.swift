@@ -21,9 +21,12 @@ class EvenSplitViewController:UIViewController {
     var tenthsPlace = false //currently in the tenths place of totalAmount
     var hundredthsPlace = false //currently in the hundreths place of totalAmount
     var stopInput = false //after 2 decimal places, don't update totalAmount label
+    var splitGroupId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("splitgroupId:", splitGroupId)
+        loadSplitGroupInfo(splitGroupId: splitGroupId)
         
         //inialized labels
         //TODO: get splitName from addContacts vc
@@ -189,6 +192,10 @@ class EvenSplitViewController:UIViewController {
         }
         
         return
+    }
+    
+    func loadSplitGroupInfo(splitGroupId: String) {
+        
     }
 }
 
