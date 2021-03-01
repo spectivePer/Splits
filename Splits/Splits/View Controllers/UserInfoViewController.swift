@@ -23,13 +23,14 @@ class UserInfoViewController: UIViewController {
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         //let phoneNumber = "+14157777777" // Default until we add phone number capability
         guard let firUser = Auth.auth().currentUser,
+              let name = firUser.displayName,
               let phoneNumber = phoneNumberField.text, // Phone Number
               let username = usernameTextField.text, // Username
               !username.isEmpty else { return }
             
         
         // Set Root View Controller
-        UserService.create(firUser, username: username, phoneNumber: phoneNumber) { (user) in
+        UserService.create(firUser, name: name, username: username, phoneNumber: phoneNumber, stripeId: "") { (user) in
             guard let user = user else {
                 // handle error
                 

@@ -67,6 +67,7 @@ class User: Codable {
 
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
+              let stripeId = dict["stripeId"] as? String,
               let username = dict["username"] as? String,
               let name = dict["name"] as? String
         else { return nil }
