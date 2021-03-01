@@ -132,7 +132,7 @@ class EvenSplitViewController:UIViewController {
         
         //ERROR: Displays one decimal place for whole numbers. ie: $10.0 instead of $10.00
         let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
-        print("Pay participants $\(evenSplitAmount) each")
+        print("Participants pay $\(evenSplitAmount) each")
     }
     
     func updateTotalAmountLabel(buttonName: String) {

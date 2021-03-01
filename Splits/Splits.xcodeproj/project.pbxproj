@@ -13,6 +13,8 @@
 		7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */; };
 		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
+		7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */; };
+		7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33025EB75E7007F54C2 /* AddItemViewController.swift */; };
 		8EF79B8E2429BDF62C7BF638 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DD13DBBD7BB42E82ED1655 /* Pods_Splits.framework */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
 		ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 		7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = newSplit.storyboard; sourceTree = "<group>"; };
 		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
+		7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenSplitViewController.swift; sourceTree = "<group>"; };
+		7397C33025EB75E7007F54C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				ACD30D3525DF399400229D65 /* HomeViewController.swift */,
 				7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */,
 				7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */,
+				7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */,
+				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -318,7 +324,9 @@
 				0C67622225EC93E4002CDABB /* stripeApi.swift in Sources */,
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
 				4B88C93C25E8BDD6005AEE92 /* Collections.swift in Sources */,
+				7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
+				7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */,
 				ACD30D2E25DF04FC00229D65 /* User.swift in Sources */,
 				4B88C93F25E8C615005AEE92 /* CollectionService.swift in Sources */,
 				ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */,
