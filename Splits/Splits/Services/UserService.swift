@@ -34,7 +34,6 @@ struct UserService {
             guard let username = userDict["username"] as? String, let num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
                 return completion(nil)
             }
-            
 
             if let groups = userDict["groups"] as? [String] {
                 let newUser = User(uid: user.uid, username: username, phoneNumber: num, groups: groups, friends: friends)

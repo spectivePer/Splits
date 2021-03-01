@@ -56,9 +56,11 @@ class AddContactsViewController: UIViewController {
                 print("no user available")
                 return
             }
+            User.setCurrent(upUser, writeToUserDefaults: true)
             friendsArray = Array(upUser.friends.keys)
             friends = upUser.friends
             self.friendsTable.reloadData()
+
         }
     }
 }
