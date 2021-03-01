@@ -188,7 +188,7 @@
 		<key>Stripe.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>30</integer>
+			<integer>29</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
