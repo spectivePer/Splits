@@ -31,7 +31,7 @@ struct UserService {
                 return completion(nil)
             }
 
-            guard let username = userDict["username"] as? String, let name = dict["name"] as? String, num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
+            guard let username = userDict["username"] as? String, let name = userDict["name"] as? String, let num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
                 return completion(nil)
             }
 

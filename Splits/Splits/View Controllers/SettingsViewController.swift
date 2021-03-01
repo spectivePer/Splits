@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 
+/*
 @IBDesignable
 class CircularImageView: UIImageView {
     override func layoutSubviews() {
@@ -16,10 +17,10 @@ class CircularImageView: UIImageView {
         self.clipsToBounds = true
     }
 }
-
+*/
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var profileView: CircularImageView!
+    @IBOutlet weak var profileView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

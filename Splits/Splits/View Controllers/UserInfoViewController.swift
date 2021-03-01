@@ -32,6 +32,7 @@ class UserInfoViewController: UIViewController {
         UserService.create(firUser, username: username, phoneNumber: phoneNumber) { (user) in
             guard let user = user else {
                 // handle error
+                
                 return
             }
             
@@ -40,7 +41,6 @@ class UserInfoViewController: UIViewController {
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "homeView")
-            // set the stack so that it only contains main and animate it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
             
