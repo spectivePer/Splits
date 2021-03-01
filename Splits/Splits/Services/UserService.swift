@@ -27,14 +27,11 @@ struct UserService {
         let ref = Database.database().reference().child("users").child(user.uid)
         _ = ref.observe(DataEventType.value, with: { (snapshot) in
           let userDict = snapshot.value as? [String : AnyObject] ?? [:]
-            guard let user = User(snapshot: snapshot) else {
-                return completion(nil)
-            }
 
             guard let username = userDict["username"] as? String, let num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
                 return completion(nil)
             }
-
+            
             if let groups = userDict["groups"] as? [String] {
                 let newUser = User(uid: user.uid, username: username, phoneNumber: num, groups: groups, friends: friends)
                 newUser.friends = friends
@@ -52,7 +49,7 @@ struct UserService {
     
     // Database Create User
 
-    static func create(_ firUser: FIRUser, username: String, phoneNumber: String, completion: @escaping (User?) -> Void) {
+    static func create(_ firUser: FIRUser, username: String, phoneNumber: String, stripeId: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["username": username, "phoneNumber": phoneNumber]
 
         let ref = Database.database().reference().child("users").child(firUser.uid)
