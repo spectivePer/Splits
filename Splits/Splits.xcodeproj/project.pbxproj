@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C67622225EC93E4002CDABB /* stripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C67622125EC93E3002CDABB /* stripeApi.swift */; };
-		4B88C93C25E8BDD6005AEE92 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88C93B25E8BDD6005AEE92 /* Collections.swift */; };
-		4B88C93F25E8C615005AEE92 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88C93E25E8C615005AEE92 /* CollectionService.swift */; };
+		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
+		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
+		4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */; };
+		4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */; };
+
 		7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */; };
 		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
@@ -34,8 +36,10 @@
 		0C67622125EC93E3002CDABB /* stripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stripeApi.swift; sourceTree = "<group>"; };
 		1316E315426F653CDC35533F /* Pods-Splits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splits.debug.xcconfig"; path = "Target Support Files/Pods-Splits/Pods-Splits.debug.xcconfig"; sourceTree = "<group>"; };
 		45DD13DBBD7BB42E82ED1655 /* Pods_Splits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B88C93B25E8BDD6005AEE92 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
-		4B88C93E25E8C615005AEE92 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
+		4B9DC23725EC47E800C23AF6 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
+		4B9DC23A25EC480B00C23AF6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		66D3A3FD1E9AFEB4FCDE8E32 /* Pods-Splits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splits.release.xcconfig"; path = "Target Support Files/Pods-Splits/Pods-Splits.release.xcconfig"; sourceTree = "<group>"; };
 		7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = newSplit.storyboard; sourceTree = "<group>"; };
 		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				ACD30D2D25DF04FC00229D65 /* User.swift */,
-				4B88C93B25E8BDD6005AEE92 /* Collections.swift */,
+				4B9DC23A25EC480B00C23AF6 /* Group.swift */,
+				4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,7 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				ACD30D3925DF3E2300229D65 /* UserService.swift */,
-				4B88C93E25E8C615005AEE92 /* CollectionService.swift */,
+				4B9DC23725EC47E800C23AF6 /* GroupService.swift */,
+				4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -318,20 +324,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */,
 				ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */,
 				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
+				4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
-				0C67622225EC93E4002CDABB /* stripeApi.swift in Sources */,
+				4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */,
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
-				4B88C93C25E8BDD6005AEE92 /* Collections.swift in Sources */,
+
 				7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */,
 				ACD30D2E25DF04FC00229D65 /* User.swift in Sources */,
-				4B88C93F25E8C615005AEE92 /* CollectionService.swift in Sources */,
 				ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */,
 				7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */,
 				ACD30D3625DF399400229D65 /* HomeViewController.swift in Sources */,
+				4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

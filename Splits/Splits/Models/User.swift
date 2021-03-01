@@ -25,7 +25,6 @@ class User: Codable {
     // MARK: - Class Methods
 
     static func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
-            
             if writeToUserDefaults {
                 
                 if let data = try? JSONEncoder().encode(user) {
@@ -40,19 +39,20 @@ class User: Codable {
     // MARK: - Properties
 
     let uid: String           // unique id
-    let username: String      // user's name
-    let phoneNumber: String   // user's phone number
-    let collections: [String] // array of collection IDs the user is a part of
-    let stripeId: String
+    var username: String      // user's name
+    var phoneNumber: String   // user's phone number
+    var groups: [String] // array of collection IDs the user is a part of
+    var friends: [String: String] // Dictionary of friends' names to friends' UID
 
     // MARK: - Init
 
-    init(uid: String, username: String, phoneNumber: String, stripeId: String) {
+    init(uid: String, username: String, phoneNumber: String, groups: [String], friends: [String:String]) {
         self.uid = uid
         self.username = username
         self.phoneNumber = "+14157777777"  // Default until we add phone number capability
-        self.collections = [String]()
-        self.stripeId = stripeId
+        self.groups = [String]()
+        self.friends = [String: String]()
+
     }
 
     init?(snapshot: DataSnapshot) {
@@ -64,8 +64,8 @@ class User: Codable {
         self.uid = snapshot.key
         self.username = username
         self.phoneNumber = "+14157777777" // Default until we add phone number capability
-        self.collections = [String]()
-        self.stripeId = stripeId
-        
+        self.groups = [String]()
+        self.friends = [String: String]()
+
     }
 }

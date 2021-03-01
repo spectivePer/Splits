@@ -1,26 +1,13 @@
 //
-//  Collections.swift
+//  Group.swift
 //  Splits
 //
-//  Created by Keith Choung on 2/25/21.
+//  Created by Keith Choung on 2/28/21.
 //
 
-import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class Group: Codable {
-    
-    private static var _current: Group?
-
-    static var current: Group {
-        
-        guard let currentCollection = _current else {
-            fatalError("Error: current user doesn't exist")
-        }
-
-        return currentCollection
-    }
-
     // MARK: - Class Methods
     
     static func invite(invitorID: String, invitees: [String], group: Group) {
