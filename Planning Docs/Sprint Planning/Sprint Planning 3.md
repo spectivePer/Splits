@@ -26,6 +26,8 @@ Keith: need to finish the collections services with the DB
 
 Paul: currently working on finalizing the UI and login mechanics for the Login Flow.
 
+Shaumik: Working on adding a view controller to add payment method.
+
 ### Notes
 Open venmo: https://developers.braintreepayments.com/guides/venmo/client-side/ios/v4
 
