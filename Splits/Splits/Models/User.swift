@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
+
 class User: Codable {
     // MARK: - Singleton
 
@@ -43,15 +44,17 @@ class User: Codable {
     var phoneNumber: String   // user's phone number
     var groups: [String] // array of collection IDs the user is a part of
     var friends: [String: String] // Dictionary of friends' names to friends' UID
+    var stripeId: String
 
     // MARK: - Init
 
-    init(uid: String, username: String, phoneNumber: String, groups: [String], friends: [String:String]) {
+    init(uid: String, username: String, phoneNumber: String,stripeId: String, groups: [String], friends: [String:String]) {
         self.uid = uid
         self.username = username
         self.phoneNumber = "+14157777777"  // Default until we add phone number capability
         self.groups = [String]()
         self.friends = [String: String]()
+        self.stripeId = stripeId
 
     }
 
@@ -66,6 +69,7 @@ class User: Codable {
         self.phoneNumber = "+14157777777" // Default until we add phone number capability
         self.groups = [String]()
         self.friends = [String: String]()
+        self.stripeId = stripeId
 
     }
 }

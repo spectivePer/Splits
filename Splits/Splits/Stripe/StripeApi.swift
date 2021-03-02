@@ -9,8 +9,9 @@ import Foundation
 import Stripe
 import FirebaseFunctions
 
+let stripeApi = _stripeApi()
 
-class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
+final class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
         
         let data = [
@@ -34,8 +35,4 @@ class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
             completion(key, nil)
         }
     }
-    
-    
-    
-    
 }
