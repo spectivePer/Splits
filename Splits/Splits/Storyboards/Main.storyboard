@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ABb-GT-GhF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Launch Screen – 1" translatesAutoresizingMaskIntoConstraints="NO" id="D0c-fN-eEJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpw-qU-4Ot">
                                 <rect key="frame" x="20" y="128" width="374" height="128"/>
                                 <subviews>
@@ -42,13 +40,37 @@
                                     <constraint firstItem="4gN-2k-6Eb" firstAttribute="centerY" secondItem="Qpw-qU-4Ot" secondAttribute="centerY" id="Th5-HG-S1a"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s13-sB-HTm">
-                                <rect key="frame" x="118" y="785" width="179" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjI-gQ-aIJ">
+                                <rect key="frame" x="310" y="44" width="84" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="gearshape" catalog="system">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Settings">
+                                            <attributes>
+                                                <color key="NSColor" systemColor="labelColor"/>
+                                                <font key="NSFont" size="16" name="Avenir-Black"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="settingsButtonTap:" destination="VsL-Cr-BYs" eventType="touchUpInside" id="H3f-XK-Klb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s13-sB-HTm">
+                                <rect key="frame" x="83" y="744" width="249" height="51"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Create Split">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Create Split">
+                                            <attributes>
+                                                <color key="NSColor" systemColor="labelColor"/>
+                                                <font key="NSFont" size="29" name="Avenir-Black"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="createSplitButton:" destination="VsL-Cr-BYs" eventType="touchUpInside" id="was-Cv-Yjt"/>
@@ -58,13 +80,14 @@
                         <viewLayoutGuide key="safeArea" id="Uq0-rQ-sw8"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="D0c-fN-eEJ" secondAttribute="trailing" id="BdS-Qe-58W"/>
+                            <constraint firstItem="qjI-gQ-aIJ" firstAttribute="top" secondItem="Uq0-rQ-sw8" secondAttribute="top" id="0aj-gE-95z"/>
+                            <constraint firstItem="Uq0-rQ-sw8" firstAttribute="bottom" secondItem="s13-sB-HTm" secondAttribute="bottom" constant="67" id="1uf-Af-lJg"/>
+                            <constraint firstItem="s13-sB-HTm" firstAttribute="centerX" secondItem="Qpw-qU-4Ot" secondAttribute="centerX" id="LuT-Rj-Aqd"/>
                             <constraint firstItem="Uq0-rQ-sw8" firstAttribute="bottom" secondItem="Qpw-qU-4Ot" secondAttribute="bottom" constant="606" id="SMy-Ia-NV2"/>
-                            <constraint firstItem="D0c-fN-eEJ" firstAttribute="top" secondItem="dSq-cK-NuJ" secondAttribute="top" id="VQc-dE-7HP"/>
+                            <constraint firstItem="qjI-gQ-aIJ" firstAttribute="trailing" secondItem="Qpw-qU-4Ot" secondAttribute="trailing" id="USa-s3-QtD"/>
                             <constraint firstItem="Qpw-qU-4Ot" firstAttribute="top" secondItem="Uq0-rQ-sw8" secondAttribute="top" constant="84" id="Vk4-bD-LBT"/>
-                            <constraint firstItem="D0c-fN-eEJ" firstAttribute="leading" secondItem="dSq-cK-NuJ" secondAttribute="leading" id="dBD-AM-EHM"/>
+                            <constraint firstItem="s13-sB-HTm" firstAttribute="leading" secondItem="Uq0-rQ-sw8" secondAttribute="leading" constant="83" id="dUz-Yk-E5o"/>
                             <constraint firstItem="Qpw-qU-4Ot" firstAttribute="leading" secondItem="dSq-cK-NuJ" secondAttribute="leadingMargin" id="j8a-fn-D8b"/>
-                            <constraint firstAttribute="bottom" secondItem="D0c-fN-eEJ" secondAttribute="bottom" id="ssJ-M7-SND"/>
                             <constraint firstItem="Qpw-qU-4Ot" firstAttribute="centerX" secondItem="dSq-cK-NuJ" secondAttribute="centerX" id="xXw-cx-xo5"/>
                         </constraints>
                     </view>
@@ -77,6 +100,84 @@
             </objects>
             <point key="canvasLocation" x="5197.1014492753629" y="55.580357142857139"/>
         </scene>
+        <!--profileView-->
+        <scene sceneID="WLB-vr-doi">
+            <objects>
+                <viewController storyboardIdentifier="settingsView" title="profileView" id="RD8-uj-OTJ" customClass="SettingsViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wlP-xG-o1X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_account_circle3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="tPr-al-Kgc">
+                                <rect key="frame" x="105" y="75" width="204" height="180"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYq-r3-woK">
+                                <rect key="frame" x="20" y="44" width="65" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="chevron.backward" catalog="system">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Button">
+                                            <attributes>
+                                                <color key="NSColor" systemColor="labelColor"/>
+                                                <font key="NSFont" size="16" name="Avenir-Black"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPress:" destination="RD8-uj-OTJ" eventType="touchUpInside" id="9OA-Af-m5i"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8hk-Zi-ELQ">
+                                <rect key="frame" x="20" y="302" width="374" height="408"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fC-iq-frZ">
+                                <rect key="frame" x="111" y="762" width="192" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sign Out">
+                                            <attributes>
+                                                <color key="NSColor" systemColor="labelColor"/>
+                                                <font key="NSFont" size="29" name="Avenir-Black"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="signOutButton:" destination="RD8-uj-OTJ" eventType="touchUpInside" id="8U5-SM-FKg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E9u-yU-4aL"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="8hk-Zi-ELQ" firstAttribute="leading" secondItem="oYq-r3-woK" secondAttribute="leading" id="21R-jT-dU1"/>
+                            <constraint firstItem="8hk-Zi-ELQ" firstAttribute="trailing" secondItem="wlP-xG-o1X" secondAttribute="trailingMargin" id="7Fk-Ra-2Xc"/>
+                            <constraint firstItem="tPr-al-Kgc" firstAttribute="top" secondItem="E9u-yU-4aL" secondAttribute="top" constant="31" id="7H8-sJ-e9g"/>
+                            <constraint firstItem="7fC-iq-frZ" firstAttribute="centerX" secondItem="8hk-Zi-ELQ" secondAttribute="centerX" id="8GB-L8-w2b"/>
+                            <constraint firstItem="8hk-Zi-ELQ" firstAttribute="top" secondItem="tPr-al-Kgc" secondAttribute="bottom" constant="47" id="9oZ-1Q-BIK"/>
+                            <constraint firstItem="E9u-yU-4aL" firstAttribute="bottom" secondItem="7fC-iq-frZ" secondAttribute="bottom" constant="48" id="GPS-GW-JqC"/>
+                            <constraint firstItem="oYq-r3-woK" firstAttribute="leading" secondItem="wlP-xG-o1X" secondAttribute="leadingMargin" id="LLI-Vu-6Jg"/>
+                            <constraint firstItem="7fC-iq-frZ" firstAttribute="top" secondItem="8hk-Zi-ELQ" secondAttribute="bottom" constant="52" id="Zog-jJ-ipU"/>
+                            <constraint firstItem="7fC-iq-frZ" firstAttribute="leading" secondItem="E9u-yU-4aL" secondAttribute="leading" constant="111" id="d68-vh-Qng"/>
+                            <constraint firstItem="tPr-al-Kgc" firstAttribute="leading" secondItem="E9u-yU-4aL" secondAttribute="leading" constant="105" id="h7U-BG-lEn"/>
+                            <constraint firstItem="oYq-r3-woK" firstAttribute="top" secondItem="E9u-yU-4aL" secondAttribute="top" id="tb7-cP-nUe"/>
+                            <constraint firstItem="tPr-al-Kgc" firstAttribute="centerX" secondItem="8hk-Zi-ELQ" secondAttribute="centerX" id="zU1-cN-nE1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileView" destination="tPr-al-Kgc" id="PSu-3Y-ecM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JDP-02-pKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6002.898550724638" y="55.580357142857139"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="H37-7h-ti7">
             <objects>
@@ -84,6 +185,7 @@
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQq-MS-58n">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -96,7 +198,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch Screen – 1" width="375" height="812"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="ic_account_circle3x.png" width="180" height="180"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

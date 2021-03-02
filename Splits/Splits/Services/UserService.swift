@@ -31,29 +31,32 @@ struct UserService {
                 return completion(nil)
             }
 
-            guard let username = userDict["username"] as? String, let num = userDict["phoneNumber"] as? String, let stripeId = userDict["stripeId"] as? String,let friends = userDict["friends"] as? [String:String] else {
+            guard let username = userDict["username"] as? String, let name = userDict["name"] as? String, let num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
                 return completion(nil)
             }
 
             if let groups = userDict["groups"] as? [String] {
-                let newUser = User(uid: user.uid, username: username, phoneNumber: num, stripeId: stripeId, groups: groups, friends: friends)
+
+                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, groups: groups, friends: friends)
                 newUser.friends = friends
                 newUser.groups = groups
                 completion(newUser)
 
             } else {
                 print(friends)
-                let newUser = User(uid: user.uid, username: username, phoneNumber: num, stripeId: stripeId, groups: [], friends: friends)
+
+                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, groups: [], friends: friends)
                 newUser.friends = friends
                 completion(newUser)
             }
         })
     }
     
+    
     // Database Create User
 
-    static func create(_ firUser: FIRUser, username: String, phoneNumber: String, stripeId: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["username": username, "phoneNumber": phoneNumber, "stripeId": stripeId]
+    static func create(_ firUser: FIRUser, name: String, username: String, phoneNumber: String, stripeId: String, completion: @escaping (User?) -> Void) {
+        let userAttrs = ["name": name, "username": username, "phoneNumber": phoneNumber, "stripeId": stripeId]
 
         let ref = Database.database().reference().child("users").child(firUser.uid)
         ref.setValue(userAttrs) { (error, ref) in
@@ -68,5 +71,6 @@ struct UserService {
             })
         }
     }
+    
 }
 

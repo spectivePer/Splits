@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-
+        
         guard let authUI = FUIAuth.defaultAuthUI()
             else { return }
 
@@ -37,7 +37,8 @@ class LoginViewController: UIViewController {
         authUI.providers = providers
 
         let authViewController = authUI.authViewController()
-        present(authViewController, animated: true)
+        authViewController.modalPresentationStyle = .overCurrentContext
+        self.present(authViewController, animated: true)
         
     }
 
@@ -49,7 +50,8 @@ class LoginViewController: UIViewController {
 extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let error = error {
-                assertionFailure("Error signing in: \(error.localizedDescription)")
+                //assertionFailure("Error signing in: \(error.localizedDescription)")
+                    print(error)
                     return
                 }
         
@@ -67,9 +69,6 @@ extension LoginViewController: FUIAuthDelegate {
                     let viewControllers = [vc]
                     self.navigationController?.setViewControllers(viewControllers, animated: true)
                     
-                    self.view.window?.rootViewController = vc
-                    self.view.window?.makeKeyAndVisible()
-                    
                 } else {
                     // handle new user
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
@@ -77,10 +76,10 @@ extension LoginViewController: FUIAuthDelegate {
                     // set the stack so that it only contains main and animate it
                     let viewControllers = [vc]
                     self.navigationController?.setViewControllers(viewControllers, animated: true)
+                    
                 }
             }
+        
     }
-    
 }
-
 

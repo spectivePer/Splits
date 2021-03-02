@@ -96,6 +96,7 @@ extension AddContactsViewController: UITableViewDelegate {
 
 extension AddContactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(friendsArray)
         return friendsArray.count
     }
     
