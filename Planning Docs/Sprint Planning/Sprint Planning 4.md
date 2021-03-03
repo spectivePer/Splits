@@ -10,6 +10,13 @@ Will not be pursuing 250 DAU anymore
 
 [https://trello.com/b/Ez0aGlsI/splits](https://trello.com/b/Ez0aGlsI/splits)
 
+### List of user experience cases
+- New user with no splits: open to new split vc
+- New user with previous/pending splits: open to history vc, import previous and pending splits
+- Non app user: text the amount the user owes the requestor
+- App user with no splits: open to new split vc
+- App user with previous/pending splits: open to history vc
+
 
 ### Completed Tasks
 Jocelyn: 
