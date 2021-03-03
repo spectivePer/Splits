@@ -17,6 +17,8 @@ Paul: Login flow is complete
 
 Keith: Can add friends in a group to split with
 
+Shaumik: Completed UI for adding payment method.
+
 
 ### Commit History
 [Paul] Fixed the Login Flow -> Login process should be complete
@@ -36,6 +38,8 @@ Jocelyn: add participants to split
 Paul: Working on adding contacts, UI layout (Last), HomeView, and Settings.
 
 Keith: Friends feature and search bar when searching for friends
+
+Shaumik: Fix errors with mutating attributes in Firebase realtime database.
 
 ### Notes
 Jocelyn plan:
