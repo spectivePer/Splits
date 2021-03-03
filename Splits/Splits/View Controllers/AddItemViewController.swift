@@ -19,19 +19,19 @@ class AddItemViewController:UIViewController {
     //TODO: User select participant(s)
     
     @IBAction func cancelItem(_ sender: Any) {
-        displayView(vcName: "unevenSplitView")
+        displayView(storyboard: "newSplit", vcName: "unevenSplitView")
     }
     
     //TODO: Add item to unevenSplit vc table
     @IBAction func addItemButton(_ sender: Any) {
-        displayView(vcName: "unevenSplitView")
+        displayView(storyboard: "newSplit", vcName: "unevenSplitView")
     }
     
     
-    func displayView(vcName: String) {
+    func displayView(storyboard: String, vcName: String) {
             // handle new user
-            let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: vcName)
+            let sb = UIStoryboard(name: storyboard, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: vcName)
             // set the stack so that it only contains main and animate it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
