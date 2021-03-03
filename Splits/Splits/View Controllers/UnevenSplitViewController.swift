@@ -15,12 +15,17 @@ class UnevenSplitViewController:UIViewController {
     }
     
     @IBAction func addItem(_ sender: UIBarButtonItem) {
-        displayView(vcName: "addItemView")
+        displayView(storyboard: "newSplit", vcName: "addItemView")
     }
     
     @IBAction func previousView(_ sender: Any) {
-        displayView(vcName: "addContactsView")
+        displayView(storyboard: "newSplit", vcName: "addContactsView")
     }
+    
+    @IBAction func scanReceipt(_ sender: Any) {
+        displayView(storyboard: "newSplit", vcName: "scanReceiptView")
+    }
+    
     
     //TODO: Add split name from addContacts vc
     //TODO: Add participants from addContacts vc
@@ -28,10 +33,10 @@ class UnevenSplitViewController:UIViewController {
     //TODO: Link camera button
     //TODO: Link create split to payment
     
-    func displayView(vcName: String) {
+    func displayView(storyboard: String, vcName: String) {
             // handle new user
-            let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: vcName)
+            let sb = UIStoryboard(name: storyboard, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: vcName)
             // set the stack so that it only contains main and animate it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
