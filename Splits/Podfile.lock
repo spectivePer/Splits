@@ -122,6 +122,7 @@ PODS:
   - Stripe (21.3.1):
     - Stripe/Stripe3DS2 (= 21.3.1)
   - Stripe/Stripe3DS2 (21.3.1)
+  - SwiftyContacts (3.0.16)
 
 DEPENDENCIES:
   - Alamofire
@@ -135,6 +136,7 @@ DEPENDENCIES:
   - FirebaseUI/Facebook
   - FirebaseUI/Google
   - Stripe
+  - SwiftyContacts (~> 3.0)
 
 SPEC REPOS:
   trunk:
@@ -161,6 +163,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Stripe
+    - SwiftyContacts
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -186,7 +189,8 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Stripe: 326a2160ac541eeffafb8b1aa0c9712e3ce8cec7
+  SwiftyContacts: c02b7908cfd18505c004a43162fd7b63218d2ba0
 
-PODFILE CHECKSUM: b494bd4b1d5a53c247e1c93014c2ae5354dadf18
+PODFILE CHECKSUM: f0aa3973c38a79eba006205354ea97ae4ef20db0
 
 COCOAPODS: 1.10.1

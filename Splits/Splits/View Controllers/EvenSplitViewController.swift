@@ -46,6 +46,9 @@ class EvenSplitViewController:UIViewController {
 
     }
     
+    @IBAction func previousView(_ sender: UIBarButtonItem) {
+        displayView(storyboard: "newSplit", vcName: "addContactsView")
+    }
     //TODO: Update split name label from addContact vc
     //TODO: get participant list from addContact vc
 
@@ -136,6 +139,8 @@ class EvenSplitViewController:UIViewController {
         //ERROR: Displays one decimal place for whole numbers. ie: $10.0 instead of $10.00
         let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
         print("Participants pay $\(evenSplitAmount) each")
+        
+        displayView(storyboard: "Main", vcName: "homeView")
     }
     
     func updateTotalAmountLabel(buttonName: String) {
@@ -196,6 +201,15 @@ class EvenSplitViewController:UIViewController {
     
     func loadSplitGroupInfo(splitGroupId: String) {
         
+    }
+    
+    func displayView(storyboard: String, vcName: String) {
+            // handle new user
+            let sb = UIStoryboard(name: storyboard, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: vcName)
+            // set the stack so that it only contains main and animate it
+            let viewControllers = [vc]
+            self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
 }
 

@@ -17,6 +17,7 @@
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
 		7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */; };
 		7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33025EB75E7007F54C2 /* AddItemViewController.swift */; };
+		7397C33525EF3F27007F54C2 /* ScanReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */; };
 		8EF79B8E2429BDF62C7BF638 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DD13DBBD7BB42E82ED1655 /* Pods_Splits.framework */; };
 		AC4CC33F25EC8C0B003FF359 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4CC33E25EC8C0B003FF359 /* SettingsViewController.swift */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C33025EB75E7007F54C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanReceiptViewController.swift; sourceTree = "<group>"; };
 		AC4CC33E25EC8C0B003FF359 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */,
 				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
 				AC4CC33E25EC8C0B003FF359 /* SettingsViewController.swift */,
+				7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */,
 				7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */,
 				ACD30D3625DF399400229D65 /* HomeViewController.swift in Sources */,
+				7397C33525EF3F27007F54C2 /* ScanReceiptViewController.swift in Sources */,
 				4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,13 +494,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -511,13 +515,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
