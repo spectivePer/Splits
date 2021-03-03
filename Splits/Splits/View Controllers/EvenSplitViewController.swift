@@ -46,6 +46,9 @@ class EvenSplitViewController:UIViewController {
 
     }
     
+    @IBAction func previousView(_ sender: UIBarButtonItem) {
+        displayView(vcName: "addContactsView")
+    }
     //TODO: Update split name label from addContact vc
     //TODO: get participant list from addContact vc
 
@@ -196,6 +199,15 @@ class EvenSplitViewController:UIViewController {
     
     func loadSplitGroupInfo(splitGroupId: String) {
         
+    }
+    
+    func displayView(vcName: String) {
+            // handle new user
+            let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: vcName)
+            // set the stack so that it only contains main and animate it
+            let viewControllers = [vc]
+            self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
 }
 
