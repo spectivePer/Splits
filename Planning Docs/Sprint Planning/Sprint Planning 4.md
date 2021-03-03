@@ -13,8 +13,8 @@ Will not be pursuing 250 DAU anymore
 
 ### Completed Tasks
 Jocelyn: 
-split evenly with manual input ([24db720366fb8ad7e6bec647971e64183c128c5b](https://github.com/ECS189E/project-w21-splits/tree/24db720366fb8ad7e6bec647971e64183c128c5b)),
-take receipt pictures ([4bde7bf5ba141af8de29cf0a734a3f7e7796dc5f](https://github.com/ECS189E/project-w21-splits/tree/4bde7bf5ba141af8de29cf0a734a3f7e7796dc5f))
+  split evenly with manual input,
+  take receipt pictures
 
 Paul: Login flow is complete
 
