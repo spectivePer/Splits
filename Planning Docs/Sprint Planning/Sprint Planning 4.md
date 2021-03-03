@@ -13,6 +13,7 @@ Will not be pursuing 250 DAU anymore
 
 ### Completed Tasks
 Jocelyn: split evenly with manual input ([24db720366fb8ad7e6bec647971e64183c128c5b](https://github.com/ECS189E/project-w21-splits/tree/24db720366fb8ad7e6bec647971e64183c128c5b))
+
 Paul: Login flow is complete
 
 Keith: Can add friends in a group to split with
