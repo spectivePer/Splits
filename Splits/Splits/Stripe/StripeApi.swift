@@ -26,7 +26,6 @@ final class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
                 completion(nil, error)
                 return
             }
-            
             guard let key = result?.data as? [String: Any] else{
                 completion(nil, nil)
                 return

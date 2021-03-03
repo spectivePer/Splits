@@ -38,7 +38,6 @@ exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
 
 
 
-
 // const currency = functions.config().stripe.currency || 'USD';
 
 // Create and Deploy Your First Cloud Functions
