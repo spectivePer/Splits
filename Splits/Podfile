@@ -16,6 +16,7 @@ target 'Splits' do
   pod 'FirebaseDatabase'
   pod 'FBSDKLoginKit'
   pod 'Stripe'
-  pod 'Alamofire'	
+  pod 'Alamofire'
+  pod 'SwiftyContacts', '~> 3.0'
   
 end
