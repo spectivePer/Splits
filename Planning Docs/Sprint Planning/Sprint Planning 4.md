@@ -38,7 +38,7 @@ Shaumik: Completed UI for adding payment method.
 
 
 ### In-progress Tasks
-Jocelyn: OCR
+Jocelyn: Apple OCR
 
 Paul: Working on adding contacts, UI layout (Last), HomeView, and Settings.
 
@@ -48,7 +48,7 @@ Shaumik: Fix errors with mutating attributes in Firebase realtime database.
 
 ### Notes
 Jocelyn plan:
-1. OCR
+1. Apple OCR
 2. NewSplit UI
 
 [Tutorial for receipt scanning link](https://makeapppie.com/2014/12/04/swift-swift-using-the-uiimagepickercontroller-for-a-camera-and-photo-library/)
