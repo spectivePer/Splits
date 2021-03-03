@@ -12,7 +12,9 @@ Will not be pursuing 250 DAU anymore
 
 
 ### Completed Tasks
-Jocelyn: split evenly with manual input ([24db720366fb8ad7e6bec647971e64183c128c5b](https://github.com/ECS189E/project-w21-splits/tree/24db720366fb8ad7e6bec647971e64183c128c5b))
+Jocelyn: 
+split evenly with manual input ([24db720366fb8ad7e6bec647971e64183c128c5b](https://github.com/ECS189E/project-w21-splits/tree/24db720366fb8ad7e6bec647971e64183c128c5b)),
+take receipt pictures ([4bde7bf5ba141af8de29cf0a734a3f7e7796dc5f](https://github.com/ECS189E/project-w21-splits/tree/4bde7bf5ba141af8de29cf0a734a3f7e7796dc5f))
 
 Paul: Login flow is complete
 
@@ -32,9 +34,11 @@ Shaumik: Completed UI for adding payment method.
 
 [Keith] [Adding participants based on friends](https://github.com/ECS189E/project-w21-splits/commit/48faf2c96b7287972686f0ec3036bd881a0be4ba)
 
+[Jocelyn] [Take receipt pictures](https://github.com/ECS189E/project-w21-splits/tree/4bde7bf5ba141af8de29cf0a734a3f7e7796dc5f)
+
 
 ### In-progress Tasks
-Jocelyn: scan receipt
+Jocelyn: OCR
 
 Paul: Working on adding contacts, UI layout (Last), HomeView, and Settings.
 
@@ -44,9 +48,10 @@ Shaumik: Fix errors with mutating attributes in Firebase realtime database.
 
 ### Notes
 Jocelyn plan:
-1. Add camera for receipt scanning
-2. OCR
-3. NewSplit UI
+1. OCR
+2. NewSplit UI
+
+[Tutorial for receipt scanning link](https://makeapppie.com/2014/12/04/swift-swift-using-the-uiimagepickercontroller-for-a-camera-and-photo-library/)
 
 Keith:
 1. Implement Add Friend feature with phone number 
