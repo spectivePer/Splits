@@ -26,6 +26,9 @@ class AddContactsViewController: UIViewController {
 
     }
     
+    @IBAction func previousView(_ sender: UIBarButtonItem) {
+        displayView(storyboard: "main", vcName: "homeView")
+    }
     //TODO: selects contacts to add to split from table
     //TODO: recent/most splitting contacts at the top
     //TODO: user enter split name
@@ -36,6 +39,15 @@ class AddContactsViewController: UIViewController {
     
     @IBAction func splitUnevenlyButton(_ sender: Any) {
         displayEvenSplitView(vcName: "unevenSplitView")
+    }
+    
+    func displayView(storyboard: String, vcName: String) {
+            // handle new user
+            let sb = UIStoryboard(name: storyboard, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: vcName)
+            // set the stack so that it only contains main and animate it
+            let viewControllers = [vc]
+            self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
     
     func displayEvenSplitView(vcName: String) {
