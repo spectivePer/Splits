@@ -11,7 +11,9 @@ import UIKit
 class AddItemViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        let tap = UITapGestureRecognizer(target: (view), action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     //TODO: User input item name
