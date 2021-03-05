@@ -201,6 +201,7 @@
                                 </constraints>
                                 <state key="normal" title="Camera"/>
                                 <connections>
+                                    <action selector="scan:" destination="nRG-Ky-iYo" eventType="touchUpInside" id="Qiy-e4-q9z"/>
                                     <action selector="scanReceipt:" destination="nRG-Ky-iYo" eventType="touchUpInside" id="kDI-v7-bCO"/>
                                 </connections>
                             </button>
@@ -216,14 +217,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WYH-G2-60s">
-                                        <rect key="frame" x="0.0" y="28" width="428" height="43.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="428" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WYH-G2-60s" id="Y6G-qI-g3j">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtb-8m-rqG">
-                                                    <rect key="frame" x="20" y="11.000000000000002" width="37" height="20.666666666666671"/>
+                                                    <rect key="frame" x="20" y="11" width="37" height="21"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="itemTextLabel"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
