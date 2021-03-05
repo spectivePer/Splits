@@ -172,7 +172,7 @@ extension AddContactsViewController: UITableViewDelegate {
             selectedID = friendsDict[selectedName] ?? ""
             print(selectedID)
         }
-        
+                
         chosenFriends.removeValue(forKey: selectedID)
         print(chosenFriends)
         
