@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
 struct UserService {
     // Database Read User Data from local cache (not always updated)
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
+        
         let ref = Database.database().reference().child("users").child(uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let user = User(snapshot: snapshot) else {
