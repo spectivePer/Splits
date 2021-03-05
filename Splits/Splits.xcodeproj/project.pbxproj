@@ -11,6 +11,7 @@
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
 		4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */; };
 		4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */; };
+		730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */; };
 		7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */; };
 		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
@@ -41,6 +42,7 @@
 		4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		50CF5AD278C38FE9E39E4EFD /* Pods-Splits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splits.release.xcconfig"; path = "Target Support Files/Pods-Splits/Pods-Splits.release.xcconfig"; sourceTree = "<group>"; };
+		730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextDataSource.swift; sourceTree = "<group>"; };
 		7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = newSplit.storyboard; sourceTree = "<group>"; };
 		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
 				AC4CC33E25EC8C0B003FF359 /* SettingsViewController.swift */,
 				7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */,
+				730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
 				4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */,
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
+				730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */,
 				7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */,
@@ -476,13 +480,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -497,13 +501,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

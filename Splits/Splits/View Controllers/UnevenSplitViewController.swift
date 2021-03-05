@@ -96,7 +96,7 @@ class UnevenSplitViewController: UIViewController, UITableViewDataSource {
 
 extension UnevenSplitViewController: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        var vcID: String? = UnevenSplitViewController.receiptContentsIdentifier
+        let vcID: String? = UnevenSplitViewController.receiptContentsIdentifier
         
         if let vcID = vcID {
             resultsViewController = storyboard?.instantiateViewController(withIdentifier: vcID) as? (UIViewController & RecognizedTextDataSource)
