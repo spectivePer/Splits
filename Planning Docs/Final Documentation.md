@@ -1,6 +1,6 @@
 ### Summary
 
-Splits is an app that conveniently splits a bill, receipt, or payment among two or more people. Splits can scan your receipts importing item desc and prices automatically, and can refund your split host through ApplePay.
+Splits is an app that conveniently splits a bill, receipt, or payment among two or more people. Splits can scan your receipts importing item descriptions and prices automatically, and can refund your split host through ApplePay.
 
 ### Trello Board Link
 
@@ -9,11 +9,11 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 ### Team Summary
 Jocelyn: 
-  split evenly with manual input,
+  Split evenly with manual input,
   OCR
 
 Paul: 
-   Login flow 
+   Login
 
 Keith:
    Add friends to split
