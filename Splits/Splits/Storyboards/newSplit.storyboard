@@ -592,6 +592,10 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="itemDescription" destination="YUE-wn-KAx" id="Yny-x0-mts"/>
+                        <outlet property="itemPrice" destination="hIr-ZA-ODg" id="xR0-6S-PHd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58L-gE-k9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
