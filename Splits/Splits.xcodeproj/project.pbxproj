@@ -17,6 +17,7 @@
 		4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */; };
 		730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */; };
 		730A5B6825F2C176007DE526 /* ReceiptContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */; };
+		730A5B9525F3100F007DE526 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B9425F3100F007DE526 /* CreateViewController.swift */; };
 		7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */; };
 		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
@@ -49,6 +50,7 @@
 		50CF5AD278C38FE9E39E4EFD /* Pods-Splits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splits.release.xcconfig"; path = "Target Support Files/Pods-Splits/Pods-Splits.release.xcconfig"; sourceTree = "<group>"; };
 		730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextDataSource.swift; sourceTree = "<group>"; };
 		730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptContentsViewController.swift; sourceTree = "<group>"; };
+		730A5B9425F3100F007DE526 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = newSplit.storyboard; sourceTree = "<group>"; };
 		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		ACD30D3425DF33DB00229D65 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				730A5B9425F3100F007DE526 /* CreateViewController.swift */,
 				ACD30CB425DE60FF00229D65 /* LoginViewController.swift */,
 				ACD30CE525DEEE2700229D65 /* UserInfoViewController.swift */,
 				ACD30D3525DF399400229D65 /* HomeViewController.swift */,
@@ -349,7 +352,7 @@
 			files = (
 				4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */,
 				ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */,
-				0C67629425EFFD3E002CDABB /* (null) in Sources */,
+				730A5B9525F3100F007DE526 /* CreateViewController.swift in Sources */,
 				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
 				4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
