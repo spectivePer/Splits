@@ -29,8 +29,8 @@ class HomeViewController: UIViewController {
     
     func displayAddContactsView() {
         // handle new user
-        let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "addContactsView")
+        let storyboard = UIStoryboard(name: "Create", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "addContactsVC")
         // set the stack so that it only contains main and animate it
         let viewControllers = [vc]
         self.navigationController?.setViewControllers(viewControllers, animated: true)
