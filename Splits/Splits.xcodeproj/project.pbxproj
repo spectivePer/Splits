@@ -18,6 +18,7 @@
 		7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33025EB75E7007F54C2 /* AddItemViewController.swift */; };
 		7397C33525EF3F27007F54C2 /* ScanReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */; };
 		95FD1DE9252CE4518FEBEC31 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D855B1837A99D90A924127 /* Pods_Splits.framework */; };
+		ACBE426C25F2FD3F00B64ECC /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBE426B25F2FD3F00B64ECC /* Create.storyboard */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
 		ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */; };
 		ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB425DE60FF00229D65 /* LoginViewController.swift */; };
@@ -46,6 +47,7 @@
 		7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C33025EB75E7007F54C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanReceiptViewController.swift; sourceTree = "<group>"; };
+		ACBE426B25F2FD3F00B64ECC /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACD30CB225DE60FF00229D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				ACD30D0C25DEFC6800229D65 /* Launch Screen.storyboard */,
 				ACD30D4525DF7D7E00229D65 /* Login.storyboard */,
 				ACD30D3F25DF4A6000229D65 /* Main.storyboard */,
+				ACBE426B25F2FD3F00B64ECC /* Create.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				ACD30D0D25DEFC6800229D65 /* Launch Screen.storyboard in Resources */,
 				ACD30D4625DF7D7E00229D65 /* Login.storyboard in Resources */,
 				ACD30CC825DE622300229D65 /* GoogleService-Info.plist in Resources */,
+				ACBE426C25F2FD3F00B64ECC /* Create.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
