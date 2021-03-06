@@ -30,18 +30,17 @@ class AddContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getFriends()
         importContacts()
 
         self.friendsTable.dataSource = self
         self.friendsTable.delegate = self
         self.searchBar.delegate = self
-        
+
         friendsTable.isHidden = true
         buttonView.isHidden = false
 
     }
-    
+
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
@@ -69,15 +68,13 @@ class AddContactsViewController: UIViewController {
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
-    
+
     func displayEvenSplitView(vcName: String) {
         guard let splitName = splitName.text else {return}
-        // Check if chosen friends are Users/Non-Users based on phone number
-        // let (users, nonUsers) = UserService.checkUsersAreVerified(users: chosenFriends)
-        
+
         // create new group with the chosen friends to split with
-        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid) in
-            
+        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid, users) in
+            UserService.addGroupIDToUsers(uid: uid, groupName: splitName, users: users)
             // handle new user
             let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: vcName)
@@ -85,8 +82,9 @@ class AddContactsViewController: UIViewController {
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
         }
+        
     }
-    
+
     func getFriends() {
         UserService.updateCurrentUser(user: User.current) { [self] (updatedUser) in
             guard let upUser = updatedUser else {
@@ -99,36 +97,24 @@ class AddContactsViewController: UIViewController {
             friendsIDArray.append(contentsOf: Array(upUser.friends.keys))
             
             self.friendsTable.reloadData()
-            
-//            // For when we implement adding friends as Non-Users
-//            for (id, name) in upUser.friends {
-//                friends[id] = name
-//            }
         }
     }
-    
+
     func importContacts() {
         let req = User.requestUserToAccessContacts()
-        print(req)
         if (!req) { return } // return if req is false
         
         let auth = User.checkContactsPermissions()
-        print(auth)
         if (!auth) { return } // return if auth is false
         
         // grab contacts
         let contacts = User.grabContacts(user: User.current)
-        print(contacts)
         
         friendsArray = Array(contacts.values)
         friendsIDArray = Array(contacts.keys)
         
         friendsDict = Dictionary(zip(friendsArray, friendsIDArray), uniquingKeysWith: { (first, _) in first })
-    
-//        // For when we implement adding friends as Non-Users
-//         friends = contacts
     }
-    
 }
 
 extension AddContactsViewController: UITableViewDelegate {
