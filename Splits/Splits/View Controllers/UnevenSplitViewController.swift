@@ -1,43 +1,59 @@
-//
-//  UnevenSplitViewController.swift
-//  Splits
-//
-//  Created by Jocelyn Park on 2/27/21.
-//
+/*
+See LICENSE folder for this sample’s licensing information.
 
-import Foundation
+Abstract:
+View controller from which to invoke the document scanner.
+*/
+
 import UIKit
 import VisionKit
 import Vision
 
-class UnevenSplitViewController: UIViewController {
-    //Receipt characteristics
-    struct items {
-        var participant: String
-        var description: String
-        var price: String
-    }
-    
-    var receiptItemArray:[items] = []
-    @IBOutlet weak var receiptTable: UITableView!
-    
-    //OCR variable
+class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
+    static let receiptContentsIdentifier = "receiptContentsVC"
+    var resultsViewController: (UIViewController & RecognizedTextDataSource)?
     var textRecognitionRequest = VNRecognizeTextRequest()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
+            guard let resultsViewController = self.resultsViewController else {
+                print("resultsViewController is not set")
+                return
+            }
+            if let results = request.results, !results.isEmpty {
+                if let requestResults = request.results as? [VNRecognizedTextObservation] {
+                    DispatchQueue.main.async {
+                        resultsViewController.addRecognizedText(recognizedText: requestResults)
+                    }
+                }
+            }
+        })
     }
-    
-    // MARK: -ACTION
+
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         displayViewController(storyboard: "newSplit", vcName: "addItemView")
     }
-    
-    @IBAction func previousView(_ sender: Any) {
-        displayViewController(storyboard: "newSplit", vcName: "addContactsView")
+    @IBAction func scan(_ sender: UIControl) {
+        let documentCameraViewController = VNDocumentCameraViewController()
+        documentCameraViewController.delegate = self
+        present(documentCameraViewController, animated: true)
     }
     
-    // MARK: -DISPLAY
+    func processImage(image: UIImage) {
+        guard let cgImage = image.cgImage else {
+            print("Failed to get cgimage from input image")
+            return
+        }
+        
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        do {
+            try handler.perform([textRecognitionRequest])
+        } catch {
+            print(error)
+        }
+    }
+    
     func displayViewController(storyboard: String, vcName: String) {
             // handle new user
             let sb = UIStoryboard(name: storyboard, bundle: nil)
@@ -48,30 +64,27 @@ class UnevenSplitViewController: UIViewController {
     }
 }
 
-extension UnevenSplitViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(receiptItemArray)
-        return receiptItemArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = receiptItemArray[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "receiptContentsTable", for: indexPath)
-        cell.textLabel?.text = item.description
-        cell.detailTextLabel?.text = item.price
-        return cell
+extension UnevenSplitViewController {
+    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+        let vcID:String? = UnevenSplitViewController.receiptContentsIdentifier
+        
+        if let vcID = vcID {
+            resultsViewController = storyboard?.instantiateViewController(withIdentifier: vcID) as? (UIViewController & RecognizedTextDataSource)
+        }
+        
+        controller.dismiss(animated: true) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                for pageNumber in 0 ..< scan.pageCount {
+                    let image = scan.imageOfPage(at: pageNumber)
+                    self.processImage(image: image)
+                }
+                DispatchQueue.main.async {
+                    if let resultsVC = self.resultsViewController {
+                        self.navigationController?.pushViewController(resultsVC, animated: true)
+                    }
+                }
+            }
+        }
     }
 }
 
-extension UnevenSplitViewController: VNDocumentCameraViewControllerDelegate {
-    @IBAction func scanReceipt(_ sender: Any) {
-        let textRecognitionRequest = VNRecognizeTextRequest()
-
-        textRecognitionRequest.recognitionLevel = .accurate
-        textRecognitionRequest.usesLanguageCorrection = true
-            
-        let documentCameraViewController = VNDocumentCameraViewController()
-        documentCameraViewController.delegate = self
-        present(documentCameraViewController, animated: true)
-    }
-}
