@@ -1,4 +1,3 @@
-
 //  StripePaymentViewController.swift
 //  Splits
 //
@@ -139,4 +138,3 @@ extension StripePaymentViewController: STPPaymentContextDelegate {
         }
 
 }
-

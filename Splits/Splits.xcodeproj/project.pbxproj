@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C67622B25ECB87B002CDABB /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C67622A25ECB87B002CDABB /* StripeApi.swift */; };
-		0C67629425EFFD3E002CDABB /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C67629325EFFD3D002CDABB /* PaymentViewController.swift */; };
+		0C588A8425F306D4002E001D /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8325F306D4002E001D /* StripeApi.swift */; };
+		0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8625F30723002E001D /* PaymentViewController.swift */; };
+		0C67622B25ECB87B002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
+		0C67629425EFFD3E002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
 		4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */; };
@@ -37,8 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
-		0C67622125EC93E3002CDABB /* stripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stripeApi.swift; sourceTree = "<group>"; };
+		0C588A8325F306D4002E001D /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
+		0C588A8625F30723002E001D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		40D855B1837A99D90A924127 /* Pods_Splits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DC23725EC47E800C23AF6 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		4B9DC23A25EC480B00C23AF6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -52,7 +54,6 @@
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C33025EB75E7007F54C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		7397C33425EF3F27007F54C2 /* ScanReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanReceiptViewController.swift; sourceTree = "<group>"; };
 		ACBE426B25F2FD3F00B64ECC /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-
+		0C588A8225F3069E002E001D /* StripeApi */ = {
+			isa = PBXGroup;
+			children = (
+				0C588A8325F306D4002E001D /* StripeApi.swift */,
+			);
+			path = StripeApi;
+			sourceTree = "<group>";
+		};
 		542EFDCB7F5373921883168B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +116,6 @@
 				ACD30CAF25DE60FF00229D65 /* Splits */,
 				ACD30CAE25DE60FF00229D65 /* Products */,
 				542EFDCB7F5373921883168B /* Pods */,
-
 				5FECC0718FDF7A514F884866 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -124,7 +131,7 @@
 		ACD30CAF25DE60FF00229D65 /* Splits */ = {
 			isa = PBXGroup;
 			children = (
-				0C67622925ECB76A002CDABB /* Stripe */,
+				0C588A8225F3069E002E001D /* StripeApi */,
 				ACD30D6B25DFC2F700229D65 /* Splits.entitlements */,
 				ACD30CBE25DE610300229D65 /* Info.plist */,
 				ACD30CC725DE622300229D65 /* GoogleService-Info.plist */,
@@ -179,9 +186,9 @@
 				7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */,
 				7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */,
 				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
-
 				730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */,
 				730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */,
+				0C588A8625F30723002E001D /* PaymentViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -342,11 +349,13 @@
 			files = (
 				4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */,
 				ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */,
-				0C67629425EFFD3E002CDABB /* PaymentViewController.swift in Sources */,
+				0C67629425EFFD3E002CDABB /* (null) in Sources */,
 				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
 				4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
-				0C67622B25ECB87B002CDABB /* StripeApi.swift in Sources */,
+				0C67622B25ECB87B002CDABB /* (null) in Sources */,
+				0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */,
+				0C588A8425F306D4002E001D /* StripeApi.swift in Sources */,
 				4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */,
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
 				730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */,

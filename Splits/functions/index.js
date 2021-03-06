@@ -11,7 +11,7 @@ exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
   }).then((customer) => {
     // var usersRef = admin.database.ref.child("users").child(user.uid);
     // return usersRef.update({stripeId:customer.id});
-    return admin.database().ref(`/users/${user.uid}/stripeId`).set(customer.id);
+    return admin.database().ref(`/users/${user.uid}/stripe_id`).set(customer.id);
   });
 });
 
