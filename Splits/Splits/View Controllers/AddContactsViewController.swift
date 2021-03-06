@@ -14,7 +14,6 @@ class AddContactsViewController: UIViewController {
     @IBOutlet weak var splitWithLabel: UILabel!
     
     @IBOutlet weak var friendsTable: UITableView!
-    @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var friends: [String: String] = [:]
@@ -36,9 +35,6 @@ class AddContactsViewController: UIViewController {
         self.friendsTable.delegate = self
         self.searchBar.delegate = self
 
-        friendsTable.isHidden = true
-        buttonView.isHidden = false
-
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
@@ -53,11 +49,11 @@ class AddContactsViewController: UIViewController {
     //TODO: user enter split name
     
     @IBAction func splitEvenlyButton(_ sender: Any) {
-        displayEvenSplitView(vcName: "evenSplitView")
+        //displayEvenSplitView(vcName: "evenSplitView")
     }
     
     @IBAction func splitUnevenlyButton(_ sender: Any) {
-        displayEvenSplitView(vcName: "unevenSplitView")
+        //displayEvenSplitView(vcName: "unevenSplitView")
     }
     
     func displayView(storyboard: String, vcName: String) {
@@ -68,7 +64,8 @@ class AddContactsViewController: UIViewController {
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
-
+ 
+    /*
     func displayEvenSplitView(vcName: String) {
         guard let splitName = splitName.text else {return}
 
@@ -84,7 +81,8 @@ class AddContactsViewController: UIViewController {
         }
         
     }
-
+    */
+  
     func getFriends() {
         UserService.updateCurrentUser(user: User.current) { [self] (updatedUser) in
             guard let upUser = updatedUser else {
@@ -158,7 +156,7 @@ extension AddContactsViewController: UITableViewDelegate {
             selectedID = friendsDict[selectedName] ?? ""
             print(selectedID)
         }
-        
+                
         chosenFriends.removeValue(forKey: selectedID)
         print(chosenFriends)
         
@@ -196,16 +194,12 @@ extension AddContactsViewController: UITableViewDataSource {
 
 extension AddContactsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        friendsTable.isHidden = false
-        buttonView.isHidden = true
         searchedFriends = friendsArray.filter{ $0.lowercased().prefix(searchText.count) == searchText.lowercased() }
         searching = true
         friendsTable.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        friendsTable.isHidden = true
-        buttonView.isHidden = false
         searching = false
         searchBar.text = ""
         friendsTable.reloadData()

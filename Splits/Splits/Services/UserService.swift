@@ -38,7 +38,8 @@ struct UserService {
             }
 
             if let groups = userDict["groups"] as? [String] {
-                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, groups: groups, friends: friends)
+
+                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: "", groups: groups, friends: friends)
                 newUser.friends = friends
                 newUser.groups = groups
                 completion(newUser)
@@ -64,6 +65,7 @@ struct UserService {
     }
 
     // Database Create User
+
     static func create(_ firUser: FIRUser, name: String, username: String, phoneNumber: String, stripeId: String, completion: @escaping (User?) -> Void) {
         let userAttrs = ["name": name, "username": username, "phoneNumber": phoneNumber, "stripeId": stripeId]
 

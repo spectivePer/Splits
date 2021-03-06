@@ -10,6 +10,7 @@ import FirebaseDatabase.FIRDataSnapshot
 import FirebaseAuth
 import SwiftyContacts
 
+
 class User: Codable {
     // MARK: - Singleton
 
@@ -41,7 +42,7 @@ class User: Codable {
     static func removeCurrent(_ user: User) {
             
         UserDefaults.standard.removeObject(forKey: "currentUser")
-        _current = User(uid: "", name: "", username: "", phoneNumber: "", groups: [""], friends: ["":""])
+        _current = User(uid: "", name: "", username: "", phoneNumber: "", stripeId: "", groups: [""], friends: ["":""])
     }
     
     
@@ -131,7 +132,7 @@ class User: Codable {
 
     // MARK: - Init
 
-    init(uid: String, name: String, username: String, phoneNumber: String, groups: [String], friends: [String:String]) {
+    init(uid: String, name: String, username: String, phoneNumber: String, stripeId:String, groups: [String], friends: [String:String]) {
         self.uid = uid
         self.name = name
         self.username = username

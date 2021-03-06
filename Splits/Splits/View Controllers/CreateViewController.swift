@@ -9,7 +9,7 @@ import UIKit
 import VisionKit
 import Vision
 
-class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
+class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     static let receiptContentsIdentifier = "receiptContentsVC"
     var resultsViewController: (UIViewController & RecognizedTextDataSource)?
     var textRecognitionRequest = VNRecognizeTextRequest()
@@ -32,9 +32,10 @@ class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControlle
     }
 
     @IBAction func addItem(_ sender: UIBarButtonItem) {
-        displayViewController(storyboard: "newSplit", vcName: "addItemView")
+        displayViewController(storyboard: "Create", vcName: "addItemVC")
     }
-    @IBAction func scan(_ sender: UIControl) {
+    
+    @IBAction func scan(_ sender: UIButton) {
         let documentCameraViewController = VNDocumentCameraViewController()
         documentCameraViewController.delegate = self
         present(documentCameraViewController, animated: true)
@@ -64,9 +65,9 @@ class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControlle
     }
 }
 
-extension UnevenSplitViewController {
+extension CreateViewController {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        let vcID:String? = UnevenSplitViewController.receiptContentsIdentifier
+        let vcID:String? = CreateViewController.receiptContentsIdentifier
         
         if let vcID = vcID {
             resultsViewController = storyboard?.instantiateViewController(withIdentifier: vcID) as? (UIViewController & RecognizedTextDataSource)
