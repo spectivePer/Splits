@@ -10,7 +10,7 @@ import FirebaseDatabase
 
 struct GroupService {
     // Database Create Collection
-    static func createGroup(groupName: String, users: [String:String], completion: @escaping (Group?, String) -> Void) {   // takes in an array of user IDs to add
+    static func createGroup(groupName: String, users: [String:String], completion: @escaping (Group?, String, [String:String]) -> Void) {   // takes in an array of user IDs to add
         let uuid = UUID().uuidString
         print(uuid)
         let ref = Database.database().reference().child("groups").child(uuid)
@@ -19,12 +19,12 @@ struct GroupService {
         ref.setValue(groupAttrs) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
-                return completion(nil, "")
+                return completion(nil, "", users)
             }
 
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 let group = Group(snapshot: snapshot)
-                completion(group, uuid)
+                completion(group, uuid, users)
             })
         }
     }
