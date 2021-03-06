@@ -12,7 +12,7 @@
         <scene sceneID="8yn-Gj-Pbg">
             <objects>
                 <viewController storyboardIdentifier="createSplitVC" id="w9O-Me-w8F" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="96I-Hw-N4W" customClass="AnimatableView" customModule="IBAnimatable">
+                    <view key="view" contentMode="scaleToFill" id="96I-Hw-N4W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -201,25 +201,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fry-gT-RXH">
-                                <rect key="frame" x="182" y="439" width="48.5" height="16.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16.333333333333329" id="vXn-YE-mfI"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="chevron.backward" catalog="system">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Back">
-                                            <attributes>
-                                                <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="16" name="Avenir-Black"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g1U-Sp-c2F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
