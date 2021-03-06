@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C588A8425F306D4002E001D /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8325F306D4002E001D /* StripeApi.swift */; };
+		0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8625F30723002E001D /* PaymentViewController.swift */; };
+		0C67622B25ECB87B002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
+		0C67629425EFFD3E002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
 		4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */; };
@@ -36,7 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C67622125EC93E3002CDABB /* stripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stripeApi.swift; sourceTree = "<group>"; };
+		0C588A8325F306D4002E001D /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
+		0C588A8625F30723002E001D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		40D855B1837A99D90A924127 /* Pods_Splits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DC23725EC47E800C23AF6 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		4B9DC23A25EC480B00C23AF6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -82,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C588A8225F3069E002E001D /* StripeApi */ = {
+			isa = PBXGroup;
+			children = (
+				0C588A8325F306D4002E001D /* StripeApi.swift */,
+			);
+			path = StripeApi;
+			sourceTree = "<group>";
+		};
 		542EFDCB7F5373921883168B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		ACD30CAF25DE60FF00229D65 /* Splits */ = {
 			isa = PBXGroup;
 			children = (
+				0C588A8225F3069E002E001D /* StripeApi */,
 				ACD30D6B25DFC2F700229D65 /* Splits.entitlements */,
 				ACD30CBE25DE610300229D65 /* Info.plist */,
 				ACD30CC725DE622300229D65 /* GoogleService-Info.plist */,
@@ -129,7 +143,6 @@
 				ACD30D4B25DFACBF00229D65 /* Support Files */,
 				ACD30D3825DF3E0900229D65 /* Services */,
 				ACD30D2C25DF04DC00229D65 /* Models */,
-				0C67622125EC93E3002CDABB /* stripeApi.swift */,
 			);
 			path = Splits;
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
 				730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */,
 				730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */,
+				0C588A8625F30723002E001D /* PaymentViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -342,6 +356,9 @@
 				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
 				4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
+				0C67622B25ECB87B002CDABB /* (null) in Sources */,
+				0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */,
+				0C588A8425F306D4002E001D /* StripeApi.swift in Sources */,
 				4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */,
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
 				730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */,
