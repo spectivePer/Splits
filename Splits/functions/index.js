@@ -11,7 +11,7 @@ exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
   }).then((customer) => {
     // var usersRef = admin.database.ref.child("users").child(user.uid);
     // return usersRef.update({stripeId:customer.id});
-    return admin.database().ref(`/users/${user.uid}/stripe_id`).set(customer.id);
+    return admin.database().ref(`/users/${user.uid}/stripeId`).set(customer.id);
   });
 });
 
@@ -88,6 +88,27 @@ exports.createConnectAccount = functions.https.onRequest((req, res) => {
   );
 });
 
+exports.createStripeAccountLink = functions.https.onRequest((req, res) => {
+  var data = req.body
+  var accountID = data.accountID
+  var response = {}
+  stripe.accountLinks.create({
+    account: accountID,
+    failure_url: 'https://example.com/failure',
+    success_url: 'https://example.com/success',
+    type: 'custom_account_verification',
+    collect: 'eventually_due',
+  }, function(err, accountLink) {
+    if (err) {
+      console.log(err)
+      response.body = {failure: err}
+      return res.send(response)
+    }
+  console.log(accountLink.url)
+    response.body = {success: accountLink.url}
+    return res.send(response)
+  });
+});
 
 // const currency = functions.config().stripe.currency || 'USD';
 

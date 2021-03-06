@@ -34,8 +34,6 @@ class StripePaymentViewController: UIViewController {
         // Change this according to split amount
 
         paymentContext.paymentAmount = 100
-
-
         paymentContext.delegate = self
         paymentContext.hostViewController = self
 
