@@ -22,14 +22,14 @@ class Group: Codable {
 
     let uid: String             // unique id of the collection
     let groupName: String  // collection's name
-    let users: [String]         // array of user IDs a part of this collection
+    let users: [String:String]         // array of user IDs a part of this collection
 
     // MARK: - Init
 
     init(uid: String, groupName: String, users: [String]) {
         self.uid = uid
         self.groupName = groupName
-        self.users = [String]()
+        self.users = [:]
     }
 
     init?(snapshot: DataSnapshot) {
@@ -39,6 +39,6 @@ class Group: Codable {
 
         self.uid = snapshot.key
         self.groupName = groupName
-        self.users = [String]()
+        self.users = [:]
     }
 }

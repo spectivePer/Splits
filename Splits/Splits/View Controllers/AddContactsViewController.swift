@@ -14,7 +14,6 @@ class AddContactsViewController: UIViewController {
     @IBOutlet weak var splitWithLabel: UILabel!
     
     @IBOutlet weak var friendsTable: UITableView!
-    @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var friends: [String: String] = [:]
@@ -30,18 +29,14 @@ class AddContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getFriends()
         importContacts()
 
         self.friendsTable.dataSource = self
         self.friendsTable.delegate = self
         self.searchBar.delegate = self
-        
-        friendsTable.isHidden = true
-        buttonView.isHidden = false
 
     }
-    
+
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
@@ -54,11 +49,11 @@ class AddContactsViewController: UIViewController {
     //TODO: user enter split name
     
     @IBAction func splitEvenlyButton(_ sender: Any) {
-        displayEvenSplitView(vcName: "evenSplitView")
+        //displayEvenSplitView(vcName: "evenSplitView")
     }
     
     @IBAction func splitUnevenlyButton(_ sender: Any) {
-        displayEvenSplitView(vcName: "unevenSplitView")
+        //displayEvenSplitView(vcName: "unevenSplitView")
     }
     
     func displayView(storyboard: String, vcName: String) {
@@ -69,24 +64,24 @@ class AddContactsViewController: UIViewController {
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
+ 
     
     func displayEvenSplitView(vcName: String) {
         guard let splitName = splitName.text else {return}
-        // Check if chosen friends are Users/Non-Users based on phone number
-        // let (users, nonUsers) = UserService.checkUsersAreVerified(users: chosenFriends)
-        
-        // create new group with the chosen friends to split with
-        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid) in
-            
-            // handle new user
+
+//         create new group with the chosen friends to split with
+        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid, users) in
+            UserService.addGroupIDToUsers(uid: uid, groupName: splitName, users: users)
+//             handle new user
             let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: vcName)
-            // set the stack so that it only contains main and animate it
+//             set the stack so that it only contains main and animate it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
         }
+        
     }
-    
+  
     func getFriends() {
         UserService.updateCurrentUser(user: User.current) { [self] (updatedUser) in
             guard let upUser = updatedUser else {
@@ -99,36 +94,24 @@ class AddContactsViewController: UIViewController {
             friendsIDArray.append(contentsOf: Array(upUser.friends.keys))
             
             self.friendsTable.reloadData()
-            
-//            // For when we implement adding friends as Non-Users
-//            for (id, name) in upUser.friends {
-//                friends[id] = name
-//            }
         }
     }
-    
+
     func importContacts() {
         let req = User.requestUserToAccessContacts()
-        print(req)
         if (!req) { return } // return if req is false
         
         let auth = User.checkContactsPermissions()
-        print(auth)
         if (!auth) { return } // return if auth is false
         
         // grab contacts
         let contacts = User.grabContacts(user: User.current)
-        print(contacts)
         
         friendsArray = Array(contacts.values)
         friendsIDArray = Array(contacts.keys)
         
         friendsDict = Dictionary(zip(friendsArray, friendsIDArray), uniquingKeysWith: { (first, _) in first })
-    
-//        // For when we implement adding friends as Non-Users
-//         friends = contacts
     }
-    
 }
 
 extension AddContactsViewController: UITableViewDelegate {
@@ -210,16 +193,12 @@ extension AddContactsViewController: UITableViewDataSource {
 
 extension AddContactsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        friendsTable.isHidden = false
-        buttonView.isHidden = true
         searchedFriends = friendsArray.filter{ $0.lowercased().prefix(searchText.count) == searchText.lowercased() }
         searching = true
         friendsTable.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        friendsTable.isHidden = true
-        buttonView.isHidden = false
         searching = false
         searchBar.text = ""
         friendsTable.reloadData()
