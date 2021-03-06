@@ -11,9 +11,36 @@ exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
   }).then((customer) => {
     // var usersRef = admin.database.ref.child("users").child(user.uid);
     // return usersRef.update({stripeId:customer.id});
-    return admin.database().ref(`/stripe_customers/${user.uid}/customer_id`).set(customer.id);
+    return admin.database().ref(`/users/${user.uid}/stripeId`).set(customer.id);
   });
 });
+
+
+exports.createCharge = functions.https.onCall(async (data, context) => {
+
+  const customerId = data.customerId;
+  const totalAmount = data.total;
+  const idempotency = data.idempotency;
+  const uid = context.auth.uid
+
+  if (uid === null) {
+      console.log('Illegal access attempt due to unauthenticated user');
+      throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt.')
+  }
+
+  return stripe.charges.create({
+      amount: totalAmount,
+      currency: 'usd',
+      customer: customerId
+  }, {
+      idempotency_key: idempotency
+  }).then( customer => {
+      return customer
+  }).catch( err => {
+      console.log(err);
+      throw new functions.https.HttpsError('internal', 'Unable to create charge')
+  });
+})
 
 exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
   const customerId = data.customer_id;
@@ -36,6 +63,30 @@ exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
   })
 })
 
+exports.createConnectAccount = functions.https.onRequest((req, res) => {
+  // var data = req.body
+  // var email = data.email
+  var response = {}
+  stripe.accounts.create(
+    {
+      type: 'custom',
+      country: 'US',
+      requested_capabilities: [
+        'transfers',
+      ],
+      business_type: 'individual',
+    },
+      function(err, account) {
+        if (err) {
+          console.log("Couldn't create stripe account: " + err)
+          return res.send(err)
+      }
+      console.log("ACCOUNT: " + account.id)
+      response.body = {success: account.id}
+      return res.send(response)
+    }
+  );
+});
 
 
 // const currency = functions.config().stripe.currency || 'USD';

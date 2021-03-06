@@ -13,14 +13,14 @@ let stripeApi = _stripeApi()
 
 final class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
-        
+
         let data = [
             "stripe_version": apiVersion,
-            "customer_id": User.current.stripeId
+            "customer_id": "cus_J2S3peBo7dsXeA"
         ]
-        
+
         Functions.functions().httpsCallable("createEphemeralKey").call(data) { (result, error) in
-            
+
             if let error = error {
                 print(error.localizedDescription)
                 completion(nil, error)
@@ -30,7 +30,7 @@ final class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
                 completion(nil, nil)
                 return
             }
-            
+
             completion(key, nil)
         }
     }
