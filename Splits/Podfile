@@ -6,17 +6,25 @@ target 'Splits' do
   use_frameworks!
 
   # Pods for Splits
-	pod 'Firebase/Analytics'
-	pod 'Firebase/Core'
-	pod 'FirebaseUI/Auth'
-	pod 'FirebaseUI/Google'
-	pod 'FirebaseUI/Email'
-	pod 'Firebase/Functions'
+  pod 'Firebase/Analytics'	
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/Email'
+  pod 'Firebase/Functions'
   pod 'FirebaseUI/Facebook'
   pod 'FirebaseDatabase'
   pod 'FBSDKLoginKit'
   pod 'Stripe'
   pod 'Alamofire'
   pod 'SwiftyContacts', '~> 3.0'
+  pod 'IBAnimatable'
   
+end
+
+# Workaround for Cocoapods issue #7606
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings.delete('CODE_SIGNING_ALLOWED')
+        config.build_settings.delete('CODE_SIGNING_REQUIRED')
+    end
 end

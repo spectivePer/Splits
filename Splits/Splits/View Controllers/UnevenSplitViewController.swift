@@ -1,39 +1,60 @@
-//
-//  UnevenSplitViewController.swift
-//  Splits
-//
-//  Created by Jocelyn Park on 2/27/21.
-//
+/*
+See LICENSE folder for this sample’s licensing information.
 
-import Foundation
+Abstract:
+View controller from which to invoke the document scanner.
+*/
+
 import UIKit
+import VisionKit
+import Vision
 
-class UnevenSplitViewController:UIViewController {
+class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
+    static let receiptContentsIdentifier = "receiptContentsVC"
+    var resultsViewController: (UIViewController & RecognizedTextDataSource)?
+    var textRecognitionRequest = VNRecognizeTextRequest()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
+            guard let resultsViewController = self.resultsViewController else {
+                print("resultsViewController is not set")
+                return
+            }
+            if let results = request.results, !results.isEmpty {
+                if let requestResults = request.results as? [VNRecognizedTextObservation] {
+                    DispatchQueue.main.async {
+                        resultsViewController.addRecognizedText(recognizedText: requestResults)
+                    }
+                }
+            }
+        })
     }
-    
+
     @IBAction func addItem(_ sender: UIBarButtonItem) {
-        displayView(storyboard: "newSplit", vcName: "addItemView")
+        displayViewController(storyboard: "newSplit", vcName: "addItemView")
+    }
+    @IBAction func scan(_ sender: UIControl) {
+        let documentCameraViewController = VNDocumentCameraViewController()
+        documentCameraViewController.delegate = self
+        present(documentCameraViewController, animated: true)
     }
     
-    @IBAction func previousView(_ sender: Any) {
-        displayView(storyboard: "newSplit", vcName: "addContactsView")
+    func processImage(image: UIImage) {
+        guard let cgImage = image.cgImage else {
+            print("Failed to get cgimage from input image")
+            return
+        }
+        
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        do {
+            try handler.perform([textRecognitionRequest])
+        } catch {
+            print(error)
+        }
     }
     
-    @IBAction func scanReceipt(_ sender: Any) {
-        displayView(storyboard: "newSplit", vcName: "scanReceiptView")
-    }
-    
-    
-    //TODO: Add split name from addContacts vc
-    //TODO: Add participants from addContacts vc
-    //TODO: table view of item description, price, and assigned participant
-    //TODO: Link camera button
-    //TODO: Link create split to payment
-    
-    func displayView(storyboard: String, vcName: String) {
+    func displayViewController(storyboard: String, vcName: String) {
             // handle new user
             let sb = UIStoryboard(name: storyboard, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: vcName)
@@ -42,3 +63,28 @@ class UnevenSplitViewController:UIViewController {
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
 }
+
+extension UnevenSplitViewController {
+    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+        let vcID:String? = UnevenSplitViewController.receiptContentsIdentifier
+        
+        if let vcID = vcID {
+            resultsViewController = storyboard?.instantiateViewController(withIdentifier: vcID) as? (UIViewController & RecognizedTextDataSource)
+        }
+        
+        controller.dismiss(animated: true) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                for pageNumber in 0 ..< scan.pageCount {
+                    let image = scan.imageOfPage(at: pageNumber)
+                    self.processImage(image: image)
+                }
+                DispatchQueue.main.async {
+                    if let resultsVC = self.resultsViewController {
+                        self.navigationController?.pushViewController(resultsVC, animated: true)
+                    }
+                }
+            }
+        }
+    }
+}
+

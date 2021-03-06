@@ -10,11 +10,22 @@ import UIKit
 
 class AddContactsViewController: UIViewController {
     
+    @IBOutlet weak var splitName: UITextField!
+    @IBOutlet weak var splitWithLabel: UILabel!
+    
     @IBOutlet weak var friendsTable: UITableView!
+    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var friends: [String: String] = [:]
     var friendsArray: [String] = []
     var friendsIDArray: [String] = []
     var chosenFriends: [String: String] = [:]
+    var friendsDict: [String:String] = [:]
+    var splittersNames: String = "Participants: "
+    
+    var searching = false
+    var searchedFriends = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +35,19 @@ class AddContactsViewController: UIViewController {
 
         self.friendsTable.dataSource = self
         self.friendsTable.delegate = self
+        self.searchBar.delegate = self
+        
+        friendsTable.isHidden = true
+        buttonView.isHidden = false
 
     }
     
-    @IBAction func previousView(_ sender: UIBarButtonItem) {
-        displayView(storyboard: "main", vcName: "homeView")
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func previousView(_ sender: UIButton) {
+        displayView(storyboard: "Main", vcName: "homeView")
     }
     //TODO: selects contacts to add to split from table
     //TODO: recent/most splitting contacts at the top
@@ -52,12 +71,12 @@ class AddContactsViewController: UIViewController {
     }
     
     func displayEvenSplitView(vcName: String) {
-        
+        guard let splitName = splitName.text else {return}
         // Check if chosen friends are Users/Non-Users based on phone number
         // let (users, nonUsers) = UserService.checkUsersAreVerified(users: chosenFriends)
         
         // create new group with the chosen friends to split with
-        GroupService.createGroup(groupName: "SomeGroupName", users: chosenFriends) { (group, uid) in
+        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid) in
             
             // handle new user
             let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
@@ -78,6 +97,7 @@ class AddContactsViewController: UIViewController {
             
             friendsArray.append(contentsOf: Array(upUser.friends.values))
             friendsIDArray.append(contentsOf: Array(upUser.friends.keys))
+            
             self.friendsTable.reloadData()
             
 //            // For when we implement adding friends as Non-Users
@@ -103,9 +123,12 @@ class AddContactsViewController: UIViewController {
         friendsArray = Array(contacts.values)
         friendsIDArray = Array(contacts.keys)
         
+        friendsDict = Dictionary(zip(friendsArray, friendsIDArray), uniquingKeysWith: { (first, _) in first })
+    
 //        // For when we implement adding friends as Non-Users
 //         friends = contacts
     }
+    
 }
 
 extension AddContactsViewController: UITableViewDelegate {
@@ -114,24 +137,50 @@ extension AddContactsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // get the name and ID from respective arrays
-        let selectedName = friendsArray[indexPath.row]
-        let selectedID = friendsIDArray[indexPath.row]
+        
+        var selectedName = friendsArray[indexPath.row]
+        var selectedID = friendsIDArray[indexPath.row]
+    
+        if searching {
+            selectedName = searchedFriends[indexPath.row]
+            selectedID = friendsDict[selectedName] ?? ""
+            print(selectedID)
+        }
         
         // if the index does not exist, store the index:ID
         if chosenFriends[selectedID] == nil {
             chosenFriends[selectedID] = selectedName
         }
         print(chosenFriends)
+        splittersNames = "Participants: "
+        chosenFriends.forEach{ name in
+            splittersNames += name.value + ", "
+        }
+        splitWithLabel.text? = splittersNames
+
     }
     
     // Remove the user from the chosen friends dictionary
     func tableView(_ tableView:UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         // get the ID from respective arrays
-        let selectedID = friendsIDArray[indexPath.row]
-        
+        var selectedName = friendsArray[indexPath.row]
+        var selectedID = friendsIDArray[indexPath.row]
+    
+        if searching {
+            selectedName = searchedFriends[indexPath.row]
+            selectedID = friendsDict[selectedName] ?? ""
+            print(selectedID)
+        }
+                
         chosenFriends.removeValue(forKey: selectedID)
         print(chosenFriends)
+        
+        splittersNames = "Participants: "
+        chosenFriends.forEach{ name in
+            splittersNames += name.value + ", "
+        }
+        splitWithLabel.text? = splittersNames
     }
 }
 
@@ -139,12 +188,42 @@ extension AddContactsViewController: UITableViewDelegate {
 extension AddContactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(friendsArray)
-        return friendsArray.count
+        if searching {
+            return searchedFriends.count
+        } else {
+            return friendsArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = friendsArray[indexPath.row]
+        
+        if searching {
+            cell.textLabel?.text = searchedFriends[indexPath.row]
+        } else {
+            cell.textLabel?.text = friendsArray[indexPath.row]
+        }
+        
         return cell
     }
+}
+
+extension AddContactsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        friendsTable.isHidden = false
+        buttonView.isHidden = true
+        searchedFriends = friendsArray.filter{ $0.lowercased().prefix(searchText.count) == searchText.lowercased() }
+        searching = true
+        friendsTable.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        friendsTable.isHidden = true
+        buttonView.isHidden = false
+        searching = false
+        searchBar.text = ""
+        friendsTable.reloadData()
+        self.view.endEditing(true)
+    }
+    
 }

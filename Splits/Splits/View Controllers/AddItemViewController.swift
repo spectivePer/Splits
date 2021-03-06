@@ -9,26 +9,32 @@ import Foundation
 import UIKit
 
 class AddItemViewController:UIViewController {
+    @IBOutlet weak var itemDescription: UITextField!
+    @IBOutlet weak var itemPrice: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        let tap = UITapGestureRecognizer(target: (view), action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
-    //TODO: User input item name
-    //TODO: User input price
     //TODO: User select participant(s)
     
     @IBAction func cancelItem(_ sender: Any) {
-        displayView(storyboard: "newSplit", vcName: "unevenSplitView")
+        displayViewController(storyboard: "newSplit", vcName: "unevenSplitView")
     }
     
     //TODO: Add item to unevenSplit vc table
     @IBAction func addItemButton(_ sender: Any) {
-        displayView(storyboard: "newSplit", vcName: "unevenSplitView")
+        guard let description = itemDescription.text else { return }
+        guard let price = itemPrice.text else { return }
+        print("\(description), \(price)")
+        
+        displayViewController(storyboard: "newSplit", vcName: "unevenSplitView")
     }
     
-    
-    func displayView(storyboard: String, vcName: String) {
+    func displayViewController(storyboard: String, vcName: String) {
             // handle new user
             let sb = UIStoryboard(name: storyboard, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: vcName)
@@ -36,5 +42,4 @@ class AddItemViewController:UIViewController {
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
-    
 }

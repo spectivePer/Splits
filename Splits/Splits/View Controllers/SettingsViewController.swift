@@ -19,12 +19,9 @@ class CircularImageView: UIImageView {
 }
 */
 class SettingsViewController: UIViewController {
-
-    @IBOutlet weak var profileView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileView.image = UIImage(named: "person")
         
         // Do any additional setup after loading the view.
     }

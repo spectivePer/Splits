@@ -109,9 +109,11 @@ class User: Codable {
         for contact in contacts {
             let contactFirstName = (contact.givenName)
             let contactLastName = (contact.familyName)
-            if let contactPhoneNumber =  (contact.phoneNumbers[0].value).value(forKey: "digits") as? String {
+            if !contact.phoneNumbers.isEmpty {
+                if let contactPhoneNumber =  (contact.phoneNumbers[0].value).value(forKey: "digits") as? String {
                 let contactFullName = contactFirstName + " " + contactLastName
                 retContacts[contactPhoneNumber] = contactFullName
+            }
             }
         }
         return retContacts
