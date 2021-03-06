@@ -45,7 +45,7 @@ struct UserService {
                 completion(newUser)
 
             } else {
-                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, groups: [], friends: friends)
+                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: "", groups: [], friends: friends)
                 newUser.friends = friends
                 completion(newUser)
             }

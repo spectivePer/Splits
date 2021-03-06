@@ -65,23 +65,22 @@ class AddContactsViewController: UIViewController {
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
  
-    /*
+    
     func displayEvenSplitView(vcName: String) {
         guard let splitName = splitName.text else {return}
 
-        // create new group with the chosen friends to split with
+//         create new group with the chosen friends to split with
         GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid, users) in
             UserService.addGroupIDToUsers(uid: uid, groupName: splitName, users: users)
-            // handle new user
+//             handle new user
             let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: vcName)
-            // set the stack so that it only contains main and animate it
+//             set the stack so that it only contains main and animate it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
         }
         
     }
-    */
   
     func getFriends() {
         UserService.updateCurrentUser(user: User.current) { [self] (updatedUser) in
