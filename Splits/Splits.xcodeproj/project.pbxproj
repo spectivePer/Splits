@@ -10,7 +10,6 @@
 		0C588A8425F306D4002E001D /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8325F306D4002E001D /* StripeApi.swift */; };
 		0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8625F30723002E001D /* PaymentViewController.swift */; };
 		0C67622B25ECB87B002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
-		0C67629425EFFD3E002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
 		4B9DC23F25EC4CE700C23AF6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23E25EC4CE700C23AF6 /* Transaction.swift */; };
@@ -501,14 +500,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VM4TLAGF3F;
+				DEVELOPMENT_TEAM = 92C9W249HN;
 				INFOPLIST_FILE = Splits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -523,14 +522,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VM4TLAGF3F;
+				DEVELOPMENT_TEAM = 92C9W249HN;
 				INFOPLIST_FILE = Splits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
