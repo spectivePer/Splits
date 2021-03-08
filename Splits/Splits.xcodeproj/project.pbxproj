@@ -19,11 +19,9 @@
 		730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */; };
 		730A5B6825F2C176007DE526 /* ReceiptContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */; };
 		730A5B9525F3100F007DE526 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B9425F3100F007DE526 /* CreateViewController.swift */; };
-		7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */; };
 		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
 		7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */; };
-		7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33025EB75E7007F54C2 /* AddItemViewController.swift */; };
 		95FD1DE9252CE4518FEBEC31 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D855B1837A99D90A924127 /* Pods_Splits.framework */; };
 		ACBE426C25F2FD3F00B64ECC /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBE426B25F2FD3F00B64ECC /* Create.storyboard */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
@@ -54,11 +52,9 @@
 		730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextDataSource.swift; sourceTree = "<group>"; };
 		730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptContentsViewController.swift; sourceTree = "<group>"; };
 		730A5B9425F3100F007DE526 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
-		7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = newSplit.storyboard; sourceTree = "<group>"; };
 		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenSplitViewController.swift; sourceTree = "<group>"; };
-		7397C33025EB75E7007F54C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		ACBE426B25F2FD3F00B64ECC /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +160,6 @@
 		ACD30D3225DF33A900229D65 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				7397C2F725EB1FE8007F54C2 /* newSplit.storyboard */,
 				ACD30D0C25DEFC6800229D65 /* Launch Screen.storyboard */,
 				ACD30D4525DF7D7E00229D65 /* Login.storyboard */,
 				ACD30D3F25DF4A6000229D65 /* Main.storyboard */,
@@ -192,7 +187,6 @@
 				7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */,
 				7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */,
 				7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */,
-				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
 				730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */,
 				730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */,
 				0C588ABC25F420FC002E001D /* StripePayViewController.swift */,
@@ -281,7 +275,6 @@
 			files = (
 				ACD30D4025DF4A6000229D65 /* Main.storyboard in Resources */,
 				ACD30CBA25DE610300229D65 /* Assets.xcassets in Resources */,
-				7397C2F825EB1FE8007F54C2 /* newSplit.storyboard in Resources */,
 				ACD30D0D25DEFC6800229D65 /* Launch Screen.storyboard in Resources */,
 				ACD30D4625DF7D7E00229D65 /* Login.storyboard in Resources */,
 				ACD30CC825DE622300229D65 /* GoogleService-Info.plist in Resources */,
@@ -369,7 +362,6 @@
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
 				0C588AC125F4A074002E001D /* CheckoutViewController.swift in Sources */,
 				730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */,
-				7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */,
 				730A5B6825F2C176007DE526 /* ReceiptContentsViewController.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */,

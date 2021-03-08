@@ -46,14 +46,26 @@ class AddContactsViewController: UIViewController {
     }
     //TODO: selects contacts to add to split from table
     //TODO: recent/most splitting contacts at the top
-    //TODO: user enter split name
     
-    @IBAction func splitEvenlyButton(_ sender: Any) {
-        //displayEvenSplitView(vcName: "evenSplitView")
-    }
-    
-    @IBAction func splitUnevenlyButton(_ sender: Any) {
-        //displayEvenSplitView(vcName: "unevenSplitView")
+    @IBAction func startSplit(_ sender: Any) {
+        guard let splitName = splitName.text else {return}
+
+//         create new group with the chosen friends to split with
+        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid, users) in
+            UserService.addGroupIDToUsers(uid: uid, groupName: splitName, users: users)
+            
+            let sb = UIStoryboard(name: "Create", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: "createSplitVC") as? CreateViewController
+            else {
+                assertionFailure("CAN'T FIND LOGIN VIEW")
+                return
+            }
+            // set the stack so that it only contains main and animate it
+            let friends = Array(self.chosenFriends.values)
+            vc.participants = friends
+            //let viewControllers = [vc]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func displayView(storyboard: String, vcName: String) {
@@ -65,22 +77,6 @@ class AddContactsViewController: UIViewController {
             self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
  
-    
-    func displayEvenSplitView(vcName: String) {
-        guard let splitName = splitName.text else {return}
-
-//         create new group with the chosen friends to split with
-        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid, users) in
-            UserService.addGroupIDToUsers(uid: uid, groupName: splitName, users: users)
-//             handle new user
-            let storyboard = UIStoryboard(name: "newSplit", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: vcName)
-//             set the stack so that it only contains main and animate it
-            let viewControllers = [vc]
-            self.navigationController?.setViewControllers(viewControllers, animated: true)
-        }
-        
-    }
   
     func getFriends() {
         UserService.updateCurrentUser(user: User.current) { [self] (updatedUser) in
@@ -134,7 +130,6 @@ extension AddContactsViewController: UITableViewDelegate {
         if chosenFriends[selectedID] == nil {
             chosenFriends[selectedID] = selectedName
         }
-        print(chosenFriends)
         splittersNames = "Participants: "
         chosenFriends.forEach{ name in
             splittersNames += name.value + ", "
@@ -170,7 +165,6 @@ extension AddContactsViewController: UITableViewDelegate {
 
 extension AddContactsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(friendsArray)
         if searching {
             return searchedFriends.count
         } else {
