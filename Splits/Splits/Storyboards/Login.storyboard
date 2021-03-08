@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v2u-qP-zhG">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,17 +12,19 @@
             <objects>
                 <viewController storyboardIdentifier="loginView" id="2UL-hj-Wrh" customClass="LoginViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFg-e2-fDZ" customClass="AnimatableView" customModule="IBAnimatable">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Splits logo" translatesAutoresizingMaskIntoConstraints="NO" id="GMq-Nu-Qcg">
-                                <rect key="frame" x="158" y="420" width="98" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Splits logo" translatesAutoresizingMaskIntoConstraints="NO" id="GMq-Nu-Qcg">
+                                <rect key="frame" x="111" y="256.5" width="98" height="55"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8i-Lt-vcD" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="101" y="636" width="213" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8i-Lt-vcD" customClass="AnimatableButton" customModule="IBAnimatable">
+                                <rect key="frame" x="53.5" y="456" width="213" height="61"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="Nqb-2k-oRr"/>
+                                    <constraint firstAttribute="width" constant="213" id="dGI-ej-ZoR"/>
+                                </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Login or Register">
@@ -46,6 +48,13 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8vg-s5-pet"/>
                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GMq-Nu-Qcg" firstAttribute="centerX" secondItem="CFg-e2-fDZ" secondAttribute="centerX" id="2Y8-hx-EcS"/>
+                            <constraint firstItem="8vg-s5-pet" firstAttribute="bottom" secondItem="d8i-Lt-vcD" secondAttribute="bottom" constant="51" id="78g-GU-QbZ"/>
+                            <constraint firstItem="d8i-Lt-vcD" firstAttribute="centerX" secondItem="CFg-e2-fDZ" secondAttribute="centerX" id="Nd1-Hu-3d5"/>
+                            <constraint firstItem="GMq-Nu-Qcg" firstAttribute="centerY" secondItem="CFg-e2-fDZ" secondAttribute="centerY" id="QM4-BY-dgp"/>
+                            <constraint firstItem="d8i-Lt-vcD" firstAttribute="centerX" secondItem="CFg-e2-fDZ" secondAttribute="centerX" id="vUC-nt-bC2"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                 <color key="value" red="0.91184580329999998" green="0.70496505499999995" blue="0.45092719790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -66,35 +75,18 @@
             <objects>
                 <viewController storyboardIdentifier="userInfoView" id="w97-lj-tAm" customClass="UserInfoViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ela-1A-IUh" customClass="AnimatableView" customModule="IBAnimatable">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Splits logo" translatesAutoresizingMaskIntoConstraints="NO" id="hjO-u2-szj">
-                                <rect key="frame" x="158" y="165" width="98" height="55"/>
+                                <rect key="frame" x="111" y="121" width="98" height="55"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n5c-zq-uCt">
-                                <rect key="frame" x="67" y="314" width="280" height="34"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDC-ds-MpV">
-                                <rect key="frame" x="89" y="256" width="237" height="40"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Add a username!">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="29" name="Avenir-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8Y-Q3-40C" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="101" y="635" width="213" height="61"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8Y-Q3-40C" customClass="AnimatableButton" customModule="IBAnimatable">
+                                <rect key="frame" x="53.5" y="456" width="213" height="61"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="yxn-cX-2LK"/>
+                                    <constraint firstAttribute="height" constant="61" id="NVG-8Y-sPQ"/>
+                                    <constraint firstAttribute="width" constant="213" id="QAK-nk-XXE"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -116,45 +108,70 @@
                                     <action selector="nextButtonTapped:" destination="w97-lj-tAm" eventType="touchUpInside" id="kxv-Eo-tcz"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="+1 (916) 444-5555" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ekm-JD-VdS">
-                                <rect key="frame" x="67" y="460" width="280" height="34"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP3-li-DG0">
-                                <rect key="frame" x="67" y="407.5" width="280" height="30.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Add a Phone Number!">
-                                        <attributes>
-                                            <color key="NSColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="22" name="Avenir-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="JJB-oL-9Nu">
+                                <rect key="frame" x="10" y="219" width="300" height="188.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p3o-IY-DeS">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="74"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDC-ds-MpV">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Add a username!">
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="29" name="Avenir-Black"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n5c-zq-uCt">
+                                                <rect key="frame" x="0.0" y="40" width="300" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="2UF-bA-ZIU"/>
+                                                </constraints>
+                                                <attributedString key="attributedText"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sfD-21-8xa">
+                                        <rect key="frame" x="0.0" y="124" width="300" height="64.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP3-li-DG0">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Add a Phone Number!">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="22" name="Avenir-Black"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="+1 (916) 444-5555" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ekm-JD-VdS">
+                                                <rect key="frame" x="0.0" y="30.5" width="300" height="34"/>
+                                                <attributedString key="attributedText"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ojN-GW-8Ab"/>
                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qP3-li-DG0" firstAttribute="top" secondItem="n5c-zq-uCt" secondAttribute="bottom" constant="59.5" id="0Ks-zn-j4V"/>
-                            <constraint firstItem="ojN-GW-8Ab" firstAttribute="bottom" secondItem="S8Y-Q3-40C" secondAttribute="bottom" constant="166" id="B8f-Y9-VHy"/>
+                            <constraint firstItem="JJB-oL-9Nu" firstAttribute="top" secondItem="hjO-u2-szj" secondAttribute="bottom" constant="43" id="1Jt-DM-DhG"/>
+                            <constraint firstItem="ojN-GW-8Ab" firstAttribute="bottom" secondItem="S8Y-Q3-40C" secondAttribute="bottom" constant="51" id="1v6-1g-RzQ"/>
                             <constraint firstItem="hjO-u2-szj" firstAttribute="top" secondItem="ojN-GW-8Ab" secondAttribute="top" constant="121" id="Feu-Za-QJ7"/>
-                            <constraint firstItem="n5c-zq-uCt" firstAttribute="trailing" secondItem="qP3-li-DG0" secondAttribute="trailing" id="H54-Ld-mgh"/>
-                            <constraint firstItem="Ekm-JD-VdS" firstAttribute="centerX" secondItem="S8Y-Q3-40C" secondAttribute="centerX" id="OZz-7k-Zn9"/>
-                            <constraint firstItem="qP3-li-DG0" firstAttribute="trailing" secondItem="Ekm-JD-VdS" secondAttribute="trailing" id="PRc-SA-Et8"/>
-                            <constraint firstItem="Ekm-JD-VdS" firstAttribute="top" secondItem="qP3-li-DG0" secondAttribute="bottom" constant="22" id="Pam-Tp-CQc"/>
                             <constraint firstItem="hjO-u2-szj" firstAttribute="centerX" secondItem="ela-1A-IUh" secondAttribute="centerX" id="Teu-tY-NQf"/>
-                            <constraint firstItem="n5c-zq-uCt" firstAttribute="top" secondItem="VDC-ds-MpV" secondAttribute="bottom" constant="18" id="b8r-jj-LTo"/>
-                            <constraint firstItem="hjO-u2-szj" firstAttribute="centerX" secondItem="VDC-ds-MpV" secondAttribute="centerX" id="bAS-e8-cMT"/>
-                            <constraint firstItem="n5c-zq-uCt" firstAttribute="leading" secondItem="ojN-GW-8Ab" secondAttribute="leading" constant="67" id="fh8-VN-iy6"/>
-                            <constraint firstItem="VDC-ds-MpV" firstAttribute="centerX" secondItem="n5c-zq-uCt" secondAttribute="centerX" id="hkq-ih-Ski"/>
-                            <constraint firstItem="VDC-ds-MpV" firstAttribute="top" secondItem="hjO-u2-szj" secondAttribute="bottom" constant="36" id="hyJ-Q9-e9e"/>
-                            <constraint firstItem="S8Y-Q3-40C" firstAttribute="leading" secondItem="ojN-GW-8Ab" secondAttribute="leading" constant="101" id="iH0-Rv-eWb"/>
-                            <constraint firstItem="qP3-li-DG0" firstAttribute="leading" secondItem="Ekm-JD-VdS" secondAttribute="leading" id="jqf-jD-VIJ"/>
-                            <constraint firstItem="VDC-ds-MpV" firstAttribute="leading" secondItem="ojN-GW-8Ab" secondAttribute="leading" constant="89" id="n3Y-ND-pdl"/>
-                            <constraint firstItem="n5c-zq-uCt" firstAttribute="leading" secondItem="qP3-li-DG0" secondAttribute="leading" id="oLG-nc-6hi"/>
+                            <constraint firstItem="JJB-oL-9Nu" firstAttribute="centerX" secondItem="ela-1A-IUh" secondAttribute="centerX" id="gSx-6z-F5l"/>
+                            <constraint firstItem="JJB-oL-9Nu" firstAttribute="centerX" secondItem="S8Y-Q3-40C" secondAttribute="centerX" id="iAe-gV-T45"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">

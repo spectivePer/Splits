@@ -22,7 +22,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     @IBOutlet weak var splitNameLabel: UILabel!
     @IBOutlet weak var equalSplitAmount: UILabel!
-    @IBOutlet weak var keyPad: UIView!
+    @IBOutlet weak var keyPad: UIStackView!
     @IBOutlet weak var periodButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
