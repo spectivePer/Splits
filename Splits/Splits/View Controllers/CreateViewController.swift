@@ -262,6 +262,29 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         }
     }
     
+    
+    @IBAction func createSplit(_ sender: UIButton) {
+        guard var totalAmountString = equalSplitAmount.text else {
+            print("no amount inputted")
+            return
+        }
+        
+        let numberOfParticipants = participants.count + 1
+        
+        //remove dollar sign in front of the string
+        totalAmountString = String(totalAmountString.dropFirst())
+        
+        //convert total amount string to double
+        let totalAmount = Double(totalAmountString) ?? 0.0
+        
+        //ERROR: Displays one decimal place for whole numbers. ie: $10.0 instead of $10.00
+        let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
+        print("Participants pay $\(evenSplitAmount) each")
+        
+        displayViewController(storyboard: "Main", vcName: "homeView")
+    }
+    
+    
 }
 
 // MARK: Custom Receipt Class
