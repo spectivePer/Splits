@@ -36,10 +36,7 @@ class HomeViewController: UIViewController {
                 
                 try Auth.auth().signOut()
                 
-                let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "loginView")
-                let viewControllers = [vc]
-                self.navigationController?.setViewControllers(viewControllers, animated: true)
+                self.displayViewController(storyboard: "Login", vcName: "loginView")
                 
                 User.removeCurrent(User.current)
                 print(Auth.auth().currentUser?.uid ?? "no user 2")
@@ -66,5 +63,33 @@ extension UIViewController {
             // set the stack so that it only contains vc and animates it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
+    }
+}
+
+class SplitsTableCell: UITableViewCell {
+    let splits: String = ""
+    let sections: [String] = ["Pending Payments", "Pending Charges", "Completed Splits"]
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+
+   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var rowCount = 0
+    
+        switch section {
+        case 0: rowCount = splits.count
+        case 1: rowCount = splits.count
+        case 2: rowCount = splits.count
+        }
+    
+        return rowCount
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let ip = indexPath
+        cell.textLabel?.text = Data1[ip.row] as String
+        return cell
     }
 }
