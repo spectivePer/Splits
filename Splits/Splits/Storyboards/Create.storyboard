@@ -231,77 +231,6 @@
             </objects>
             <point key="canvasLocation" x="1286.9565217391305" y="93.75"/>
         </scene>
-        <!--Stripe Pay View Controller-->
-        <scene sceneID="4sW-DD-Y5E">
-            <objects>
-                <viewController storyboardIdentifier="StripePayVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6eq-WB-SD7" customClass="StripePayViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jFs-v1-vQY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ip2-Gr-Wn8">
-                                <rect key="frame" x="162" y="832" width="112" height="30"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <state key="normal" title="Pay">
-                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="paymentClicked:" destination="6eq-WB-SD7" eventType="touchUpInside" id="qcI-yN-B5Z"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="117" translatesAutoresizingMaskIntoConstraints="NO" id="2q0-i3-rcP">
-                                <rect key="frame" x="33" y="754" width="357.5" height="33"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chj-rt-tPZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="129.5" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-iB-Mb3">
-                                        <rect key="frame" x="246.5" y="0.0" width="111" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Select Method"/>
-                                        <connections>
-                                            <action selector="selectPaymentMethod:" destination="6eq-WB-SD7" eventType="touchUpInside" id="cgs-yI-qai"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6tM-fi-VPz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="2q0-i3-rcP" firstAttribute="leading" secondItem="6tM-fi-VPz" secondAttribute="leading" constant="33" id="BxB-06-CiD"/>
-                            <constraint firstItem="6tM-fi-VPz" firstAttribute="trailing" secondItem="2q0-i3-rcP" secondAttribute="trailing" constant="23.5" id="FWO-t0-nwZ"/>
-                            <constraint firstItem="6tM-fi-VPz" firstAttribute="trailing" secondItem="Ip2-Gr-Wn8" secondAttribute="trailing" constant="140" id="H2E-L8-nNe"/>
-                            <constraint firstItem="Ip2-Gr-Wn8" firstAttribute="top" secondItem="2q0-i3-rcP" secondAttribute="bottom" constant="45" id="HQI-T7-ogG"/>
-                            <constraint firstItem="Ip2-Gr-Wn8" firstAttribute="leading" secondItem="6tM-fi-VPz" secondAttribute="leading" constant="162" id="t3b-27-gak"/>
-                            <constraint firstItem="Ip2-Gr-Wn8" firstAttribute="bottom" secondItem="6tM-fi-VPz" secondAttribute="bottom" id="yMN-ix-iDZ"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="paymentMethodBtn" destination="JmN-iB-Mb3" id="OUZ-Qz-5A4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j7x-GA-yOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2102.898550724638" y="93.75"/>
-        </scene>
-        <!--Checkout View Controller-->
-        <scene sceneID="sXa-rU-INN">
-            <objects>
-                <viewController storyboardIdentifier="CKViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G5U-Ed-5CL" customClass="CheckoutViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L6O-Ec-zmw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jId-3L-m0r"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YYJ-Uo-eet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2867" y="94"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3aD-fh-3Ce">
             <objects>
@@ -654,9 +583,6 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

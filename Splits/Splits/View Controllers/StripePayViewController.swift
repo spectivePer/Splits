@@ -49,7 +49,7 @@ class StripePayViewController: UIViewController {
     @IBAction func selectPaymentMethod(_ sender: Any) {
 //        paymentContext.pushPaymentOptionsViewController()
         // handle new user
-        let storyboard = UIStoryboard(name: "Create", bundle: nil)
+        let storyboard = UIStoryboard(name: "StripePay", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CKViewController")
         // set the stack so that it only contains main and animate it
         let viewControllers = [vc]
