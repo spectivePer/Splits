@@ -8,7 +8,7 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### Completed Tasks
-Jocelyn: OCR, delete item from list, calculate even split total, calculate even split total
+Jocelyn: OCR, delete item from list, calculate even split total
 
 Paul: combine even split and uneven split UI, add item to list, assign participants to split
 
