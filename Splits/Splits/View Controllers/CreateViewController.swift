@@ -93,16 +93,18 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     @IBAction func switchedView(_ sender: Any) {
         switch pageSwitch.selectedSegmentIndex {
-        case 1:
+        case 1: //unequal split
             equalSplitAmount.isHidden = true
             keyPad.isHidden = true
             itemTableView.isHidden = false
+            plusButton.isHidden = false
             plusButton.isEnabled = true
             plusButton.setTitleColor(.black, for: .normal)
-        case 0:
+        case 0: //equal split
             equalSplitAmount.isHidden = false
             keyPad.isHidden = false
             itemTableView.isHidden = true
+            plusButton.isHidden = true
             plusButton.isEnabled = false
             plusButton.setTitleColor(.white, for: .normal)
         default:
@@ -326,6 +328,14 @@ extension CreateViewController: UITableViewDataSource {
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                print("deleted \(tableContents.items[indexPath.row].description)")
+                tableContents.items.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
 }
 
 extension CreateViewController: UITableViewDelegate {
