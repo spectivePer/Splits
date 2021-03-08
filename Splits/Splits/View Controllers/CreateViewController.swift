@@ -11,11 +11,33 @@ import Vision
 
 class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     
+    // Variables from previous view
+    var participants = [String]()
+    var splitName = String()
+    
+    @IBOutlet weak var pageSwitch: UISegmentedControl!
+    
+    
+    // MARK: Equal Split View Variables
+    
+    @IBOutlet weak var splitNameLabel: UILabel!
+    @IBOutlet weak var equalSplitAmount: UILabel!
+    @IBOutlet weak var keyPad: UIView!
+    @IBOutlet weak var periodButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
+    var tenthsPlace = false //currently in the tenths place of totalAmount
+    var hundredthsPlace = false //currently in the hundreths place of totalAmount
+    var stopInput = false //after 2 decimal places, don't update totalAmount label
+    
+    
+    // MARK: Itemized Split View and Camera Variables
+    
     @IBOutlet weak var itemTableView: UITableView!
     let receiptContentsIdentifier = "receiptContentsTable"
     var textRecognitionRequest = VNRecognizeTextRequest()
     var tableContents = ReceiptContents()
-    var participants = [String]()
+    @IBOutlet weak var plusButton: UIButton!
     
     static let textHeightThreshold: CGFloat = 0.025 //differentiate big/small labels
     
@@ -27,6 +49,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         var items = [ReceiptContentField]()
     }
     
+    // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +67,161 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 }
             }
         })
+        
+        // Equal Split
+        splitNameLabel.text = "s/ " + splitName
+        equalSplitAmount.text = "$"
+        
+        //initialize button states
+        backButton.isEnabled = false
+        periodButton.isEnabled = true
+        plusButton.isEnabled = false
+        plusButton.setTitleColor(.white, for: .normal)
+        
+        //initialize states
+        tenthsPlace = false
+        hundredthsPlace = false
+        stopInput = false
+        
+        // Selecter Settings
+        pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
+        pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
+        
     }
+    
+    // MARK: Selector
+    
+    @IBAction func switchedView(_ sender: Any) {
+        switch pageSwitch.selectedSegmentIndex {
+        case 1:
+            equalSplitAmount.isHidden = true
+            keyPad.isHidden = true
+            itemTableView.isHidden = false
+            plusButton.isEnabled = true
+            plusButton.setTitleColor(.black, for: .normal)
+        case 0:
+            equalSplitAmount.isHidden = false
+            keyPad.isHidden = false
+            itemTableView.isHidden = true
+            plusButton.isEnabled = false
+            plusButton.setTitleColor(.white, for: .normal)
+        default:
+            break
+        }
+    }
+    
+    
+    // MARK: Equal Split View
+    
+    @IBAction func keyButtonPressed(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "1")
+            }
+        case 2:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "2")
+            }
+        case 3:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "3")
+            }
+        case 4:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "4")
+            }
+        case 5:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "5")
+            }
+        case 6:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "6")
+            }
+        case 7:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "7")
+            }
+        case 8:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "8")
+            }
+        case 9:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "9")
+            }
+        case 0:
+            if !stopInput{
+                updateTotalAmountLabel(buttonName: "0")
+            }
+        case 10:
+            periodButton.isEnabled = false
+            updateTotalAmountLabel(buttonName: ".")
+        case 11:
+            updateTotalAmountLabel(buttonName: "back")
+        default:
+            return
+        }
+    }
+    
+    func updateTotalAmountLabel(buttonName: String) {
+        guard let totalAmount = equalSplitAmount.text else {
+            return
+        }
+        
+        //if back button is pressed, remove the last character
+        if buttonName == "back" {
+            if hundredthsPlace && !stopInput { //removing tenths number
+                hundredthsPlace = false
+            } else if hundredthsPlace { //removing hundredths number
+                stopInput = false
+            }
+            
+            //if removing period, enable period button
+            if(totalAmount.last == ".") {
+                periodButton.isEnabled = true
+                tenthsPlace = false
+            }
+            
+            //remove the last character
+            let updatedTotalAmount = totalAmount.dropLast()
+            equalSplitAmount.text = String(updatedTotalAmount)
+            
+            //disable the back button if no amount is inputted
+            if updatedTotalAmount == "$" {
+                backButton.isEnabled = false
+            }
+        } else {
+            //if back button wasn't pressed, add character
+            let updatedTotalAmount = totalAmount + buttonName
+            equalSplitAmount.text = updatedTotalAmount
+            
+            //enable back button if disabled
+            if !backButton.isEnabled {
+                backButton.isEnabled = true
+            }
+            
+            //if we filled the hundredths place, then stop taking in numbers
+            if hundredthsPlace {
+                stopInput = true
+            }
+            
+            //if we filled the tenths place, then take in 1 number
+            if tenthsPlace {
+                hundredthsPlace = true
+            }
+            
+            //if we set a decimal, take in 2 more numbers
+            if buttonName == "." {
+                tenthsPlace = true
+            }
+        }
+        
+        return
+    }
+    
+    // MARK: Itemized Split and Camera View
     
     // Add Receipt Button
     @IBAction func scan(_ sender: UIButton) {
