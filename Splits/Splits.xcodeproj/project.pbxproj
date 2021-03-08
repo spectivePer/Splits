@@ -11,6 +11,7 @@
 		0C588A8A25F3163C002E001D /* cloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8925F3163C002E001D /* cloudFunctions.swift */; };
 		0C588ABD25F420FD002E001D /* StripePayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588ABC25F420FC002E001D /* StripePayViewController.swift */; };
 		0C588AC125F4A074002E001D /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588AC025F4A073002E001D /* CheckoutViewController.swift */; };
+		0C588AC525F5CA11002E001D /* StripePay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C588AC425F5CA10002E001D /* StripePay.storyboard */; };
 		0C67622B25ECB87B002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
@@ -43,6 +44,7 @@
 		0C588A8925F3163C002E001D /* cloudFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloudFunctions.swift; sourceTree = "<group>"; };
 		0C588ABC25F420FC002E001D /* StripePayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripePayViewController.swift; sourceTree = "<group>"; };
 		0C588AC025F4A073002E001D /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		0C588AC425F5CA10002E001D /* StripePay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StripePay.storyboard; sourceTree = "<group>"; };
 		40D855B1837A99D90A924127 /* Pods_Splits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DC23725EC47E800C23AF6 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		4B9DC23A25EC480B00C23AF6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				ACD30D4525DF7D7E00229D65 /* Login.storyboard */,
 				ACD30D3F25DF4A6000229D65 /* Main.storyboard */,
 				ACBE426B25F2FD3F00B64ECC /* Create.storyboard */,
+				0C588AC425F5CA10002E001D /* StripePay.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD30D4025DF4A6000229D65 /* Main.storyboard in Resources */,
+				0C588AC525F5CA11002E001D /* StripePay.storyboard in Resources */,
 				ACD30CBA25DE610300229D65 /* Assets.xcassets in Resources */,
 				ACD30D0D25DEFC6800229D65 /* Launch Screen.storyboard in Resources */,
 				ACD30D4625DF7D7E00229D65 /* Login.storyboard in Resources */,
