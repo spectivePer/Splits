@@ -260,15 +260,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         }
     }
     
-    func displayViewController(storyboard: String, vcName: String) {
-            // handle new user
-            let sb = UIStoryboard(name: storyboard, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: vcName)
-            // set the stack so that it only contains main and animate it
-            let viewControllers = [vc]
-            self.navigationController?.setViewControllers(viewControllers, animated: true)
-    }
-    
 }
 
 // MARK: Custom Receipt Class

@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C588A8425F306D4002E001D /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8325F306D4002E001D /* StripeApi.swift */; };
-		0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8625F30723002E001D /* PaymentViewController.swift */; };
+		0C588A8A25F3163C002E001D /* cloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8925F3163C002E001D /* cloudFunctions.swift */; };
+		0C588ABD25F420FD002E001D /* StripePayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588ABC25F420FC002E001D /* StripePayViewController.swift */; };
+		0C588AC125F4A074002E001D /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588AC025F4A073002E001D /* CheckoutViewController.swift */; };
 		0C67622B25ECB87B002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
@@ -20,7 +22,6 @@
 		7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
 		7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */; };
-		7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C33025EB75E7007F54C2 /* AddItemViewController.swift */; };
 		95FD1DE9252CE4518FEBEC31 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D855B1837A99D90A924127 /* Pods_Splits.framework */; };
 		ACBE426C25F2FD3F00B64ECC /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBE426B25F2FD3F00B64ECC /* Create.storyboard */; };
 		ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD30CB025DE60FF00229D65 /* AppDelegate.swift */; };
@@ -39,7 +40,9 @@
 
 /* Begin PBXFileReference section */
 		0C588A8325F306D4002E001D /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
-		0C588A8625F30723002E001D /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		0C588A8925F3163C002E001D /* cloudFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloudFunctions.swift; sourceTree = "<group>"; };
+		0C588ABC25F420FC002E001D /* StripePayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripePayViewController.swift; sourceTree = "<group>"; };
+		0C588AC025F4A073002E001D /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		40D855B1837A99D90A924127 /* Pods_Splits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DC23725EC47E800C23AF6 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		4B9DC23A25EC480B00C23AF6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvenSplitViewController.swift; sourceTree = "<group>"; };
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenSplitViewController.swift; sourceTree = "<group>"; };
-		7397C33025EB75E7007F54C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		ACBE426B25F2FD3F00B64ECC /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD30CB025DE60FF00229D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				0C588A8325F306D4002E001D /* StripeApi.swift */,
+				0C588A8925F3163C002E001D /* cloudFunctions.swift */,
 			);
 			path = StripeApi;
 			sourceTree = "<group>";
@@ -184,10 +187,10 @@
 				7397C30925EB2B27007F54C2 /* EvenSplitViewController.swift */,
 				7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */,
 				7397C32D25EB7090007F54C2 /* UnevenSplitViewController.swift */,
-				7397C33025EB75E7007F54C2 /* AddItemViewController.swift */,
 				730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */,
 				730A5B6725F2C176007DE526 /* ReceiptContentsViewController.swift */,
-				0C588A8625F30723002E001D /* PaymentViewController.swift */,
+				0C588ABC25F420FC002E001D /* StripePayViewController.swift */,
+				0C588AC025F4A073002E001D /* CheckoutViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -352,12 +355,13 @@
 				4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
 				0C67622B25ECB87B002CDABB /* (null) in Sources */,
-				0C588A8725F30723002E001D /* PaymentViewController.swift in Sources */,
 				0C588A8425F306D4002E001D /* StripeApi.swift in Sources */,
+				0C588ABD25F420FD002E001D /* StripePayViewController.swift in Sources */,
+				0C588A8A25F3163C002E001D /* cloudFunctions.swift in Sources */,
 				4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */,
 				7397C30A25EB2B27007F54C2 /* EvenSplitViewController.swift in Sources */,
+				0C588AC125F4A074002E001D /* CheckoutViewController.swift in Sources */,
 				730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */,
-				7397C33125EB75E7007F54C2 /* AddItemViewController.swift in Sources */,
 				730A5B6825F2C176007DE526 /* ReceiptContentsViewController.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				7397C32E25EB7090007F54C2 /* UnevenSplitViewController.swift in Sources */,
@@ -496,14 +500,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -518,14 +522,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
