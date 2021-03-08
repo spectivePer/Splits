@@ -63,6 +63,7 @@ class AddContactsViewController: UIViewController {
             // set the stack so that it only contains main and animate it
             let friends = Array(self.chosenFriends.values)
             vc.participants = friends
+            vc.splitName = splitName
             //let viewControllers = [vc]
             self.navigationController?.pushViewController(vc, animated: true)
         }
