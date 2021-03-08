@@ -59,7 +59,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
 
             if let results = request.results, !results.isEmpty {
-                print("We have results!")
                 if let requestResults = request.results as? [VNRecognizedTextObservation] {
                     DispatchQueue.main.async {
                         self.addRecognizedText(recognizedText: requestResults)
@@ -69,7 +68,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         })
         
         // Equal Split
-        splitNameLabel.text = "s/ " + splitName
+        splitNameLabel.text = splitName
         equalSplitAmount.text = "$"
         
         //initialize button states

@@ -16,11 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="fVh-fx-yHK">
-                                <rect key="frame" x="9" y="44" width="396" height="628"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fVh-fx-yHK" userLabel="Main Stack View">
+                                <rect key="frame" x="9" y="44" width="300" height="813"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6u8-5l-KgS">
-                                        <rect key="frame" x="0.0" y="0.0" width="396" height="25"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6u8-5l-KgS" userLabel="Header">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="25"/>
                                         <subviews>
                                             <button opaque="NO" tag="-2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-gp-myG">
                                                 <rect key="frame" x="0.0" y="0.0" width="48.5" height="25"/>
@@ -45,7 +45,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECz-cV-ghr">
-                                                <rect key="frame" x="48.5" y="0.0" width="298.5" height="25"/>
+                                                <rect key="frame" x="48.5" y="0.0" width="202.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="6KG-zN-hff"/>
                                                 </constraints>
@@ -60,7 +60,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKg-Pt-rsH">
-                                                <rect key="frame" x="347" y="0.0" width="49" height="25"/>
+                                                <rect key="frame" x="251" y="0.0" width="49" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="LDv-JR-nYQ"/>
                                                 </constraints>
@@ -83,414 +83,415 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="clK-6m-X8O">
-                                        <rect key="frame" x="0.0" y="26" width="396" height="30"/>
+                                    <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="msY-wk-bN2">
+                                        <rect key="frame" x="0.0" y="25" width="300" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kap-Zg-Lkz"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Equal"/>
+                                            <segment title="Itemized"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedSegmentTintColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="switchedView:" destination="w9O-Me-w8F" eventType="valueChanged" id="BXC-Oi-YfA"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeE-tF-LYo" userLabel="Keypad/Table">
+                                        <rect key="frame" x="0.0" y="55" width="300" height="701.5"/>
                                         <subviews>
-                                            <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="msY-wk-bN2">
-                                                <rect key="frame" x="0.0" y="0.0" width="396" height="31"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <segments>
-                                                    <segment title="Equal"/>
-                                                    <segment title="Itemized"/>
-                                                </segments>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="selectedSegmentTintColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="switchedView:" destination="w9O-Me-w8F" eventType="valueChanged" id="BXC-Oi-YfA"/>
-                                                </connections>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="tJN-Vg-jgr"/>
-                                        </constraints>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-xJ-ibt">
-                                        <rect key="frame" x="0.0" y="57" width="396" height="150"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="roy-1z-kI6"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="$100.00">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="83" name="Avenir-Black"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-vh-2zU">
-                                        <rect key="frame" x="0.0" y="208" width="396" height="358"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="BY5-sZ-REc">
-                                                <rect key="frame" x="0.0" y="0.0" width="396" height="52"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjt-eA-hcD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="vgd-Pk-gHs"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="1">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="C9m-AH-INP"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xM-ZR-AS4">
-                                                        <rect key="frame" x="157" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="sAl-A3-Z9D"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="2">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="DkZ-zr-iNi"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MxP-G0-nnI">
-                                                        <rect key="frame" x="314" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="fe4-6N-i2C"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="3">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="hmw-g3-W5r"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GKv-KD-hyt">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="701.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="31N-Xr-PNP"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="KUD-c0-aW2">
-                                                <rect key="frame" x="0.0" y="102" width="396" height="52"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AF7-g5-Buh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="Xau-z7-ViH"/>
-                                                        </constraints>
-                                                        <state key="normal" title="4">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="4">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="Y6y-Zo-ofX"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqn-SV-Ahi">
-                                                        <rect key="frame" x="157" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="3r7-2N-Szf"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="5">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="CMe-Dx-G6o"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fkg-oI-oUJ">
-                                                        <rect key="frame" x="314" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="FF0-yw-zj2"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="6">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="nlG-dK-1Ka"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="JSm-pa-qJ8">
-                                                <rect key="frame" x="0.0" y="204" width="396" height="52"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NY4-hW-29w">
-                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="sKv-0g-7ls"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="7">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="HhR-Gh-NaS"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSx-eS-wQZ">
-                                                        <rect key="frame" x="157" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="Voi-7q-Aq6"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="8">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="91E-j9-5c3"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sqm-5Q-wBA">
-                                                        <rect key="frame" x="314" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="yCs-W5-Ndm"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="9">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="grL-mb-ODF"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="2uj-5t-mRM">
-                                                <rect key="frame" x="0.0" y="306" width="396" height="52"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-vV-Hgh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="3H6-WA-V1K"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content=".">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="34x-AY-uvT"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J28-xz-U7M">
-                                                        <rect key="frame" x="157" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="PaF-zl-Ewh"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="0">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="ScT-VY-IMq"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTN-Ti-81B">
-                                                        <rect key="frame" x="314" y="0.0" width="82" height="52"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="52" id="flM-GY-muH"/>
-                                                        </constraints>
-                                                        <state key="normal" image="chevron.backward.2" catalog="system"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="cOe-uH-cZh"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </stackView>
-                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GKv-KD-hyt">
-                                        <rect key="frame" x="0.0" y="566.5" width="396" height="509"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="509" id="WHC-TE-1D5"/>
-                                        </constraints>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="receiptTable" rowHeight="104" id="Hu1-y8-GFE" customClass="ReceiptTableCell" customModule="Splits" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="396" height="104"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hu1-y8-GFE" id="vtr-Pz-8s9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="104"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Detail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-26-6BP">
-                                                            <rect key="frame" x="20" y="59" width="97" height="34"/>
+                                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="receiptTable" rowHeight="104" id="Hu1-y8-GFE" customClass="ReceiptTableCell" customModule="Splits" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="0.0" height="104"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hu1-y8-GFE" id="vtr-Pz-8s9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="104"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Detail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-26-6BP">
+                                                                    <rect key="frame" x="20" y="59" width="97" height="34"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="34" id="1IT-uW-FDa"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oWr-1b-1lF">
+                                                                    <rect key="frame" x="146" y="9" width="230" height="86"/>
+                                                                </pickerView>
+                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-Ng-q3G">
+                                                                    <rect key="frame" x="20" y="9" width="97" height="34"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="97" id="POp-ci-xb4"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="34" id="1IT-uW-FDa"/>
+                                                                <constraint firstItem="wgK-26-6BP" firstAttribute="top" secondItem="b6O-Ng-q3G" secondAttribute="bottom" constant="16" id="27K-F4-p1f"/>
+                                                                <constraint firstItem="wgK-26-6BP" firstAttribute="bottom" secondItem="vtr-Pz-8s9" secondAttribute="bottomMargin" id="8X6-FZ-JvW"/>
+                                                                <constraint firstItem="b6O-Ng-q3G" firstAttribute="top" secondItem="vtr-Pz-8s9" secondAttribute="topMargin" constant="-2" id="EpE-75-Wte"/>
+                                                                <constraint firstItem="b6O-Ng-q3G" firstAttribute="leading" secondItem="vtr-Pz-8s9" secondAttribute="leadingMargin" id="Fvt-ZI-Fmm"/>
+                                                                <constraint firstItem="oWr-1b-1lF" firstAttribute="leading" secondItem="b6O-Ng-q3G" secondAttribute="trailing" constant="29" id="GoE-bk-kaC"/>
+                                                                <constraint firstItem="b6O-Ng-q3G" firstAttribute="top" secondItem="oWr-1b-1lF" secondAttribute="top" id="LVf-r7-6QM"/>
+                                                                <constraint firstItem="oWr-1b-1lF" firstAttribute="centerY" secondItem="vtr-Pz-8s9" secondAttribute="centerY" id="Lf1-fJ-8yl"/>
+                                                                <constraint firstItem="oWr-1b-1lF" firstAttribute="trailing" secondItem="vtr-Pz-8s9" secondAttribute="trailingMargin" id="WnS-p8-hpU"/>
+                                                                <constraint firstItem="b6O-Ng-q3G" firstAttribute="trailing" secondItem="wgK-26-6BP" secondAttribute="trailing" id="gAg-hP-VDv"/>
+                                                                <constraint firstItem="b6O-Ng-q3G" firstAttribute="leading" secondItem="wgK-26-6BP" secondAttribute="leading" id="tLs-il-Jyb"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWr-1b-1lF">
-                                                            <rect key="frame" x="146" y="9" width="230" height="86"/>
-                                                        </pickerView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-Ng-q3G">
-                                                            <rect key="frame" x="20" y="9" width="97" height="34"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="97" id="POp-ci-xb4"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="wgK-26-6BP" firstAttribute="top" secondItem="b6O-Ng-q3G" secondAttribute="bottom" constant="16" id="27K-F4-p1f"/>
-                                                        <constraint firstItem="wgK-26-6BP" firstAttribute="bottom" secondItem="vtr-Pz-8s9" secondAttribute="bottomMargin" id="8X6-FZ-JvW"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="top" secondItem="vtr-Pz-8s9" secondAttribute="topMargin" constant="-2" id="EpE-75-Wte"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="leading" secondItem="vtr-Pz-8s9" secondAttribute="leadingMargin" id="Fvt-ZI-Fmm"/>
-                                                        <constraint firstItem="oWr-1b-1lF" firstAttribute="leading" secondItem="b6O-Ng-q3G" secondAttribute="trailing" constant="29" id="GoE-bk-kaC"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="top" secondItem="oWr-1b-1lF" secondAttribute="top" id="LVf-r7-6QM"/>
-                                                        <constraint firstItem="oWr-1b-1lF" firstAttribute="centerY" secondItem="vtr-Pz-8s9" secondAttribute="centerY" id="Lf1-fJ-8yl"/>
-                                                        <constraint firstItem="oWr-1b-1lF" firstAttribute="trailing" secondItem="vtr-Pz-8s9" secondAttribute="trailingMargin" id="WnS-p8-hpU"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="trailing" secondItem="wgK-26-6BP" secondAttribute="trailing" id="gAg-hP-VDv"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="leading" secondItem="wgK-26-6BP" secondAttribute="leading" id="tLs-il-Jyb"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="detailText" destination="wgK-26-6BP" id="VG3-Dn-AAa"/>
-                                                    <outlet property="titleText" destination="b6O-Ng-q3G" id="fit-KO-HHs"/>
-                                                    <outlet property="userPickerView" destination="oWr-1b-1lF" id="OJd-tL-63e"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" id="qUH-eB-fND">
-                                        <rect key="frame" x="0.0" y="591.5" width="357" height="36.5"/>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="detailText" destination="wgK-26-6BP" id="VG3-Dn-AAa"/>
+                                                            <outlet property="titleText" destination="b6O-Ng-q3G" id="fit-KO-HHs"/>
+                                                            <outlet property="userPickerView" destination="oWr-1b-1lF" id="OJd-tL-63e"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-vh-2zU">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="701.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-xJ-ibt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="293.5"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="$100.00">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="83" name="Avenir-Black"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="BY5-sZ-REc">
+                                                        <rect key="frame" x="0.0" y="343.5" width="300" height="52"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjt-eA-hcD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="vgd-Pk-gHs"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="1">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="C9m-AH-INP"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xM-ZR-AS4">
+                                                                <rect key="frame" x="125" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="sAl-A3-Z9D"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="2">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="DkZ-zr-iNi"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MxP-G0-nnI">
+                                                                <rect key="frame" x="250" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="fe4-6N-i2C"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="3">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="hmw-g3-W5r"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="300" id="31N-Xr-PNP"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="KUD-c0-aW2">
+                                                        <rect key="frame" x="0.0" y="445.5" width="300" height="52"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AF7-g5-Buh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="Xau-z7-ViH"/>
+                                                                </constraints>
+                                                                <state key="normal" title="4">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="4">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="Y6y-Zo-ofX"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqn-SV-Ahi">
+                                                                <rect key="frame" x="125" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="3r7-2N-Szf"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="5">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="CMe-Dx-G6o"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fkg-oI-oUJ">
+                                                                <rect key="frame" x="250" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="FF0-yw-zj2"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="6">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="nlG-dK-1Ka"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="JSm-pa-qJ8">
+                                                        <rect key="frame" x="0.0" y="547.5" width="300" height="52"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NY4-hW-29w">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="sKv-0g-7ls"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="7">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="HhR-Gh-NaS"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSx-eS-wQZ">
+                                                                <rect key="frame" x="125" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="Voi-7q-Aq6"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="8">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="91E-j9-5c3"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sqm-5Q-wBA">
+                                                                <rect key="frame" x="250" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="yCs-W5-Ndm"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="9">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="grL-mb-ODF"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="2uj-5t-mRM">
+                                                        <rect key="frame" x="0.0" y="649.5" width="300" height="52"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-vV-Hgh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="3H6-WA-V1K"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content=".">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="34x-AY-uvT"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J28-xz-U7M">
+                                                                <rect key="frame" x="125" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="PaF-zl-Ewh"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="0">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="ScT-VY-IMq"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTN-Ti-81B">
+                                                                <rect key="frame" x="250" y="0.0" width="50" height="52"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="52" id="flM-GY-muH"/>
+                                                                </constraints>
+                                                                <state key="normal" image="chevron.backward.2" catalog="system"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="keyButtonPressed:" destination="w9O-Me-w8F" eventType="touchUpInside" id="cOe-uH-cZh"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fk-fc-9xB">
+                                        <rect key="frame" x="0.0" y="756.5" width="300" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="IyF-ex-4lR"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" id="qUH-eB-fND" userLabel="Button">
+                                        <rect key="frame" x="0.0" y="776.5" width="300" height="36.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O75-Jy-qU6" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="195.5" height="61"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="36.5"/>
                                                 <color key="backgroundColor" red="0.99353045230000003" green="0.59463644029999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="camera" catalog="system">
@@ -518,7 +519,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCs-Df-l5X" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="200.5" y="0.0" width="195.5" height="61"/>
+                                                <rect key="frame" x="152.5" y="0.0" width="147.5" height="36.5"/>
                                                 <color key="backgroundColor" red="0.98595362900000005" green="0.61301904920000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="XH5-U6-KYd"/>
@@ -562,8 +563,10 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fVh-fx-yHK" firstAttribute="top" secondItem="g1U-Sp-c2F" secondAttribute="top" id="JVe-M0-KYo"/>
+                            <constraint firstItem="fVh-fx-yHK" firstAttribute="centerX" secondItem="96I-Hw-N4W" secondAttribute="centerX" id="KSC-Qz-Gxs"/>
                             <constraint firstItem="g1U-Sp-c2F" firstAttribute="trailing" secondItem="fVh-fx-yHK" secondAttribute="trailing" constant="9" id="ftG-1n-VoS"/>
                             <constraint firstItem="fVh-fx-yHK" firstAttribute="leading" secondItem="g1U-Sp-c2F" secondAttribute="leading" constant="9" id="q9p-8d-dDh"/>
+                            <constraint firstItem="g1U-Sp-c2F" firstAttribute="bottom" secondItem="fVh-fx-yHK" secondAttribute="bottom" constant="5" id="uxX-m2-RGp"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="s44-hN-JeY" appends="YES" id="Hbs-sl-qye"/>
@@ -588,7 +591,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1285.5999999999999" y="93.103448275862078"/>
+            <point key="canvasLocation" x="649" y="94"/>
         </scene>
         <!--Stripe Pay View Controller-->
         <scene sceneID="4sW-DD-Y5E">
@@ -644,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7x-GA-yOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102.898550724638" y="93.75"/>
+            <point key="canvasLocation" x="1452" y="96"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="sXa-rU-INN">
@@ -659,7 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYJ-Uo-eet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2867" y="94"/>
+            <point key="canvasLocation" x="2290" y="96"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3aD-fh-3Ce">
@@ -688,23 +691,23 @@
                                 <rect key="frame" x="14" y="72" width="386" height="723.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Split Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6K-yU-vjB">
-                                        <rect key="frame" x="0.0" y="0.0" width="386" height="151"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="386" height="250"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants:" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNB-D8-rtZ">
-                                        <rect key="frame" x="0.0" y="151" width="386" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="250" width="386" height="20.5"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <searchBar contentMode="redraw" text="" placeholder="Add Participants" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-XB-vy9">
-                                        <rect key="frame" x="0.0" y="171.5" width="386" height="56"/>
+                                        <rect key="frame" x="0.0" y="270.5" width="386" height="56"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="De4-7a-dhD">
-                                        <rect key="frame" x="0.0" y="227.5" width="386" height="496"/>
+                                        <rect key="frame" x="0.0" y="326.5" width="386" height="397"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="HGI-4I-65W">
@@ -820,23 +823,6 @@
             </objects>
             <point key="canvasLocation" x="-197.10144927536234" y="94.419642857142847"/>
         </scene>
-        <!--evenSplit-->
-        <scene sceneID="ZRo-fM-lYZ">
-            <objects>
-                <viewController storyboardIdentifier="evenSplitVC" title="evenSplit" id="wRD-JB-612" customClass="EvenSplitViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="e2X-Y4-RHC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6O1-qZ-YyC"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WU1-OA-kBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="93.75"/>
-        </scene>
     </scenes>
     <designables>
         <designable name="Jr8-FZ-B3w">
@@ -860,9 +846,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
