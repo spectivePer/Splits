@@ -14,6 +14,18 @@ class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControlle
     var resultsViewController: (UIViewController & RecognizedTextDataSource)?
     var textRecognitionRequest = VNRecognizeTextRequest()
 
+    @IBOutlet weak var receiptContentsTable: UITableView!
+    
+    typealias ReceiptContentField = (price: String, description: String)
+    struct ReceiptContents {
+
+        var storeName: String?
+        var items = [ReceiptContentField]()
+    }
+    
+    public var tableContents = ReceiptContents()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
@@ -29,11 +41,14 @@ class UnevenSplitViewController: UIViewController, VNDocumentCameraViewControlle
                 }
             }
         })
+        
+        
     }
 
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         displayViewController(storyboard: "newSplit", vcName: "addItemView")
     }
+    
     @IBAction func scan(_ sender: UIControl) {
         let documentCameraViewController = VNDocumentCameraViewController()
         documentCameraViewController.delegate = self
