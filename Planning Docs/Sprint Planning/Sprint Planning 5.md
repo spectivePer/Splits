@@ -40,7 +40,7 @@ Paul: [Finished Even & Itemized split screen](https://github.com/ECS189E/project
 
 Jocelyn: [Add sections to homeVC](https://github.com/ECS189E/project-w21-splits/tree/39c9ad93237d01dcbe7f8601d8f50c9fd70a64fe)
 
-Jocelyn: [Delete item](https://github.com/ECS189E/project-w21-splits/tree/7bd96fd37e0afb4fbcac4ce9eff8ee91a0ddfd15)
+Jocelyn: [Update delete item](https://github.com/ECS189E/project-w21-splits/tree/7bd96fd37e0afb4fbcac4ce9eff8ee91a0ddfd15)
 
 Paul: [Auto layout for SE](https://github.com/ECS189E/project-w21-splits/tree/5f0f792ed652ad50c89a362882b118d165ebbddb) 
 
