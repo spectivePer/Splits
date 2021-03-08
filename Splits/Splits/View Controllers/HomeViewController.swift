@@ -81,15 +81,18 @@ class SplitsTableCell: UITableViewCell {
         case 0: rowCount = splits.count
         case 1: rowCount = splits.count
         case 2: rowCount = splits.count
+        default:
+            print("invalid section number")
         }
     
         return rowCount
     }
 
+    /*
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         let ip = indexPath
-        cell.textLabel?.text = Data1[ip.row] as String
+        cell.textLabel?.text = splits[ip.row] as String
         return cell
-    }
+    }*/
 }
