@@ -24,16 +24,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func createSplitButton(_ sender: Any) {
-        displayAddContactsView()
-    }
-    
-    func displayAddContactsView() {
-        // handle new user
-        let storyboard = UIStoryboard(name: "Create", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "addContactsVC")
-        // set the stack so that it only contains main and animate it
-        let viewControllers = [vc]
-        self.navigationController?.setViewControllers(viewControllers, animated: true)
+        displayViewController(storyboard: "Create", vcName: "addContactsVC")
     }
 
     func signOutMenu() -> UIMenu {
@@ -67,3 +58,13 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension UIViewController {
+    func displayViewController(storyboard: String, vcName: String) {
+            let sb = UIStoryboard(name: storyboard, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: vcName)
+        
+            // set the stack so that it only contains vc and animates it
+            let viewControllers = [vc]
+            self.navigationController?.setViewControllers(viewControllers, animated: true)
+    }
+}
