@@ -27,9 +27,36 @@ class AddItemViewController:UIViewController {
     
     //TODO: Add item to unevenSplit vc table
     @IBAction func addItemButton(_ sender: Any) {
+        var previousVC: UIViewController
+        // get all the viewControllers to start with
+        if let controllers = self.navigationController?.viewControllers {
+            // iterate through all the viewControllers
+            for (index, controller) in controllers.enumerated() {
+                // when you find your current viewController
+                if controller == self {
+                    // then you can get index - 1 in the viewControllers array to get the previous one
+                    previousVC = controllers[index-1]
+                }
+            }
+        }
+        
+        let updateVC = previousVC as! UnevenSplitViewController
+        
         guard let description = itemDescription.text else { return }
         guard let price = itemPrice.text else { return }
         print("\(description), \(price)")
+    
+        updateVC.tableContents.items.append(contentsOf: [(description, price)])
+    
+        guard let table = updateVC.receiptContentsTable else {
+            print("no table")
+            return
+        }
+        
+        table.beginUpdates()
+        table.insertRows(at: [IndexPath(row: updateVC.tableContents.items.count-1, section: 0)], with: .automatic)
+        table.endUpdates()
+        
         
         displayViewController(storyboard: "newSplit", vcName: "unevenSplitView")
     }

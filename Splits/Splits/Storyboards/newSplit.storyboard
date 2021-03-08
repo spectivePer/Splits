@@ -170,7 +170,7 @@
         <!--unevenSplit-->
         <scene sceneID="iUE-zH-ydH">
             <objects>
-                <viewController storyboardIdentifier="unevenSplitView" title="unevenSplit" id="nRG-Ky-iYo" customClass="UnevenSplitViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="unevenSplitView" title="unevenSplit" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nRG-Ky-iYo" customClass="UnevenSplitViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gte-i5-dOX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,6 +293,9 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="receiptContentsTable" destination="3XD-Nd-s53" id="12h-gr-tK4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzt-fw-TSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
