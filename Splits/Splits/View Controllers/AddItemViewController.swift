@@ -40,7 +40,7 @@ class AddItemViewController:UIViewController {
             }
         }
         
-        let updateVC = previousVC as! UnevenSplitViewController
+        /*let updateVC = previousVC as! UnevenSplitViewController
         
         guard let description = itemDescription.text else { return }
         guard let price = itemPrice.text else { return }
@@ -56,7 +56,7 @@ class AddItemViewController:UIViewController {
         table.beginUpdates()
         table.insertRows(at: [IndexPath(row: updateVC.tableContents.items.count-1, section: 0)], with: .automatic)
         table.endUpdates()
-        
+        */
         
         displayViewController(storyboard: "newSplit", vcName: "unevenSplitView")
     }
