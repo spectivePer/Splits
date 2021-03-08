@@ -11,7 +11,9 @@ exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
   }).then((customer) => {
     // var usersRef = admin.database.ref.child("users").child(user.uid);
     // return usersRef.update({stripeId:customer.id});
-    return admin.database().ref(`/users/${user.uid}/stripeId`).set(customer.id);
+    var path = admin.database().ref(`/users/${user.phoneNumber}/stripeId`)
+    print(path)
+    return path.set(customer.id);
   });
 });
 
@@ -90,7 +92,7 @@ exports.createConnectAccount = functions.https.onRequest((req, res) => {
 
 exports.createStripeAccountLink = functions.https.onRequest((req, res) => {
   var data = req.body
-  var accountID = data.accountID
+  var accountID = data.stripeId
   var response = {}
   stripe.accountLinks.create({
     account: accountID,

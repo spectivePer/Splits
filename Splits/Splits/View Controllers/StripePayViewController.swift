@@ -8,16 +8,18 @@ import UIKit
 import Stripe
 import FirebaseFunctions
 
-class StripePaymentViewController: UIViewController {
-
+class StripePayViewController: UIViewController {
 
     // Variables
-
+    
+    @IBOutlet weak var paymentMethodBtn: UIButton!
+    
     var paymentContext: STPPaymentContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpStripeConfig()
+//        let cloudFunctions = _cloudFunctions()
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +32,6 @@ class StripePaymentViewController: UIViewController {
         let customerContext = STPCustomerContext(keyProvider: stripeApi)
         paymentContext = STPPaymentContext(customerContext: customerContext, configuration: config, theme: .defaultTheme)
 
-
         // Change this according to split amount
 
         paymentContext.paymentAmount = 100
@@ -38,49 +39,56 @@ class StripePaymentViewController: UIViewController {
         paymentContext.hostViewController = self
 
     }
-    func paymentClicked(){
+    @IBAction func paymentClicked(_ sender: Any) {
         paymentContext.requestPayment()
-//        activityIndicator.startAnimating()
+//      activityIndicator.startAnimating()
+        
     }
 
 
-    func selectPaymentMethod(){
-        paymentContext.pushPaymentOptionsViewController()
+    @IBAction func selectPaymentMethod(_ sender: Any) {
+//        paymentContext.pushPaymentOptionsViewController()
+        // handle new user
+        let storyboard = UIStoryboard(name: "Create", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CKViewController")
+        // set the stack so that it only contains main and animate it
+        let viewControllers = [vc]
+        self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
 
 
 }
 
 
-extension StripePaymentViewController: STPPaymentContextDelegate {
+extension StripePayViewController: STPPaymentContextDelegate {
 
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
 
         // Updating the selected payment method
         if let paymentMethod = paymentContext.selectedPaymentOption {
-//            paymentMethodBtn.setTitle(paymentMethod.label, for: .normal)
+            paymentMethodBtn.setTitle(paymentMethod.label, for: .normal)
         } else{
-//            paymentMethodBtn.setTitle("Select Payment Method", for:.normal)
+            paymentMethodBtn.setTitle("Select Payment Method", for:.normal)
         }
 
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
 
-        let alertController = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert)
-
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel){ (action) in
-            self.navigationController?.popViewController(animated: true)
-        }
-        let retry = UIAlertAction(title: "Retry", style: .default) { (action) in
-            self.paymentContext.retryLoading()
-        }
-
-        alertController.addAction(cancel)
-        alertController.addAction(retry)
-
-        present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert)
+//
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel){ (action) in
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//        let retry = UIAlertAction(title: "Retry", style: .default) { (action) in
+//            self.paymentContext.retryLoading()
+//        }
+//
+//        alertController.addAction(cancel)
+//        alertController.addAction(retry)
+//
+//        present(alertController, animated: true, completion: nil)
 
     }
 
@@ -101,7 +109,7 @@ extension StripePaymentViewController: STPPaymentContextDelegate {
             if let error = error {
                 print(error.localizedDescription)
                 // send alert - unable to make charge
-//                completion(STPPaymentStatus, error)
+//               completion(STPPaymentStatus, error)
                 return
             }
             // made payment here!
@@ -136,3 +144,4 @@ extension StripePaymentViewController: STPPaymentContextDelegate {
         }
 
 }
+    

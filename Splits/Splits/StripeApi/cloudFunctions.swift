@@ -9,7 +9,10 @@ import Foundation
 import Alamofire
 import Firebase
 
-class cloudFunctions {
+
+let cloudFunctions = _cloudFunctions()
+
+final class _cloudFunctions {
     
     static func createStripeConnectAccount(uid: String, completion: @escaping(String?, String?) -> Void)  { //accountID, Error
         
@@ -37,7 +40,7 @@ class cloudFunctions {
         
         let parameters: [String:Any] = ["accountID": accountID]
         
-        let url = "https://us-central1-fir-medium-622b2.cloudfunctions.net/createStripeAccountLink"
+        let url = "https://us-central1-splits-305205.cloudfunctions.net/createStripeAccountLink"
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             
