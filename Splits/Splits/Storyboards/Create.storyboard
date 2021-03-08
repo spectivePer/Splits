@@ -501,6 +501,9 @@
                                                         <color key="value" red="0.99374514820000004" green="0.61705535649999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="createSplit:" destination="w9O-Me-w8F" eventType="touchUpInside" id="PH1-nd-UD4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
