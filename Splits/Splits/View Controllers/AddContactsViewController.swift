@@ -50,9 +50,9 @@ class AddContactsViewController: UIViewController {
     @IBAction func startSplit(_ sender: Any) {
         guard let splitName = splitName.text else {return}
 
-//         create new group with the chosen friends to split with
-        GroupService.createGroup(groupName: splitName, users: chosenFriends) { (group, uid, users) in
-            UserService.addGroupIDToUsers(uid: uid, groupName: splitName, users: users)
+//         create new split with the chosen friends to split with
+        SplitService.createSplit(recipient: User.current, splitName: splitName, users: chosenFriends) { (split, uid, users) in
+            UserService.addGroupIDToUsers(uid: uid, splitName: splitName, users: users)
             
             let sb = UIStoryboard(name: "Create", bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: "createSplitVC") as? CreateViewController
@@ -64,6 +64,8 @@ class AddContactsViewController: UIViewController {
             let friends = Array(self.chosenFriends.values)
             vc.participants = friends
             vc.splitName = splitName
+            vc.splitUid = uid
+            vc.participantMap = users
             //let viewControllers = [vc]
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -76,22 +78,6 @@ class AddContactsViewController: UIViewController {
             // set the stack so that it only contains main and animate it
             let viewControllers = [vc]
             self.navigationController?.setViewControllers(viewControllers, animated: true)
-    }
- 
-  
-    func getFriends() {
-        UserService.updateCurrentUser(user: User.current) { [self] (updatedUser) in
-            guard let upUser = updatedUser else {
-                print("no user available")
-                return
-            }
-            User.setCurrent(upUser, writeToUserDefaults: true)
-            
-            friendsArray.append(contentsOf: Array(upUser.friends.values))
-            friendsIDArray.append(contentsOf: Array(upUser.friends.keys))
-            
-            self.friendsTable.reloadData()
-        }
     }
 
     func importContacts() {
