@@ -12,13 +12,17 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var settingButton: UIButton!
+    var splitsArray: [Split]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
         welcomeLabel.text?.append(User.current.name)
-        UserService.grabUsersSnapshot()
+//        UserService.grabUsersSnapshot()
+        DispatchQueue.main.async {
+            self.getUserSplits()
+        }
         settingButton.menu = signOutMenu()
         settingButton.showsMenuAsPrimaryAction = true
     }
@@ -53,6 +57,26 @@ class HomeViewController: UIViewController {
             children: menuActions)
         return addMenu
     }
+
+    func getUserSplits() {
+        for (splitID, splitName) in User.current.splits {
+            SplitService.updateUserSplit(splitIds: splitID) { [self] (split) in
+                if let newSplit = split {
+                    self.splitsArray?.append(newSplit)
+                }
+            }
+        }
+        print("Splits: ", self.splitsArray as Any)
+        for split in User.current.splits {
+            print("Splits: ", split)
+        }
+    }
+    
+    func getUserSplitIDs () {
+        DispatchQueue.global(qos: .userInitiated).async {
+            SplitService.updateUserSplitIDs(user: User.current)
+        }
+    }
 }
 
 extension UIViewController {
@@ -67,7 +91,7 @@ extension UIViewController {
 }
 
 class SplitsTableCell: UITableViewCell {
-    let splits: String = ""
+    let splits: [String:String] = User.current.splits
     let sections: [String] = ["Pending Payments", "Pending Charges", "Completed Splits"]
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -88,11 +112,11 @@ class SplitsTableCell: UITableViewCell {
         return rowCount
     }
 
-    /*
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        let ip = indexPath
-        cell.textLabel?.text = splits[ip.row] as String
-        return cell
-    }*/
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as UITableViewCell
+//        let ip = indexPath
+//        cell.textLabel?.text = splits[ip.row] as String
+//        return cell
+//    }
+
 }

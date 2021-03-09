@@ -30,25 +30,21 @@ struct UserService {
         _ = ref.observe(DataEventType.value, with: { (snapshot) in
           let userDict = snapshot.value as? [String : AnyObject] ?? [:]
             guard let user = User(snapshot: snapshot) else {
+                print("Could not grab user")
                 return completion(nil)
             }
-
-            guard let username = userDict["username"] as? String, let name = userDict["name"] as? String, let num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
+            print("userDict: ",userDict)
+            guard let name = userDict["name"] as? String,
+                  let num = userDict["phoneNumber"] as? String,
+                  let splits = userDict["splits"] as? [String:String]
+            else {
+                print("couldn't grab | name| num | splits")
                 return completion(nil)
             }
-
-            if let groups = userDict["groups"] as? [String] {
-
-                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: "", groups: groups, friends: friends)
-                newUser.friends = friends
-                newUser.groups = groups
-                completion(newUser)
-
-            } else {
-                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: "", groups: [], friends: friends)
-                newUser.friends = friends
-                completion(newUser)
-            }
+            
+            let newUser = User(uid: user.uid, name: name, username: name, phoneNumber: num, stripeId: "", splits: splits)
+            newUser.splits = splits
+            completion(newUser)
         })
     }
 
@@ -101,13 +97,13 @@ struct UserService {
         }
     }
     
-    static func addGroupIDToUsers(uid: String, groupName: String, users: [String: String]) {
+    static func addGroupIDToUsers(uid: String, splitName: String, users: [String: String]) {
         for (userID, userName) in users {
             let ref = Database.database().reference().child("users").child(userID)
             let updates = [
                 "name": userName,
                 "phoneNumber": userID,
-                "/groups/\(uid)" : groupName
+                "/splits/\(uid)" : splitName
             ]
             ref.updateChildValues(updates)
         }

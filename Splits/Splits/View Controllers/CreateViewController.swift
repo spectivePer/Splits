@@ -10,13 +10,14 @@ import VisionKit
 import Vision
 
 class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
-    
+
     // Variables from previous view
     var participants = [String]()
+    var participantMap: [String:String] = [:]
     var splitName = String()
-    
+    var splitUid: String = ""
+
     @IBOutlet weak var pageSwitch: UISegmentedControl!
-    
     
     // MARK: Equal Split View Variables
     
@@ -52,7 +53,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("splitUid uid: ", splitUid)
+        print("participantMap: ", participantMap)
         self.itemTableView.dataSource = self
         self.itemTableView.delegate = self
         self.itemTableView.rowHeight = 100.0
@@ -75,8 +77,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         //initialize button states
         backButton.isEnabled = false
         periodButton.isEnabled = true
+        plusButton.setTitleColor(.white, for: .normal)
         plusButton.isEnabled = false
-        plusButton.setTitleColor(UIColor.white, for: .normal)
+        plusButton.isHidden = true
         
         //initialize states
         tenthsPlace = false
@@ -106,9 +109,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         case 0: //equal split
             keyPad.isHidden = false
             itemTableView.isHidden = true
-            //plusButton.isHidden = true
-            plusButton.isEnabled = false
+            plusButton.isHidden = true
             plusButton.setTitleColor(.white, for: .normal)
+            plusButton.isEnabled = false
         default:
             break
         }
@@ -241,10 +244,29 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     // Add Item Button
     @IBAction func addButtonTapped(_ sender: Any) {
-       
-        tableContents.items.append(("", ""))
-        itemTableView.reloadData()
+        let addAlert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
+        addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        addAlert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input item description here"
+        })
         
+        addAlert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input item price here"
+            textField.keyboardType = UIKeyboardType.decimalPad
+        })
+
+        addAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+            if let description = addAlert.textFields?.first?.text {
+                if let price = addAlert.textFields?.last?.text {
+                    self.tableContents.items.append((description, price))
+                    self.itemTableView.reloadData()
+                }
+            }
+        }))
+
+        self.present(addAlert, animated: true)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
@@ -272,6 +294,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             return
         }
         
+        //add split creater to participant number
         let numberOfParticipants = participants.count + 1
         
         //remove dollar sign in front of the string
@@ -284,7 +307,20 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
         print("Participants pay $\(evenSplitAmount) each")
         
-        displayViewController(storyboard: "Main", vcName: "homeView")
+        // Creates a transaction for the split
+        SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+            
+        // Update the current user with the new split
+        UserService.updateCurrentUser(user: User.current) { (user) in
+            print("Updating User after Split")
+            if let user = user {
+                print("User's Splits", user.splits)
+                User.setCurrent(user, writeToUserDefaults: true)
+            }
+            return
+        }
+        
+        self.displayViewController(storyboard: "Main", vcName: "homeView")
     }
     
 }
@@ -369,7 +405,7 @@ extension CreateViewController: UITableViewDataSource {
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 print("deleted \(tableContents.items[indexPath.row].description)")

@@ -11,7 +11,7 @@ import FirebaseFunctions
 class StripePayViewController: UIViewController {
 
     // Variables
-    
+    /*
     @IBOutlet weak var paymentMethodBtn: UIButton!
     
     var paymentContext: STPPaymentContext!
@@ -142,6 +142,6 @@ extension StripePayViewController: STPPaymentContextDelegate {
 
             self.present(alertController, animated: true, completion: nil)
         }
-
+*/
 }
     
