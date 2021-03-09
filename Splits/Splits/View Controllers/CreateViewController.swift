@@ -357,19 +357,15 @@ extension CreateViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath)
         
-        if !(cell1?.titleInput.isEmpty ?? false) && !(cell1?.detailInput.isEmpty ?? false) {
-            tableContents.items[indexPath.row].description = cell1?.detailInput ?? "Nope"
-            tableContents.items[indexPath.row].price = cell1?.titleInput ?? "Nada"
-        } else {
         
+        tableContents.items[indexPath.row].description = cell1?.detailInput ?? "Nope"
+        tableContents.items[indexPath.row].price = cell1?.titleInput ?? "Nada"
         let field = tableContents.items[indexPath.row]
         cell1?.detailText.text = field.price
         cell1?.titleText.text = field.description
-        
-        }
         cell1?.users = participants
 
-        //print("\(field.description)\t\(field.price)")
+        print("\(field.description)\t\(field.price)")
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }

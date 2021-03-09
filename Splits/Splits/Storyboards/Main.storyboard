@@ -42,8 +42,8 @@
                                     <action selector="createSplitButton:" destination="VsL-Cr-BYs" eventType="touchUpInside" id="FIS-Yr-v0B"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n9M-0u-oLq">
-                                <rect key="frame" x="21" y="44" width="372" height="751"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="n9M-0u-oLq">
+                                <rect key="frame" x="21" y="50" width="372" height="745"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpw-qU-4Ot" customClass="AnimatableView" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="0.0" width="372" height="128"/>
@@ -88,7 +88,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q5t-QW-Gs4">
-                                        <rect key="frame" x="0.0" y="138" width="372" height="613"/>
+                                        <rect key="frame" x="0.0" y="132" width="372" height="613"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="sectionIndexColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
