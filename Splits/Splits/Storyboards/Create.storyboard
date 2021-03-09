@@ -485,58 +485,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="IyF-ex-4lR"/>
                                         </constraints>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="receiptTable" rowHeight="104" id="Hu1-y8-GFE" customClass="ReceiptTableCell" customModule="Splits" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="396" height="104"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hu1-y8-GFE" id="vtr-Pz-8s9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="104"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Detail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-26-6BP" userLabel="Item Description Text">
-                                                            <rect key="frame" x="20" y="59" width="97" height="34"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="34" id="1IT-uW-FDa"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWr-1b-1lF">
-                                                            <rect key="frame" x="146" y="9" width="230" height="86"/>
-                                                        </pickerView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-Ng-q3G" userLabel="Price Text">
-                                                            <rect key="frame" x="20" y="9" width="97" height="34"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="97" id="POp-ci-xb4"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="wgK-26-6BP" firstAttribute="top" secondItem="b6O-Ng-q3G" secondAttribute="bottom" constant="16" id="27K-F4-p1f"/>
-                                                        <constraint firstItem="wgK-26-6BP" firstAttribute="bottom" secondItem="vtr-Pz-8s9" secondAttribute="bottomMargin" id="8X6-FZ-JvW"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="top" secondItem="vtr-Pz-8s9" secondAttribute="topMargin" constant="-2" id="EpE-75-Wte"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="leading" secondItem="vtr-Pz-8s9" secondAttribute="leadingMargin" id="Fvt-ZI-Fmm"/>
-                                                        <constraint firstItem="oWr-1b-1lF" firstAttribute="leading" secondItem="b6O-Ng-q3G" secondAttribute="trailing" constant="29" id="GoE-bk-kaC"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="top" secondItem="oWr-1b-1lF" secondAttribute="top" id="LVf-r7-6QM"/>
-                                                        <constraint firstItem="oWr-1b-1lF" firstAttribute="centerY" secondItem="vtr-Pz-8s9" secondAttribute="centerY" id="Lf1-fJ-8yl"/>
-                                                        <constraint firstItem="oWr-1b-1lF" firstAttribute="trailing" secondItem="vtr-Pz-8s9" secondAttribute="trailingMargin" id="WnS-p8-hpU"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="trailing" secondItem="wgK-26-6BP" secondAttribute="trailing" id="gAg-hP-VDv"/>
-                                                        <constraint firstItem="b6O-Ng-q3G" firstAttribute="leading" secondItem="wgK-26-6BP" secondAttribute="leading" id="tLs-il-Jyb"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="detailText" destination="wgK-26-6BP" id="VG3-Dn-AAa"/>
-                                                    <outlet property="titleText" destination="b6O-Ng-q3G" id="fit-KO-HHs"/>
-                                                    <outlet property="userPickerView" destination="oWr-1b-1lF" id="OJd-tL-63e"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" id="qUH-eB-fND">
-                                        <rect key="frame" x="0.0" y="591.5" width="396" height="36.5"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" id="qUH-eB-fND" userLabel="Button">
+                                        <rect key="frame" x="0.0" y="776.5" width="300" height="36.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O75-Jy-qU6" customClass="AnimatableButton" customModule="IBAnimatable">
