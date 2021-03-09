@@ -1182,10 +1182,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "366"
+            endingLineNumber = "366"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1198,9 +1198,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "documentCameraViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1214,9 +1214,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "documentCameraViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1230,10 +1230,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "CreateViewController"
-            landmarkType = "21">
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1246,9 +1246,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1262,9 +1262,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1278,9 +1278,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1294,9 +1294,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1310,9 +1310,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1326,10 +1326,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1342,9 +1342,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1358,9 +1358,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1374,9 +1374,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1390,9 +1390,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1406,9 +1406,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1422,9 +1422,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1438,9 +1438,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "addRecognizedText(recognizedText:)"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1454,10 +1454,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1470,10 +1470,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "362"
+            endingLineNumber = "362"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1486,10 +1486,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1502,10 +1502,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1518,10 +1518,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "365"
+            endingLineNumber = "365"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1534,16 +1534,32 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
+            startingLineNumber = "367"
+            endingLineNumber = "367"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2A89169A-EC20-4172-A545-0A2DCAA1DF14"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Splits/View Controllers/CreateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9802CFF-A371-46F8-BFAE-9C424BB71E15"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1559,7 +1575,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E9802CFF-A371-46F8-BFAE-9C424BB71E15"
+            uuid = "DC7816B8-DA10-4D7C-A836-E1C9E22356B6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1568,22 +1584,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "370"
             endingLineNumber = "370"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DC7816B8-DA10-4D7C-A836-E1C9E22356B6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Splits/View Controllers/CreateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
             landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
             <Locations>
@@ -1630,8 +1630,8 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1646,6 +1646,22 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
+            landmarkName = "addRecognizedText(recognizedText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4D4714B-E640-4C2A-B67F-163B3E7A0A22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Splits/View Controllers/CreateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "373"
             endingLineNumber = "373"
             landmarkName = "addRecognizedText(recognizedText:)"
@@ -1655,7 +1671,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D4D4714B-E640-4C2A-B67F-163B3E7A0A22"
+            uuid = "55E47386-827D-4902-97D9-2DBDFEA22701"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1671,7 +1687,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "55E47386-827D-4902-97D9-2DBDFEA22701"
+            uuid = "C355D160-A18E-4CED-B15B-60B5C729DE46"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1687,7 +1703,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C355D160-A18E-4CED-B15B-60B5C729DE46"
+            uuid = "8527266A-1D98-4B6A-8827-0250E789F264"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1703,8 +1719,24 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8527266A-1D98-4B6A-8827-0250E789F264"
+            uuid = "FEF43942-0AC8-407D-B968-456BD236A4B0"
             shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Splits/View Controllers/CreateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "addRecognizedText(recognizedText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35F64792-7959-4E2D-857D-1D129B44A43D"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Splits/View Controllers/CreateViewController.swift"
@@ -1719,7 +1751,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FEF43942-0AC8-407D-B968-456BD236A4B0"
+            uuid = "9B0FFFCE-D171-4903-A632-4CC6B47ECD31"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1735,23 +1767,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "35F64792-7959-4E2D-857D-1D129B44A43D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Splits/View Controllers/CreateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9B0FFFCE-D171-4903-A632-4CC6B47ECD31"
+            uuid = "69A83C7E-C2B8-4CA3-9FD6-7347D01B501F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1767,7 +1783,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "69A83C7E-C2B8-4CA3-9FD6-7347D01B501F"
+            uuid = "1617D223-E7BC-4DE0-B897-713E07F24C6E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1783,22 +1799,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1617D223-E7BC-4DE0-B897-713E07F24C6E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Splits/View Controllers/CreateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B47AE93C-C2F6-4C47-BE96-FC28D543BE53"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1806,8 +1806,8 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1822,6 +1822,22 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
+            landmarkName = "addRecognizedText(recognizedText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CF9C3FF-6FE3-4978-AE3F-EDC1EC6ACC3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Splits/View Controllers/CreateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "384"
             endingLineNumber = "384"
             landmarkName = "addRecognizedText(recognizedText:)"
@@ -1831,7 +1847,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4CF9C3FF-6FE3-4978-AE3F-EDC1EC6ACC3A"
+            uuid = "A128CE42-6CF0-481D-8A68-8752F951C145"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1847,7 +1863,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A128CE42-6CF0-481D-8A68-8752F951C145"
+            uuid = "42888B61-B6D4-4FAE-AA92-94E4CB1E7076"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1863,8 +1879,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "42888B61-B6D4-4FAE-AA92-94E4CB1E7076"
-            shouldBeEnabled = "No"
+            uuid = "27C56B05-F84F-4C74-95FF-13DC269B4BF8"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Splits/View Controllers/CreateViewController.swift"
@@ -1879,8 +1895,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "27C56B05-F84F-4C74-95FF-13DC269B4BF8"
-            shouldBeEnabled = "Yes"
+            uuid = "D6F9B681-46CD-4E44-B4BC-B92DED89E284"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Splits/View Controllers/CreateViewController.swift"
@@ -1895,7 +1911,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6F9B681-46CD-4E44-B4BC-B92DED89E284"
+            uuid = "BB96E15D-1906-4FB0-B851-3040F334B490"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1911,7 +1927,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB96E15D-1906-4FB0-B851-3040F334B490"
+            uuid = "C35A8121-8ED2-4D3D-BCE6-79CE45F40881"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1927,7 +1943,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C35A8121-8ED2-4D3D-BCE6-79CE45F40881"
+            uuid = "948C0047-B90D-4448-AD91-FD58E9B2AD39"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1936,22 +1952,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "391"
             endingLineNumber = "391"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "948C0047-B90D-4448-AD91-FD58E9B2AD39"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Splits/View Controllers/CreateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
             landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
             <Locations>
@@ -1998,8 +1998,8 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2014,8 +2014,8 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
             <Locations>
@@ -2062,6 +2062,22 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "addRecognizedText(recognizedText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA7C611D-B90B-4AD0-83CC-3A73DFD568C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Splits/View Controllers/CreateViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "395"
             endingLineNumber = "395"
             landmarkName = "addRecognizedText(recognizedText:)"
@@ -2071,7 +2087,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA7C611D-B90B-4AD0-83CC-3A73DFD568C6"
+            uuid = "87CA13A3-A4FC-470B-9A44-37D1FBB080D5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -2087,7 +2103,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "87CA13A3-A4FC-470B-9A44-37D1FBB080D5"
+            uuid = "31F1B78D-670F-4AEC-9EDA-41A6E438D13B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -2103,7 +2119,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "31F1B78D-670F-4AEC-9EDA-41A6E438D13B"
+            uuid = "3416343F-871E-44EE-815F-D11204B8BE7B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -2119,22 +2135,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3416343F-871E-44EE-815F-D11204B8BE7B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Splits/View Controllers/CreateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
-            landmarkName = "addRecognizedText(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CDC5A1EE-B868-4D65-8664-C3440F810BA5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -2142,8 +2142,8 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2158,8 +2158,8 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -2206,22 +2206,6 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "86086C29-7489-42E3-93C6-B622501B6F47"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Splits/View Controllers/CreateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "viewDidLoad()"
@@ -2238,10 +2222,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2254,9 +2238,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "documentCameraViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2270,10 +2254,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
-            landmarkName = "CreateViewController"
-            landmarkType = "21">
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2286,10 +2270,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2302,9 +2286,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
-            landmarkName = "tableView(_:commit:forRowAt:)"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2318,9 +2302,9 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "documentCameraViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2462,10 +2446,10 @@
             filePath = "Splits/View Controllers/CreateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            startingLineNumber = "329"
+            endingLineNumber = "329"
+            landmarkName = "CreateViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
