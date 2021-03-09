@@ -444,7 +444,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="396" height="104"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Detail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-26-6BP">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Detail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-26-6BP" userLabel="Item Description Text">
                                                             <rect key="frame" x="20" y="59" width="97" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="34" id="1IT-uW-FDa"/>
@@ -455,7 +455,7 @@
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWr-1b-1lF">
                                                             <rect key="frame" x="146" y="9" width="230" height="86"/>
                                                         </pickerView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-Ng-q3G">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6O-Ng-q3G" userLabel="Price Text">
                                                             <rect key="frame" x="20" y="9" width="97" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="97" id="POp-ci-xb4"/>
@@ -486,7 +486,7 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" id="qUH-eB-fND">
-                                        <rect key="frame" x="0.0" y="591.5" width="357" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="591.5" width="396" height="36.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O75-Jy-qU6" customClass="AnimatableButton" customModule="IBAnimatable">

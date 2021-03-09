@@ -75,8 +75,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         //initialize button states
         backButton.isEnabled = false
         periodButton.isEnabled = true
-        plusButton.isEnabled = false
         plusButton.setTitleColor(.white, for: .normal)
+        plusButton.isEnabled = false
+        plusButton.isHidden = true
         
         //initialize states
         tenthsPlace = false
@@ -105,8 +106,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             keyPad.isHidden = false
             itemTableView.isHidden = true
             plusButton.isHidden = true
-            plusButton.isEnabled = false
             plusButton.setTitleColor(.white, for: .normal)
+            plusButton.isEnabled = false
         default:
             break
         }
@@ -239,9 +240,29 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     // Add Item Button
     @IBAction func addButtonTapped(_ sender: Any) {
-        tableContents.items.append(("Item", "Price"))
-        itemTableView.reloadData()
+        let addAlert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
+        addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        addAlert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input item description here"
+        })
         
+        addAlert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input item price here"
+            textField.keyboardType = UIKeyboardType.decimalPad
+        })
+
+        addAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+            if let description = addAlert.textFields?.first?.text {
+                if let price = addAlert.textFields?.last?.text {
+                    self.tableContents.items.append((description, price))
+                    self.itemTableView.reloadData()
+                }
+            }
+        }))
+
+        self.present(addAlert, animated: true)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
@@ -269,6 +290,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             return
         }
         
+        //add split creater to participant number
         let numberOfParticipants = participants.count + 1
         
         //remove dollar sign in front of the string
@@ -351,7 +373,7 @@ extension CreateViewController: UITableViewDataSource {
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 print("deleted \(tableContents.items[indexPath.row].description)")
