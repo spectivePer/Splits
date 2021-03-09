@@ -15,7 +15,7 @@ struct SplitService {
         print(uuid)
         let recipientInfo = [recipient.uid: recipient.name]
         var usersWithRecipient = users
-        usersWithRecipient["4159992828"] = recipient.name
+        usersWithRecipient[recipient.uid] = recipient.name
         let ref = Database.database().reference().child("splits").child(uuid)
         let splitAttrs = ["name": splitName, "users": usersWithRecipient, "recipient": recipientInfo] as [String : Any]
 
