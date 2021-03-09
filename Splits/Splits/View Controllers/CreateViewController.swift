@@ -55,6 +55,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         
         self.itemTableView.dataSource = self
         self.itemTableView.delegate = self
+        self.itemTableView.rowHeight = 100.0
         
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
 
@@ -75,12 +76,16 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         backButton.isEnabled = false
         periodButton.isEnabled = true
         plusButton.isEnabled = false
-        plusButton.setTitleColor(.white, for: .normal)
+        plusButton.setTitleColor(UIColor.white, for: .normal)
         
         //initialize states
         tenthsPlace = false
         hundredthsPlace = false
         stopInput = false
+        
+        //View settings
+        keyPad.isHidden = false
+        itemTableView.isHidden = true
         
         // Selecter Settings
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
@@ -93,17 +98,15 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     @IBAction func switchedView(_ sender: Any) {
         switch pageSwitch.selectedSegmentIndex {
         case 1: //unequal split
-            equalSplitAmount.isHidden = true
             keyPad.isHidden = true
             itemTableView.isHidden = false
-            plusButton.isHidden = false
+            //plusButton.isHidden = false
             plusButton.isEnabled = true
             plusButton.setTitleColor(.black, for: .normal)
         case 0: //equal split
-            equalSplitAmount.isHidden = false
             keyPad.isHidden = false
             itemTableView.isHidden = true
-            plusButton.isHidden = true
+            //plusButton.isHidden = true
             plusButton.isEnabled = false
             plusButton.setTitleColor(.white, for: .normal)
         default:
@@ -238,7 +241,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     // Add Item Button
     @IBAction func addButtonTapped(_ sender: Any) {
-        tableContents.items.append(("Item", "Price"))
+       
+        tableContents.items.append(("", ""))
         itemTableView.reloadData()
         
     }
@@ -283,22 +287,24 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         displayViewController(storyboard: "Main", vcName: "homeView")
     }
     
-    
 }
 
 // MARK: Custom Receipt Class
-class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var userPickerView: UIPickerView!
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var detailText: UITextField!
     var users: [String] = []
+    var titleInput: String = ""
+    var detailInput: String = ""
     
     override func awakeFromNib() {
             self.userPickerView.delegate = self;
             self.userPickerView.dataSource = self;
+            self.titleText.delegate = self
+            self.detailText.delegate = self
             super.awakeFromNib()
-
         }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -310,6 +316,15 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return users[row]
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == 1 {
+            titleInput = textField.text ?? ""
+        }
+        if textField.tag == 2 {
+            detailInput = textField.text ?? ""
+        }
     }
 }
 
@@ -332,7 +347,7 @@ extension CreateViewController {
 extension CreateViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        print(tableContents.items)
         return tableContents.items.count
     }
     
@@ -342,11 +357,19 @@ extension CreateViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath)
         
+        if !(cell1?.titleInput.isEmpty ?? false) && !(cell1?.detailInput.isEmpty ?? false) {
+            tableContents.items[indexPath.row].description = cell1?.detailInput ?? "Nope"
+            tableContents.items[indexPath.row].price = cell1?.titleInput ?? "Nada"
+        } else {
+        
         let field = tableContents.items[indexPath.row]
         cell1?.detailText.text = field.price
         cell1?.titleText.text = field.description
+        
+        }
         cell1?.users = participants
-        print("\(field.description)\t\(field.price)")
+
+        //print("\(field.description)\t\(field.price)")
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
@@ -358,6 +381,13 @@ extension CreateViewController: UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath) as? ReceiptTableCell
+        
+        tableContents.items[indexPath.row].description = cell1?.detailInput ?? ""
+        tableContents.items[indexPath.row].price = cell1?.titleInput ?? ""
+    }
 }
 
 extension CreateViewController: UITableViewDelegate {
