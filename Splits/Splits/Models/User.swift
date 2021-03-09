@@ -42,7 +42,7 @@ class User: Codable {
     static func removeCurrent(_ user: User) {
             
         UserDefaults.standard.removeObject(forKey: "currentUser")
-        _current = User(uid: "", name: "", username: "", phoneNumber: "", stripeId: "", groups: [""], friends: ["":""])
+        _current = User(uid: "", name: "", username: "", phoneNumber: "", stripeId: "", splits: [:])
     }
     
     
@@ -118,28 +118,25 @@ class User: Codable {
         }
         return retContacts
     }
-    
+
     // MARK: - Properties
 
-    let uid: String           // unique id
-    let name: String          // user's name
-    var username: String      // user's name
-    var phoneNumber: String   // user's phone number
-    var groups: [String] // array of collection IDs the user is a part of
-    var friends: [String: String] // Dictionary of friends' names to friends' UID
-    var isVerified: Bool        // if phoneNumber is verified || is a user
-
+    let uid: String                 // unique id
+    let name: String                // user's name
+    var username: String            // user's name
+    let stripeId: String            // user's stripe id
+    var phoneNumber: String         // user's phone number
+    var splits: [String:String]            // array of splits IDs the user is a part of
 
     // MARK: - Init
 
-    init(uid: String, name: String, username: String, phoneNumber: String, stripeId:String, groups: [String], friends: [String:String]) {
+    init(uid: String, name: String, username: String, phoneNumber: String, stripeId:String, splits: [String:String]) {
         self.uid = uid
         self.name = name
         self.username = username
-        self.phoneNumber = "+14157777777"  // Default until we add phone number capability
-        self.groups = [String]()
-        self.friends = [String: String]()
-        self.isVerified = false
+        self.phoneNumber = ""
+        self.splits = [:]
+        self.stripeId = ""
 
     }
 
@@ -147,15 +144,15 @@ class User: Codable {
         guard let dict = snapshot.value as? [String : Any],
               let stripeId = dict["stripeId"] as? String,
               let username = dict["username"] as? String,
+              let phoneNumber = dict["phoneNumber"] as? String,
               let name = dict["name"] as? String
         else { return nil }
             
         self.uid = snapshot.key
         self.name = name
         self.username = username
-        self.phoneNumber = "+14157777777" // Default until we add phone number capability
-        self.groups = [String]()
-        self.friends = [String: String]()
-        self.isVerified = false
+        self.stripeId = stripeId
+        self.phoneNumber = phoneNumber
+        self.splits = [:]
     }
 }
