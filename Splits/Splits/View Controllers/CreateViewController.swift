@@ -10,13 +10,14 @@ import VisionKit
 import Vision
 
 class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
-    
+
     // Variables from previous view
     var participants = [String]()
+    var participantMap: [String:String] = [:]
     var splitName = String()
-    
+    var splitUid: String = ""
+
     @IBOutlet weak var pageSwitch: UISegmentedControl!
-    
     
     // MARK: Equal Split View Variables
     
@@ -52,7 +53,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("splitUid uid: ", splitUid)
+        print("participantMap: ", participantMap)
         self.itemTableView.dataSource = self
         self.itemTableView.delegate = self
         
@@ -302,10 +304,21 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
         print("Participants pay $\(evenSplitAmount) each")
         
-        displayViewController(storyboard: "Main", vcName: "homeView")
+        // Creates a transaction for the split
+        SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+            
+        // Update the current user with the new split
+        UserService.updateCurrentUser(user: User.current) { (user) in
+            print("Updating User after Split")
+            if let user = user {
+                print("User's Splits", user.splits)
+                User.setCurrent(user, writeToUserDefaults: true)
+            }
+            return
+        }
+        
+        self.displayViewController(storyboard: "Main", vcName: "homeView")
     }
-    
-    
 }
 
 // MARK: Custom Receipt Class
