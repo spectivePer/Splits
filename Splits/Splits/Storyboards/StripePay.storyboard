@@ -22,6 +22,9 @@
                                 <state key="normal" title="Pay">
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="paymentClicked:" destination="XZb-gF-5Ve" eventType="touchUpInside" id="2XA-4R-sCe"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="117" translatesAutoresizingMaskIntoConstraints="NO" id="THm-e7-1zG">
                                 <rect key="frame" x="29" y="754" width="356" height="33"/>
@@ -35,6 +38,9 @@
                                         <rect key="frame" x="245" y="0.0" width="111" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Select Method"/>
+                                        <connections>
+                                            <action selector="selectPaymentMethod:" destination="XZb-gF-5Ve" eventType="touchUpInside" id="w6h-U5-EWO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -50,6 +56,9 @@
                             <constraint firstItem="THm-e7-1zG" firstAttribute="leading" secondItem="gkv-kn-d1h" secondAttribute="leading" constant="29" id="wUr-8n-gfc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="paymentMethodBtn" destination="FFJ-Cr-5Su" id="PaT-C7-ALN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsM-dw-93D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

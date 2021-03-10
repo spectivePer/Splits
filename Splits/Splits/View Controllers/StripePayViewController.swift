@@ -12,8 +12,8 @@ class StripePayViewController: UIViewController {
 
     // Variables
     
-    @IBOutlet weak var paymentMethodBtn: UIButton!
     
+    @IBOutlet weak var paymentMethodBtn: UIButton!
     var paymentContext: STPPaymentContext!
 
     override func viewDidLoad() {
@@ -40,20 +40,21 @@ class StripePayViewController: UIViewController {
 
     }
     @IBAction func paymentClicked(_ sender: Any) {
+    
         paymentContext.requestPayment()
 //      activityIndicator.startAnimating()
-        
     }
 
 
     @IBAction func selectPaymentMethod(_ sender: Any) {
-//        paymentContext.pushPaymentOptionsViewController()
+    
+        paymentContext.pushPaymentOptionsViewController()
         // handle new user
-        let storyboard = UIStoryboard(name: "StripePay", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CKViewController")
-        // set the stack so that it only contains main and animate it
-        let viewControllers = [vc]
-        self.navigationController?.setViewControllers(viewControllers, animated: true)
+//        let storyboard = UIStoryboard(name: "StripePay", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "CKViewController")
+//        // set the stack so that it only contains main and animate it
+//        let viewControllers = [vc]
+//        self.navigationController?.setViewControllers(viewControllers, animated: true)
     }
 
 
@@ -76,19 +77,19 @@ extension StripePayViewController: STPPaymentContextDelegate {
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
 
-//        let alertController = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert)
-//
-//        let cancel = UIAlertAction(title: "Cancel", style: .cancel){ (action) in
-//            self.navigationController?.popViewController(animated: true)
-//        }
-//        let retry = UIAlertAction(title: "Retry", style: .default) { (action) in
-//            self.paymentContext.retryLoading()
-//        }
-//
-//        alertController.addAction(cancel)
-//        alertController.addAction(retry)
-//
-//        present(alertController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert)
+
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel){ (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        let retry = UIAlertAction(title: "Retry", style: .default) { (action) in
+            self.paymentContext.retryLoading()
+        }
+
+        alertController.addAction(cancel)
+        alertController.addAction(retry)
+
+        present(alertController, animated: true, completion: nil)
 
     }
 
@@ -99,7 +100,7 @@ extension StripePayViewController: STPPaymentContextDelegate {
         let data : [String: Any] = [
             "total": 100,
             // change this later
-            "customerId": "cus_J2S3peBo7dsXeA",
+            "customerId": User.current.stripeId,
             // change to stripeId
             "idempotency": idempotency
         ]

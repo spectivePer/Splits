@@ -5,18 +5,18 @@ admin.initializeApp();
 
 const stripe = require("stripe")(functions.config().stripe.secret_test_key);
 
-exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
-  return stripe.customers.create({
-    email: user.email,
-  }).then((customer) => {
-    // var usersRef = admin.database.ref.child("users").child(user.uid);
-    // return usersRef.update({stripeId:customer.id});
-    var path = admin.database().ref(`/users/${user.phoneNumber}/stripeId`)
-    print(path)
-    return path.set(customer.id);
-  });
-});
 
+exports.createStripeCustomer = functions.https.onCall(async (data, context) => {
+  const email = data.email;
+  const username = data.username;
+  const customer = await stripe.customers.create({
+      email: email,
+  });
+  console.log('new customer created: ', customer.id)
+  return {
+      customer_id: customer.id
+  }
+});
 
 exports.createCharge = functions.https.onCall(async (data, context) => {
 
@@ -45,27 +45,26 @@ exports.createCharge = functions.https.onCall(async (data, context) => {
 })
 
 exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
-  const customerId = data.customer_id;
+  const customerId = data.stripeId;
   const stripeVersion = data.stripe_version;
-  const uid = context.auth.uid;
+  // const uid = context.auth.uid;
 
-  if (uid === null){
-    console.log("illegal access attempt due to unauthenticated user");
-    throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt')
-  }
-
+  // if (uid === null){
+  //   console.log("illegal access attempt due to unauthenticated user");
+  //   throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt')
+  // }
   return stripe.ephemeralKeys.create(
-    {customer: customer_id},
+    {customer_id: customerId},
     {stripe_version: stripeVersion}
   ).then((key) => {
       return key
-  }).catch((err) => {
-      console.log(err)
-      throw new functions.https.HttpsError('internal','Unable to create epheremal key.')
-  })
+  // }).catch((err) => {
+  //     console.log(err)
+  //     throw new functions.https.HttpsError('internal','Unable to create epheremal key.')
+  // })
 })
 
-exports.createConnectAccount = functions.https.onRequest((req, res) => {
+exports.createConnectAccount = functions.https.onCall( async (data, context) => {
   // var data = req.body
   // var email = data.email
   var response = {}
@@ -81,11 +80,11 @@ exports.createConnectAccount = functions.https.onRequest((req, res) => {
       function(err, account) {
         if (err) {
           console.log("Couldn't create stripe account: " + err)
-          return res.send(err)
+          return
       }
       console.log("ACCOUNT: " + account.id)
       response.body = {success: account.id}
-      return res.send(response)
+      return account.id
     }
   );
 });

@@ -33,19 +33,19 @@ struct UserService {
                 return completion(nil)
             }
 
-            guard let username = userDict["username"] as? String, let name = userDict["name"] as? String, let num = userDict["phoneNumber"] as? String, let friends = userDict["friends"] as? [String:String] else {
+            guard let username = userDict["username"] as? String, let name = userDict["name"] as? String, let num = userDict["phoneNumber"] as? String, let stripeId = userDict["stripeId"] as? String, let friends = userDict["friends"] as? [String:String] else {
                 return completion(nil)
             }
 
             if let groups = userDict["groups"] as? [String] {
 
-                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: "", groups: groups, friends: friends)
+                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: stripeId, groups: groups, friends: friends)
                 newUser.friends = friends
                 newUser.groups = groups
                 completion(newUser)
 
             } else {
-                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: "", groups: [], friends: friends)
+                let newUser = User(uid: user.uid, name: name, username: username, phoneNumber: num, stripeId: stripeId, groups: [], friends: friends)
                 newUser.friends = friends
                 completion(newUser)
             }

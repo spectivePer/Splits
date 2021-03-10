@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func createSplitButton(_ sender: Any) {
-        displayViewController(storyboard: "Create", vcName: "addContactsVC")
+        displayViewController(storyboard: "StripePay", vcName: "StripePayVC")
     }
 
     func signOutMenu() -> UIMenu {

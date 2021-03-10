@@ -19,14 +19,15 @@ import FirebaseFunctions
 
 let stripeApi = _stripeApi()
 
-final class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
+class _stripeApi: NSObject, STPCustomerEphemeralKeyProvider{
+    
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
 
         let data = [
             "stripe_version": apiVersion,
-            "customer_id": "cus_J23VUvZt1o3nra"
+            "customer_id": User.current.stripeId
         ]
-
+        print("stripeId: " + User.current.stripeId)
         Functions.functions().httpsCallable("createEphemeralKey").call(data) { (result, error) in
 
             if let error = error {

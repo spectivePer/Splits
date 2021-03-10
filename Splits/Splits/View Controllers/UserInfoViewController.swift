@@ -8,14 +8,16 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFunctions
 
 class UserInfoViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField! // Will change to phoneNumber Kit later on
-    
+    var customer_id = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         // Do any additional setup after loading the view.
     }
@@ -27,24 +29,34 @@ class UserInfoViewController: UIViewController {
               let phoneNumber = phoneNumberField.text, // Phone Number
               let username = usernameTextField.text, // Username
               !username.isEmpty else { return }
-            
-        
-        // Set Root View Controller
-        UserService.create(firUser, name: name, username: username, phoneNumber: phoneNumber, stripeId: "") { (user) in
-            guard let user = user else {
-                // handle error
+           
+        Functions.functions().httpsCallable("createStripeCustomer").call([ "username" : name]) { (response, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    if let response = (response?.data as? [String: Any]) {
+                        self.customer_id = response["customer_id"] as! String
+                        print(self.customer_id)
+                    }
+            UserService.create(firUser, name: name, username: username, phoneNumber: phoneNumber, stripeId: self.customer_id) { (user) in
+                guard let user = user else {
+                    // handle error
+                    
+                    return
+                }
                 
-                return
-            }
-            
-            // Allows to verify user later
-            User.setCurrent(user, writeToUserDefaults: true)
+                // Allows to verify user later
+                User.setCurrent(user, writeToUserDefaults: true)
 
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "homeView")
-            let viewControllers = [vc]
-            self.navigationController?.setViewControllers(viewControllers, animated: true)
-            
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "homeView")
+                let viewControllers = [vc]
+                self.navigationController?.setViewControllers(viewControllers, animated: true)
+                
+            }
         }
+        print("xcode +" + self.customer_id)
+        // Set Root View Controller
+
     }
 }

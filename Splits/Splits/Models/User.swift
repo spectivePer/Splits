@@ -128,6 +128,7 @@ class User: Codable {
     var groups: [String] // array of collection IDs the user is a part of
     var friends: [String: String] // Dictionary of friends' names to friends' UID
     var isVerified: Bool        // if phoneNumber is verified || is a user
+    var stripeId: String  // Customer Id for stripe
 
 
     // MARK: - Init
@@ -136,11 +137,12 @@ class User: Codable {
         self.uid = uid
         self.name = name
         self.username = username
+        self.stripeId = stripeId
         self.phoneNumber = "+14157777777"  // Default until we add phone number capability
         self.groups = [String]()
         self.friends = [String: String]()
         self.isVerified = false
-
+        
     }
 
     init?(snapshot: DataSnapshot) {
@@ -153,9 +155,11 @@ class User: Codable {
         self.uid = snapshot.key
         self.name = name
         self.username = username
+        self.stripeId = stripeId
         self.phoneNumber = "+14157777777" // Default until we add phone number capability
         self.groups = [String]()
         self.friends = [String: String]()
         self.isVerified = false
+        
     }
 }
