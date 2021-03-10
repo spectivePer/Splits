@@ -14,6 +14,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     // Variables from previous view
     var participants = [String]()
     var participantMap: [String:String] = [:]
+    var reverseParticipantMap: [String: String] =  [:]
     var splitName = String()
     var splitUid: String = ""
     var isEqualSplit = true
@@ -319,7 +320,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
         } else {
-//            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: <#T##[String : String]#>, itemToPriceMap: <#T##[String : Double]#>, users: <#T##[String : String]#>, splitUid: <#T##String#>, recipient: <#T##User#>)
+            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: itemToUserMap, itemToPriceMap: itemToPriceMap, users: participantMap, splitUid: splitUid, recipient: User.current)
         }
             
         // Update the current user with the new split
@@ -399,6 +400,7 @@ extension CreateViewController: UITableViewDataSource {
         cell1?.users = participants
 
         print("\(field.description)\t\(field.price)")
+        itemToPriceMap[field.description] = Double(field.price)
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
