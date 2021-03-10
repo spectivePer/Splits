@@ -17,7 +17,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     var splitName = String()
     var splitUid: String = ""
     var isEqualSplit = true
-    var requestedAmount: Double
+    var requestedAmount: Double = 0.0
 
     @IBOutlet weak var pageSwitch: UISegmentedControl!
     
