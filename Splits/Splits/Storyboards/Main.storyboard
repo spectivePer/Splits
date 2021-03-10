@@ -21,7 +21,7 @@
                                 <rect key="frame" x="21" y="44" width="372" height="751"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpw-qU-4Ot" customClass="AnimatableView" customModule="IBAnimatable">
-                                        <rect key="frame" x="0.0" y="0.0" width="372" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="372" height="130"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjI-gQ-aIJ">
                                                 <rect key="frame" x="329" y="14" width="21" height="22"/>
@@ -66,6 +66,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="qjI-gQ-aIJ" secondAttribute="trailing" constant="22" id="8pu-wl-eat"/>
                                             <constraint firstItem="qjI-gQ-aIJ" firstAttribute="top" secondItem="Qpw-qU-4Ot" secondAttribute="top" constant="14" id="M1P-Qk-veM"/>
+                                            <constraint firstAttribute="height" constant="130" id="TXT-xv-brs"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -74,7 +75,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nWT-Qf-P7z">
-                                        <rect key="frame" x="0.0" y="138" width="372" height="613"/>
+                                        <rect key="frame" x="0.0" y="140" width="372" height="611"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -90,10 +91,10 @@
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="splitCell" id="gEO-We-Mfo" customClass="SplitsCollectionCell" customModule="Splits" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="372" height="79"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fke-sS-Szc" customClass="AnimatableView" customModule="IBAnimatable">
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fke-sS-Szc" customClass="AnimatableView" customModule="IBAnimatable">
                                                     <rect key="frame" x="0.0" y="0.0" width="372" height="79"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LD-8t-oa1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LD-8t-oa1">
                                                             <rect key="frame" x="23" y="19" width="157" height="41"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Split Name">
@@ -118,12 +119,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </collectionViewCellContentView>
-                                                <constraints>
-                                                    <constraint firstItem="fke-sS-Szc" firstAttribute="top" secondItem="gEO-We-Mfo" secondAttribute="topMargin" constant="-8" id="1Mr-v6-edu"/>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="fke-sS-Szc" secondAttribute="bottom" constant="-8" id="OL1-tm-IV3"/>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="fke-sS-Szc" secondAttribute="trailing" constant="-8" id="PBt-vF-yPs"/>
-                                                    <constraint firstItem="fke-sS-Szc" firstAttribute="leading" secondItem="gEO-We-Mfo" secondAttribute="leadingMargin" constant="-8" id="rNf-I0-0y6"/>
-                                                </constraints>
                                                 <size key="customSize" width="372" height="79"/>
                                                 <connections>
                                                     <outlet property="splitName" destination="6LD-8t-oa1" id="30Z-BN-Ko3"/>
@@ -132,6 +127,11 @@
                                         </cells>
                                     </collectionView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Qpw-qU-4Ot" firstAttribute="top" secondItem="n9M-0u-oLq" secondAttribute="top" id="TjE-6k-NGt"/>
+                                    <constraint firstItem="Qpw-qU-4Ot" firstAttribute="leading" secondItem="n9M-0u-oLq" secondAttribute="leading" constant="20" id="ZHI-1N-7rP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qpw-qU-4Ot" secondAttribute="trailing" constant="20" id="csF-zD-aLE"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVl-fh-vxc" customClass="AnimatableButton" customModule="IBAnimatable">
                                 <rect key="frame" x="101" y="794" width="213" height="61"/>
