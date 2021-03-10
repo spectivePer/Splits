@@ -16,6 +16,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     var participantMap: [String:String] = [:]
     var splitName = String()
     var splitUid: String = ""
+    var isEqualSplit = true
+    var itemToPriceMap: [String: Double] = [:]
+    var itemToUserMap: [String: String] = [:]
 
     @IBOutlet weak var pageSwitch: UISegmentedControl!
     
@@ -107,12 +110,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             plusButton.isEnabled = true
             plusButton.isHidden = false
             tempView.isHidden = true
+            isEqualSplit = false
         case 0: //equal split
             keyPad.isHidden = false
             itemTableView.isHidden = true
             plusButton.isEnabled = false
             plusButton.isHidden = true
             tempView.isHidden = false
+            isEqualSplit = true
         default:
             break
         }
@@ -311,7 +316,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         print("Participants pay $\(evenSplitAmount) each")
         
         // Creates a transaction for the split
-        SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+        if isEqualSplit {
+            SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+        } else {
+//            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: <#T##[String : String]#>, itemToPriceMap: <#T##[String : Double]#>, users: <#T##[String : String]#>, splitUid: <#T##String#>, recipient: <#T##User#>)
+        }
             
         // Update the current user with the new split
         UserService.updateCurrentUser(user: User.current) { (user) in
