@@ -38,12 +38,14 @@ class AddContactsViewController: UIViewController, UITextFieldDelegate {
         self.searchBar.delegate = self
         self.splitName.delegate = self
         self.selectedCollection.dataSource = self
-        self.selectedCollection.delegate = self
         
         selectedCollection.register(CollectionCell.self, forCellWithReuseIdentifier: "cell")
         selectedCollection.reloadData()
         onTap.isEnabled = false
         splitName.text = ""
+        
+        searchBar.enablesReturnKeyAutomatically = false
+        
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
@@ -59,6 +61,7 @@ class AddContactsViewController: UIViewController, UITextFieldDelegate {
         dismissKeyboard(onTap)
         return true
     }
+    
     @IBAction func previousView(_ sender: UIButton) {
         displayView(storyboard: "Main", vcName: "homeView")
     }
@@ -201,9 +204,8 @@ extension AddContactsViewController: UISearchBarDelegate {
         searching = false
         searchBar.text = ""
         friendsTable.reloadData()
-        self.view.endEditing(true)
+        dismissKeyboard(onTap)
     }
-    
 }
 
 class CollectionCell: UICollectionViewCell {
@@ -231,10 +233,6 @@ extension AddContactsViewController: UICollectionViewDataSource {
         return cell ?? cell1
     }
     
-    
-}
-
-extension AddContactsViewController: UICollectionViewDelegate {
     
 }
 

@@ -596,8 +596,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fVh-fx-yHK" firstAttribute="top" secondItem="g1U-Sp-c2F" secondAttribute="top" id="JVe-M0-KYo"/>
-                            <constraint firstItem="fVh-fx-yHK" firstAttribute="centerX" secondItem="96I-Hw-N4W" secondAttribute="centerX" id="KSC-Qz-Gxs"/>
-                            <constraint firstItem="g1U-Sp-c2F" firstAttribute="trailing" secondItem="fVh-fx-yHK" secondAttribute="trailing" constant="9" id="ftG-1n-VoS"/>
+                            <constraint firstItem="fVh-fx-yHK" firstAttribute="centerX" secondItem="96I-Hw-N4W" secondAttribute="centerX" id="kCZ-UR-lhh"/>
                             <constraint firstItem="fVh-fx-yHK" firstAttribute="leading" secondItem="g1U-Sp-c2F" secondAttribute="leading" constant="9" id="q9p-8d-dDh"/>
                             <constraint firstItem="g1U-Sp-c2F" firstAttribute="bottom" secondItem="fVh-fx-yHK" secondAttribute="bottom" constant="5" id="uxX-m2-RGp"/>
                         </constraints>
@@ -880,7 +879,7 @@
                                     </stackView>
                                     <searchBar contentMode="redraw" text="" placeholder="Add Participants" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-XB-vy9">
                                         <rect key="frame" x="0.0" y="76.5" width="386" height="244.5"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="webSearch" returnKeyType="done"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="De4-7a-dhD">
                                         <rect key="frame" x="0.0" y="321" width="386" height="397"/>
