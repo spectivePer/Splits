@@ -47,4 +47,9 @@ class UserInfoViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
+        self.view.endEditing(true)
+    }
+    
 }

@@ -26,6 +26,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     @IBOutlet weak var keyPad: UIStackView!
     @IBOutlet weak var periodButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var tempView: UIView!
     
     var tenthsPlace = false //currently in the tenths place of totalAmount
     var hundredthsPlace = false //currently in the hundreths place of totalAmount
@@ -56,7 +57,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         print("splitUid uid: ", splitUid)
         print("participantMap: ", participantMap)
         self.itemTableView.dataSource = self
-        self.itemTableView.delegate = self
         self.itemTableView.rowHeight = 100.0
         
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
@@ -80,6 +80,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         plusButton.setTitleColor(.white, for: .normal)
         plusButton.isEnabled = false
         plusButton.isHidden = true
+        tempView.isHidden = false
         
         //initialize states
         tenthsPlace = false
@@ -103,15 +104,15 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         case 1: //unequal split
             keyPad.isHidden = true
             itemTableView.isHidden = false
-            //plusButton.isHidden = false
             plusButton.isEnabled = true
-            plusButton.setTitleColor(.black, for: .normal)
+            plusButton.isHidden = false
+            tempView.isHidden = true
         case 0: //equal split
             keyPad.isHidden = false
             itemTableView.isHidden = true
-            plusButton.isHidden = true
-            plusButton.setTitleColor(.white, for: .normal)
             plusButton.isEnabled = false
+            plusButton.isHidden = true
+            tempView.isHidden = false
         default:
             break
         }
@@ -235,6 +236,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         let documentCameraViewController = VNDocumentCameraViewController()
         documentCameraViewController.delegate = self
         present(documentCameraViewController, animated: true)
+        pageSwitch.selectedSegmentIndex = 1
     }
     
     // Back Button
@@ -260,7 +262,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
 
             if let description = addAlert.textFields?.first?.text {
                 if let price = addAlert.textFields?.last?.text {
-                    self.tableContents.items.append((description, price))
+                    self.tableContents.items.append((price, description))
                     self.itemTableView.reloadData()
                 }
             }
@@ -329,17 +331,13 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
 class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var userPickerView: UIPickerView!
-    @IBOutlet weak var titleText: UITextField!
-    @IBOutlet weak var detailText: UITextField!
+    @IBOutlet weak var itemText: UILabel!
+    @IBOutlet weak var priceText: UILabel!
     var users: [String] = []
-    var titleInput: String = ""
-    var detailInput: String = ""
     
     override func awakeFromNib() {
             self.userPickerView.delegate = self;
             self.userPickerView.dataSource = self;
-            self.titleText.delegate = self
-            self.detailText.delegate = self
             super.awakeFromNib()
         }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -354,14 +352,6 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         return users[row]
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.tag == 1 {
-            titleInput = textField.text ?? ""
-        }
-        if textField.tag == 2 {
-            detailInput = textField.text ?? ""
-        }
-    }
 }
 
 // MARK: Camera Scan Complete
@@ -393,12 +383,9 @@ extension CreateViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath)
         
-        
-        tableContents.items[indexPath.row].description = cell1?.detailInput ?? "Nope"
-        tableContents.items[indexPath.row].price = cell1?.titleInput ?? "Nada"
         let field = tableContents.items[indexPath.row]
-        cell1?.detailText.text = field.price
-        cell1?.titleText.text = field.description
+        cell1?.priceText.text = field.price
+        cell1?.itemText.text = field.description
         cell1?.users = participants
 
         print("\(field.description)\t\(field.price)")
@@ -413,18 +400,8 @@ extension CreateViewController: UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell1 = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath) as? ReceiptTableCell
-        
-        tableContents.items[indexPath.row].description = cell1?.detailInput ?? ""
-        tableContents.items[indexPath.row].price = cell1?.titleInput ?? ""
-    }
 }
 
-extension CreateViewController: UITableViewDelegate {
-
-}
     
     // MARK: RecognizedTextDataSource
 extension CreateViewController: RecognizedTextDataSource {
