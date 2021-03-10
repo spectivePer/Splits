@@ -776,7 +776,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter Split Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6K-yU-vjB">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter Sp/it Name" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cbx-e0-5R1">
                                                 <rect key="frame" x="40" y="0.0" width="346" height="26.5"/>
                                                 <color key="tintColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <attributedString key="attributedText">
@@ -784,13 +784,13 @@
                                                         <attributes>
                                                             <color key="NSColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="18" name="Avenir-Black"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                                 <connections>
-                                                    <action selector="enteringName:" destination="y1J-9K-t4p" eventType="editingDidBegin" id="lIg-9w-Cyq"/>
+                                                    <action selector="enteringName:" destination="y1J-9K-t4p" eventType="editingDidBegin" id="177-Ua-xh9"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -995,7 +995,7 @@
                         <outlet property="onTap" destination="L2r-8v-47k" id="uiB-2O-SPh"/>
                         <outlet property="searchBar" destination="Pyd-XB-vy9" id="e2c-sy-ZWX"/>
                         <outlet property="selectedCollection" destination="Kq0-By-MJQ" id="fYn-4t-1Xy"/>
-                        <outlet property="splitName" destination="l6K-yU-vjB" id="LNt-XK-MSO"/>
+                        <outlet property="splitName" destination="Cbx-e0-5R1" id="jrq-Op-WdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlh-x3-TvH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

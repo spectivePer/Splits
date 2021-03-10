@@ -237,6 +237,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         documentCameraViewController.delegate = self
         present(documentCameraViewController, animated: true)
         pageSwitch.selectedSegmentIndex = 1
+        switchedView(self)
     }
     
     // Back Button

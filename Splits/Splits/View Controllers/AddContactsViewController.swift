@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AddContactsViewController: UIViewController {
+class AddContactsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var splitName: UITextField!
     
@@ -36,6 +36,7 @@ class AddContactsViewController: UIViewController {
         self.friendsTable.dataSource = self
         self.friendsTable.delegate = self
         self.searchBar.delegate = self
+        self.splitName.delegate = self
         self.selectedCollection.dataSource = self
         self.selectedCollection.delegate = self
         
@@ -54,6 +55,10 @@ class AddContactsViewController: UIViewController {
         onTap.isEnabled = true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard(onTap)
+        return true
+    }
     @IBAction func previousView(_ sender: UIButton) {
         displayView(storyboard: "Main", vcName: "homeView")
     }
