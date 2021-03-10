@@ -8,20 +8,22 @@
 import Foundation
 import UIKit
 
-class AddContactsViewController: UIViewController {
+class AddContactsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var splitName: UITextField!
-    @IBOutlet weak var splitWithLabel: UILabel!
     
     @IBOutlet weak var friendsTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var selectedCollection: UICollectionView!
+    @IBOutlet var onTap: UITapGestureRecognizer!
     
     var friends: [String: String] = [:]
     var friendsArray: [String] = []
     var friendsIDArray: [String] = []
     var chosenFriends: [String: String] = [:]
     var friendsDict: [String:String] = [:]
-    var splittersNames: String = "Participants: "
+    var splittersNames: [String] = []
+    
     
     var searching = false
     var searchedFriends = [String]()
@@ -30,17 +32,33 @@ class AddContactsViewController: UIViewController {
         super.viewDidLoad()
 
         importContacts()
-
+        
         self.friendsTable.dataSource = self
         self.friendsTable.delegate = self
         self.searchBar.delegate = self
-
+        self.splitName.delegate = self
+        self.selectedCollection.dataSource = self
+        self.selectedCollection.delegate = self
+        
+        selectedCollection.register(CollectionCell.self, forCellWithReuseIdentifier: "cell")
+        selectedCollection.reloadData()
+        onTap.isEnabled = false
+        splitName.text = ""
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
-        self.view.endEditing(true)
+            self.view.endEditing(true)
+            onTap.isEnabled = false
     }
     
+    @IBAction func enteringName(_ sender: Any) {
+        onTap.isEnabled = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard(onTap)
+        return true
+    }
     @IBAction func previousView(_ sender: UIButton) {
         displayView(storyboard: "Main", vcName: "homeView")
     }
@@ -117,11 +135,11 @@ extension AddContactsViewController: UITableViewDelegate {
         if chosenFriends[selectedID] == nil {
             chosenFriends[selectedID] = selectedName
         }
-        splittersNames = "Participants: "
+        splittersNames = []
         chosenFriends.forEach{ name in
-            splittersNames += name.value + ", "
+            splittersNames.append(name.value)
         }
-        splitWithLabel.text? = splittersNames
+        selectedCollection.reloadData()
 
     }
     
@@ -141,11 +159,11 @@ extension AddContactsViewController: UITableViewDelegate {
         chosenFriends.removeValue(forKey: selectedID)
         print(chosenFriends)
         
-        splittersNames = "Participants: "
+        splittersNames = []
         chosenFriends.forEach{ name in
-            splittersNames += name.value + ", "
+            splittersNames.append(name.value)
         }
-        splitWithLabel.text? = splittersNames
+        selectedCollection.reloadData()
     }
 }
 
@@ -187,3 +205,37 @@ extension AddContactsViewController: UISearchBarDelegate {
     }
     
 }
+
+class CollectionCell: UICollectionViewCell {
+    @IBOutlet weak var contactName: UILabel!
+    
+    override func awakeFromNib() {
+            super.awakeFromNib()
+            // Initialization code
+        contactName.text = "Temp"
+    }
+}
+
+extension AddContactsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(splittersNames.count)
+        return splittersNames.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bro", for: indexPath) as? CollectionCell
+        let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: "bro", for: indexPath)
+        
+        cell?.contactName.text = splittersNames[indexPath.row]
+    
+        return cell ?? cell1
+    }
+    
+    
+}
+
+extension AddContactsViewController: UICollectionViewDelegate {
+    
+}
+
+

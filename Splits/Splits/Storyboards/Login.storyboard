@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v2u-qP-zhG">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +12,14 @@
             <objects>
                 <viewController storyboardIdentifier="loginView" id="2UL-hj-Wrh" customClass="LoginViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFg-e2-fDZ" customClass="AnimatableView" customModule="IBAnimatable">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Splits logo" translatesAutoresizingMaskIntoConstraints="NO" id="GMq-Nu-Qcg">
-                                <rect key="frame" x="111" y="256.5" width="98" height="55"/>
+                                <rect key="frame" x="158" y="420.5" width="98" height="55"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8i-Lt-vcD" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="53.5" y="456" width="213" height="61"/>
+                                <rect key="frame" x="100.5" y="750" width="213" height="61"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="Nqb-2k-oRr"/>
@@ -75,14 +75,14 @@
             <objects>
                 <viewController storyboardIdentifier="userInfoView" id="w97-lj-tAm" customClass="UserInfoViewController" customModule="Splits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ela-1A-IUh" customClass="AnimatableView" customModule="IBAnimatable">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Splits logo" translatesAutoresizingMaskIntoConstraints="NO" id="hjO-u2-szj">
-                                <rect key="frame" x="111" y="121" width="98" height="55"/>
+                                <rect key="frame" x="158" y="165" width="98" height="55"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8Y-Q3-40C" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="53.5" y="456" width="213" height="61"/>
+                                <rect key="frame" x="100.5" y="750" width="213" height="61"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="NVG-8Y-sPQ"/>
@@ -109,7 +109,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="JJB-oL-9Nu">
-                                <rect key="frame" x="10" y="219" width="300" height="188.5"/>
+                                <rect key="frame" x="57" y="263" width="300" height="188.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p3o-IY-DeS">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="74"/>
@@ -145,7 +145,7 @@
                                                 <attributedString key="attributedText">
                                                     <fragment content="Add a Phone Number!">
                                                         <attributes>
-                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <font key="NSFont" size="22" name="Avenir-Black"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -165,6 +165,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ojN-GW-8Ab"/>
                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JJB-oL-9Nu" firstAttribute="top" secondItem="hjO-u2-szj" secondAttribute="bottom" constant="43" id="1Jt-DM-DhG"/>
                             <constraint firstItem="ojN-GW-8Ab" firstAttribute="bottom" secondItem="S8Y-Q3-40C" secondAttribute="bottom" constant="51" id="1v6-1g-RzQ"/>
@@ -181,6 +182,9 @@
                                 <color key="value" red="0.89200109240000003" green="0.50751137729999996" blue="0.058529011909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vny-3x-jl7" appends="YES" id="hoC-49-FOr"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="phoneNumberField" destination="Ekm-JD-VdS" id="dkg-0U-IzA"/>
@@ -188,6 +192,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDP-Eu-ZTj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vny-3x-jl7">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="w97-lj-tAm" id="uYy-Hj-rgo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4462.3188405797109" y="91.741071428571431"/>
         </scene>
