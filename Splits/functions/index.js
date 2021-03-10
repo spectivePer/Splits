@@ -5,6 +5,30 @@ admin.initializeApp();
 
 const stripe = require("stripe")(functions.config().stripe.secret_test_key);
 
+const twilio = require("twilio");
+const stripe = require("stripe")(functions.config().stripe.secret_test_key);
+
+const accountSid = functions.config().twilio.sid
+const authToken = functions.config().twilio.token
+
+const client = new twilio(accountSid, authToken);
+
+const twilioNumber = '+18064547805'  // twilio phone number
+
+
+exports.textStatus = functions.https.onCall(async (data, context) =>{
+  const phoneNumber = data.phoneNumber
+  const amount = data.totalAmount
+
+  const textMessage = {
+    body: amount,
+    to: phoneNumber,
+    from: twilioNumber
+  }
+
+  return client.messages.create(textMessage)
+})
+
 exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
   return stripe.customers.create({
     email: user.email,
