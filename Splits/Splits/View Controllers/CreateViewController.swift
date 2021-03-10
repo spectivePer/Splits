@@ -8,6 +8,7 @@ View controller from which to invoke the document scanner.
 import UIKit
 import VisionKit
 import Vision
+import FirebaseFunctions
 
 class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
 
@@ -317,7 +318,12 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
-                
+//        let data = [
+//            "phoneNumber": User.current.phoneNumber,
+//            "totalAmount": requestedAmount
+//        ]
+//        
+//        Functions.functions().httpsCallable("textStatus").call(data)
         // Creates a transaction for the split
         SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
             
