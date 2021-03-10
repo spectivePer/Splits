@@ -16,6 +16,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     var participantMap: [String:String] = [:]
     var splitName = String()
     var splitUid: String = ""
+    var isEqualSplit = true
+    var requestedAmount: Double
 
     @IBOutlet weak var pageSwitch: UISegmentedControl!
     
@@ -107,12 +109,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             plusButton.isEnabled = true
             plusButton.isHidden = false
             tempView.isHidden = true
+            isEqualSplit = false
         case 0: //equal split
             keyPad.isHidden = false
             itemTableView.isHidden = true
             plusButton.isEnabled = false
             plusButton.isHidden = true
             tempView.isHidden = false
+            isEqualSplit = true
         default:
             break
         }
@@ -310,6 +314,10 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
         print("Participants pay $\(evenSplitAmount) each")
         
+        if isEqualSplit {
+            requestedAmount = evenSplitAmount
+        }
+                
         // Creates a transaction for the split
         SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
             
