@@ -9,19 +9,16 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 ### Team Summary
 Keith:
-   Add friends to split;
+   Add friends to split UI + functionality;
    import contacts from phone;
-   firebase setup for splits and users;
    user and split classes;
-   calculate split unevenly total
+   calculate itemized split total
    
 Jocelyn: 
-  Split evenly;
-  name split;
-  receipt scan;
-  OCR;
-  add items to split;
-  assign participants to split;
+  Name new split;
+  split evenly UI + functionality;
+  add/delete items to split - OCR and manually;
+  assign participants to split UI + functionality;
   navigation between views
   
 Shaumik: 
@@ -29,9 +26,10 @@ Shaumik:
   Texting - split creater, and participants of split summary
 
 Paul: 
-   Login;
-   sign out;
-   history of splits created;
-   UI - home, participants, even, and uneven;
+   Login UI + functionality; 
+   create user account UI;
+   sign out UI + functionality;
+   display history of splits created;
+   finalized UI - home, participants, even, and uneven;
 
 
