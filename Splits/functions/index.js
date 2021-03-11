@@ -20,23 +20,24 @@ exports.textStatus = functions.https.onCall(async (data, context) =>{
   var messageBody = amount;
   var newMessage = data.messageBody;
   let reciever = data.recieverName;
+  let recievedAmt = data.totalAmt;
   console.log("phone number is " + phoneNumber)
 //   if (phoneNumber.indexOf("+") !== -1){
 //       phoneNumber = "+1" + phoneNumber 
 //   }
     if (isEqual === "true") {
         if (data.isOwed === "true"){
-            messageBody = reciever + "has requested $" + amount
+            messageBody = reciever + " has requested $" + amount
         }
         else if(data.isOwed === "false"){
             messageBody = "You will get " + amount + " from each participant."
         }
     }else if (isEqual === "false"){
         if (data.isOwed === "true"){
-            messageBody = reciever + " has requested total amount. Here is a summary of your bill: \n" + newMessage
+            messageBody = reciever + " has requested " + recievedAmt + ". Here is a summary of your bill: \n" + newMessage
         }
         else if (data.isOwed === "false"){
-            messageBody = "you will get recieve " + amount + "from the users." 
+            messageBody = "you will get recieve " + amount + " from the users." 
     }
 }
     const textMessage = {
