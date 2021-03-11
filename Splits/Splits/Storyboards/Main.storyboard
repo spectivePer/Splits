@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,25 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="n9M-0u-oLq">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n9M-0u-oLq">
                                 <rect key="frame" x="21" y="44" width="372" height="751"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpw-qU-4Ot" customClass="AnimatableView" customModule="IBAnimatable">
-                                        <rect key="frame" x="0.0" y="0.0" width="372" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="372" height="130"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-2k-6Eb">
-                                                <rect key="frame" x="8" y="44" width="358" height="40"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content=" Welcome, ">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.99353045230000003" green="0.59463644029999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="29" name="Avenir-Black"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjI-gQ-aIJ">
                                                 <rect key="frame" x="329" y="14" width="21" height="22"/>
                                                 <color key="tintColor" red="0.98595362900000005" green="0.61301904920000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,15 +33,40 @@
                                                     <action selector="settingsButtonTap:" destination="VsL-Cr-BYs" eventType="touchUpInside" id="H3f-XK-Klb"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-2k-6Eb">
+                                                <rect key="frame" x="33" y="62" width="317" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yF-Ue-NGp">
+                                                <rect key="frame" x="33" y="26" width="286" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content=" Welcome, ">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="29" name="Avenir-Black"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="4gN-2k-6Eb" firstAttribute="top" secondItem="qjI-gQ-aIJ" secondAttribute="bottom" constant="8" id="2Sj-RL-xcD"/>
                                             <constraint firstAttribute="trailing" secondItem="qjI-gQ-aIJ" secondAttribute="trailing" constant="22" id="8pu-wl-eat"/>
-                                            <constraint firstItem="4gN-2k-6Eb" firstAttribute="centerY" secondItem="Qpw-qU-4Ot" secondAttribute="centerY" id="BWs-5i-KKF"/>
-                                            <constraint firstItem="4gN-2k-6Eb" firstAttribute="leading" secondItem="Qpw-qU-4Ot" secondAttribute="leadingMargin" id="Jjx-0m-nue"/>
                                             <constraint firstItem="qjI-gQ-aIJ" firstAttribute="top" secondItem="Qpw-qU-4Ot" secondAttribute="top" constant="14" id="M1P-Qk-veM"/>
-                                            <constraint firstItem="4gN-2k-6Eb" firstAttribute="trailing" secondItem="Qpw-qU-4Ot" secondAttribute="trailingMargin" id="UlG-jh-hke"/>
+                                            <constraint firstAttribute="height" constant="130" id="TXT-xv-brs"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -61,49 +74,64 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q5t-QW-Gs4">
-                                        <rect key="frame" x="0.0" y="132" width="372" height="619"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nWT-Qf-P7z">
+                                        <rect key="frame" x="0.0" y="140" width="372" height="611"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="sectionIndexColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <view key="tableFooterView" contentMode="scaleToFill" id="FeC-ow-BYN">
-                                            <rect key="frame" x="0.0" y="140" width="372" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </view>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="84" id="kJ5-Sj-bhy" customClass="AnimatableTableViewCell" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="28" width="372" height="84"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kJ5-Sj-bhy" id="9gr-YF-Gyk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="372" height="84"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                        <color key="tintColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="613" id="Cnq-9D-rjd"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S3L-HL-QMx">
+                                            <size key="itemSize" width="372" height="79"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="splitCell" id="gEO-We-Mfo" customClass="SplitsCollectionCell" customModule="Splits" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="372" height="79"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fke-sS-Szc" customClass="AnimatableView" customModule="IBAnimatable">
+                                                    <rect key="frame" x="0.0" y="0.0" width="372" height="79"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Split Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-G4-A1M">
-                                                            <rect key="frame" x="20" y="11" width="83" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U61-Ja-AMA">
-                                                            <rect key="frame" x="251" y="11" width="101" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LD-8t-oa1">
+                                                            <rect key="frame" x="23" y="19" width="157" height="41"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Split Name">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.98613816499999996" green="0.63180750610000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <font key="NSFont" size="30" name="Avenir-Black"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                </tableViewCellContentView>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="6LD-8t-oa1" firstAttribute="leading" secondItem="fke-sS-Szc" secondAttribute="leading" constant="23" id="ndP-Y5-lwn"/>
+                                                        <constraint firstItem="6LD-8t-oa1" firstAttribute="centerY" secondItem="fke-sS-Szc" secondAttribute="centerY" id="rm2-hC-SuV"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="35"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="372" height="79"/>
+                                                <connections>
+                                                    <outlet property="splitName" destination="6LD-8t-oa1" id="30Z-BN-Ko3"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Qpw-qU-4Ot" firstAttribute="top" secondItem="n9M-0u-oLq" secondAttribute="top" id="TjE-6k-NGt"/>
+                                    <constraint firstItem="Qpw-qU-4Ot" firstAttribute="leading" secondItem="n9M-0u-oLq" secondAttribute="leading" constant="20" id="ZHI-1N-7rP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qpw-qU-4Ot" secondAttribute="trailing" constant="20" id="csF-zD-aLE"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVl-fh-vxc" customClass="AnimatableButton" customModule="IBAnimatable">
                                 <rect key="frame" x="101" y="794" width="213" height="61"/>
@@ -155,6 +183,7 @@
                     <navigationItem key="navigationItem" id="v5N-Uj-UnV"/>
                     <connections>
                         <outlet property="settingButton" destination="qjI-gQ-aIJ" id="Ay1-GR-Gqm"/>
+                        <outlet property="splitCollection" destination="nWT-Qf-P7z" id="06U-3R-Q65"/>
                         <outlet property="welcomeLabel" destination="4gN-2k-6Eb" id="3RD-Al-sr9"/>
                     </connections>
                 </viewController>

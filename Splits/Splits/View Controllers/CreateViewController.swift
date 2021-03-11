@@ -8,6 +8,7 @@ View controller from which to invoke the document scanner.
 import UIKit
 import VisionKit
 import Vision
+import FirebaseFunctions
 
 class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
 
@@ -20,6 +21,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     var isEqualSplit = true
     var itemToPriceMap: [String: Double] = [:]
     var itemToUserMap: [String: String] = [:]
+    var requestedAmount: Double = 0.0
 
     @IBOutlet weak var pageSwitch: UISegmentedControl!
     
@@ -98,6 +100,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         // Selecter Settings
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
+        
+        //initialize global variables
+        selectedUsers = []
         
     }
     
@@ -273,6 +278,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     self.itemTableView.reloadData()
                 }
             }
+            cellNum = IndexPath(index: selectedUsers.count)
+            selectedUsers.append(self.participants[0])
         }))
 
         self.present(addAlert, animated: true)
@@ -316,6 +323,39 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         let evenSplitAmount = round(totalAmount/Double(numberOfParticipants)*100)/100.0
         print("Participants pay $\(evenSplitAmount) each")
         
+        if isEqualSplit {
+            requestedAmount = evenSplitAmount
+        }
+        
+        var part2itemMap = [String:String]()
+        guard let table = itemTableView else {
+            return
+        }
+        
+        print(selectedUsers)
+        
+//        for row in item.count {
+//            let item = itemName[row]
+//            let user = selectedUsers[row]
+//            part2itemMap = [item, user]
+//        }
+        
+
+        let data : [String: Any] = [
+            "phoneNumber": User.current.phoneNumber,
+            "totalAmount": String(requestedAmount)
+        ]
+        // Send a message to the user for amount owed
+        Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+
+                   if let error = error {
+                        print(error.localizedDescription)
+                        // send alert - unable to make charge
+                        return
+                    }
+                    // sent message here!
+                 }
+        
         // Creates a transaction for the split
         if isEqualSplit {
             SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
@@ -337,6 +377,18 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     }
     
 }
+var cellNum = IndexPath()
+var selectedUsers: [String] = []
+
+func updateSelectedUser(row: Int, user: String){
+    selectedUsers[row] = user
+    return
+}
+
+func getSelectedUsers() -> [String] {
+    return selectedUsers
+}
+
 
 // MARK: Custom Receipt Class
 class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -352,6 +404,7 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             super.awakeFromNib()
         }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
         return 1
     }
     
@@ -359,8 +412,12 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         return users.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return users[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow pickerRow: Int, forComponent component: Int) -> String? {
+        return users[pickerRow]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow pickerRow: Int, inComponent component: Int) {
+        updateSelectedUser(row: cellNum.row, user: users[pickerRow])
     }
     
 }
@@ -401,6 +458,7 @@ extension CreateViewController: UITableViewDataSource {
 
         print("\(field.description)\t\(field.price)")
         itemToPriceMap[field.description] = Double(field.price)
+        cellNum = indexPath
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
@@ -427,6 +485,8 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
+            
+            selectedUsers.append(participants[0])
 
             if isLarge {
                 if let label = currLabel {

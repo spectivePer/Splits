@@ -27,7 +27,6 @@ class UserInfoViewController: UIViewController {
               let phoneNumber = phoneNumberField.text, // Phone Number
               let username = usernameTextField.text, // Username
               !username.isEmpty else { return }
-            
         
         // Set Root View Controller
         UserService.create(firUser, name: name, username: username, phoneNumber: phoneNumber, stripeId: "") { (user) in

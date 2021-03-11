@@ -12,7 +12,11 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var splitCollection: UICollectionView!
     var splitsArray: [Split]?
+    var splitKeys = Array<String>()
+    var splits = [String:String]()
+    var sections: [String] = ["Pending Payments", "Pending Charges", "Completed Splits"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,13 @@ class HomeViewController: UIViewController {
         }
         settingButton.menu = signOutMenu()
         settingButton.showsMenuAsPrimaryAction = true
+        self.splitCollection.dataSource = self
+        self.splitCollection.delegate = self
+        
+        //splitCollection.register(SplitsCollectionCell.self, forCellWithReuseIdentifier: "Cell")
+        splitKeys = Array(User.current.splits.keys)
+        splits = User.current.splits
+        splitCollection.reloadData()
     }
     
     @IBAction func createSplitButton(_ sender: Any) {
@@ -70,12 +81,14 @@ class HomeViewController: UIViewController {
         for split in User.current.splits {
             print("Splits: ", split)
         }
+        splitCollection.reloadData()
     }
     
     func getUserSplitIDs () {
         DispatchQueue.global(qos: .userInitiated).async {
             SplitService.updateUserSplitIDs(user: User.current)
         }
+        splitCollection.reloadData()
     }
 }
 
@@ -90,33 +103,34 @@ extension UIViewController {
     }
 }
 
-class SplitsTableCell: UITableViewCell {
-    let splits: [String:String] = User.current.splits
-    let sections: [String] = ["Pending Payments", "Pending Charges", "Completed Splits"]
+class SplitsCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var splitName: UILabel!
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+    override func awakeFromNib() {
+            super.awakeFromNib()
+            // Initialization code
+        splitName.text = "Temp"
     }
+}
 
-   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var rowCount = 0
-    
-        switch section {
-        case 0: rowCount = splits.count
-        case 1: rowCount = splits.count
-        case 2: rowCount = splits.count
-        default:
-            print("invalid section number")
-        }
-    
-        return rowCount
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        splitKeys.count
     }
-
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as UITableViewCell
-//        let ip = indexPath
-//        cell.textLabel?.text = splits[ip.row] as String
-//        return cell
-//    }
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "splitCell", for: indexPath as IndexPath) as? SplitsCollectionCell
+        let cell1 = collectionView.dequeueReusableCell(withReuseIdentifier: "splitCell", for: indexPath as IndexPath)
+        cell?.splitName.text = splits[splitKeys[indexPath.row]]
+        
+        return cell ?? cell1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(
+            width: collectionView.bounds.width,
+            height: 75
+        )
+    }
+    
 }
