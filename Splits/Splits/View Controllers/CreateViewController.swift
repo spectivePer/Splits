@@ -364,6 +364,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         
         } else {
             print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
+            var userTotal: [String: Double] = [String:Double]()
             var userToItems:[String:[String:Double]] = [String:[String:Double]]()
             for(itemIndex, user) in itemIndexToUser {
                 let itemName = tableContents.items[itemIndex].description
@@ -373,9 +374,12 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     } else {
                         userToItems[user] = [itemName:itemPrice]
                     }
+                    userTotal[user] = (userTotal[user] ?? 0.0) + itemPrice
                 }
+                
             }
             print(userToItems)
+            print(userTotal)
         }
             
         // Update the current user with the new split
