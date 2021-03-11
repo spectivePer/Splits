@@ -11,6 +11,11 @@ https://trello.com/b/Ez0aGlsI/splits
 | Computer Science Major | Electrical Engineering Major | Computer Science Major | Cognitive Science Major |
 | [Github](https://github.com/Keith-Choung) & [LinkedIn](https://www.linkedin.com/in/keithchoung/) | [Github](https://github.com/spectivePer) & [LinkedIn](https://www.linkedin.com/in/jocelyn-park) | [Github](https://github.com/shaumikpathak/ ) & [LinkedIn](http://linkedin.com/in/shaumik-pathak) | [Github](https://github.com/ptsvirinko) & [LinkedIn](https://www.linkedin.com/in/paul-tsvirinko) | 
 
+
+### Instructions
+In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text.
+
+
 ### Splits Features
 #### Login with email
 
