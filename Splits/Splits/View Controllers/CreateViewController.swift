@@ -337,17 +337,18 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
 //            part2itemMap = [item, user]
 //        }
         
-
+        let totalAmountmessage = String(requestedAmount)
         let data : [String: Any] = [
             "phoneNumber": User.current.phoneNumber,
-            "totalAmount": String(requestedAmount)
+            "totalAmount": totalAmountmessage
         ]
         // Send a message to the user for amount owed
         Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
 
                    if let error = error {
-                        print(error.localizedDescription)
-                        // send alert - unable to make charge
+                        // send alert - unable to send message
+                        print("error")
+                        print(User.current.phoneNumber)
                         return
                     }
                     // sent message here!
