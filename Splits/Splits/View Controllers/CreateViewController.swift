@@ -15,9 +15,12 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     // Variables from previous view
     var participants = [String]()
     var participantMap: [String:String] = [:]
+    var reverseParticipantMap: [String: String] =  [:]
     var splitName = String()
     var splitUid: String = ""
     var isEqualSplit = true
+    var itemToPriceMap: [String: Double] = [:]
+    var itemToUserMap: [String: String] = [:]
     var requestedAmount: Double = 0.0
 
     @IBOutlet weak var pageSwitch: UISegmentedControl!
@@ -48,12 +51,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     //Receipt information
     typealias ReceiptContentField = (price: String, description: String)
+    typealias RecieptTableDataSource = (price: String, description: String, user: String)
     struct ReceiptContents {
 
         var storeName: String?
         var items = [ReceiptContentField]()
     }
-    
+    var tableDataSource: [RecieptTableDataSource] = []
+
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -252,7 +257,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     @IBAction func backButtonTapped(_ sender: Any) {
         displayViewController(storyboard: "Create", vcName: "addContactsVC")
     }
-    
+
     // Add Item Button
     @IBAction func addButtonTapped(_ sender: Any) {
         let addAlert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
@@ -272,11 +277,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             if let description = addAlert.textFields?.first?.text {
                 if let price = addAlert.textFields?.last?.text {
                     self.tableContents.items.append((price, description))
-                    self.itemTableView.reloadData()
                 }
             }
             cellNum = IndexPath(index: selectedUsers.count)
             selectedUsers.append(self.participants[0])
+            
+            self.itemTableView.beginUpdates()
+            self.itemTableView.insertRows(at: [IndexPath(row: self.tableContents.items.count-1, section: 0)], with: .automatic)
+            self.itemTableView.endUpdates()
         }))
 
         self.present(addAlert, animated: true)
@@ -355,7 +363,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                  }
         
         // Creates a transaction for the split
-        SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+        if isEqualSplit {
+            SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+        } else {
+            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: itemToUserMap, itemToPriceMap: itemToPriceMap, users: participantMap, splitUid: splitUid, recipient: User.current)
+        }
             
         // Update the current user with the new split
         UserService.updateCurrentUser(user: User.current) { (user) in
@@ -370,19 +382,29 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         self.displayViewController(storyboard: "Main", vcName: "homeView")
     }
     
+//    func updateSelectedUser(row: Int, user: String){
+//        selectedUsers[row] = user
+//        return
+//    }
+//
+//    func getSelectedUsers() -> [String] {
+//        return selectedUsers
+//    }
 }
+
 var cellNum = IndexPath()
 var selectedUsers: [String] = []
+var itemIndexToUser: [Int:String] = [:]
 
-func updateSelectedUser(row: Int, user: String){
-    selectedUsers[row] = user
+func updateSelectedUser(itemIndex: Int, user: String){
+    itemIndexToUser[itemIndex] = user
+    print(itemIndexToUser)
     return
 }
 
-func getSelectedUsers() -> [String] {
-    return selectedUsers
+func getSelectedUsers() -> [Int:String] {
+    return itemIndexToUser
 }
-
 
 // MARK: Custom Receipt Class
 class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -390,7 +412,9 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var userPickerView: UIPickerView!
     @IBOutlet weak var itemText: UILabel!
     @IBOutlet weak var priceText: UILabel!
+    var itemIndex: Int = 0
     var users: [String] = []
+//    var participantMap: [String:String] =
     
     override func awakeFromNib() {
             self.userPickerView.delegate = self;
@@ -398,7 +422,6 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             super.awakeFromNib()
         }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 1
     }
     
@@ -411,7 +434,7 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow pickerRow: Int, inComponent component: Int) {
-        updateSelectedUser(row: cellNum.row, user: users[pickerRow])
+        updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
     }
     
 }
@@ -431,29 +454,31 @@ extension CreateViewController {
     }
 }
 
-    // MARK: Receipt Data
+// MARK: Receipt Data
 extension CreateViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(tableContents.items)
         return tableContents.items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath) as? ReceiptTableCell
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath)
-        
+    
         let field = tableContents.items[indexPath.row]
         cell1?.priceText.text = field.price
         cell1?.itemText.text = field.description
         cell1?.users = participants
+        cell1?.itemIndex = indexPath.row
 
         print("\(field.description)\t\(field.price)")
-        
+        itemToPriceMap[field.description] = Double(field.price)
         cellNum = indexPath
         cell1?.userPickerView.reloadAllComponents()
+        
         return cell1 ?? cell
     }
 
@@ -479,7 +504,7 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
-            
+
             selectedUsers.append(participants[0])
 
             if isLarge {
