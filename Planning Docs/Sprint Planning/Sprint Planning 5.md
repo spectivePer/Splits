@@ -12,7 +12,7 @@ Jocelyn: OCR, delete item from list, add items to list, assign participants to s
 
 Paul: even/uneven split UI, edit items on list, itemized split UI, homeview UI
 
-Keith: linked groups and users, change split & user classes to hold transactions, calculate uneven split totals
+Keith: linked groups and users, change split & user classes to hold transactions, calculate uneven split totals, assign participants to split
 
 Shaumik: text request for even and uneven split
 
@@ -65,6 +65,8 @@ Shaumik: [Firebase](https://github.com/ECS189E/project-w21-splits/tree/bcea8d067
 Shaumik: [Texting](https://github.com/ECS189E/project-w21-splits/tree/8d13372a0175cbbd9231be9cdefbfd8a92a370f4)
 
 Jocelyn: [Participant Pickerview](https://github.com/ECS189E/project-w21-splits/tree/35905e4034973843f9e5f40523a3db1749130d58)
+
+Jocelyn: [itemIndexToUser to an array](https://github.com/ECS189E/project-w21-splits/tree/3c891f5703aa0b89a70a8b8010cf93dcb967678f)
 
 ### In-progress Tasks
 Documentation, error handling, and commenting

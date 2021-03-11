@@ -17,15 +17,33 @@ exports.textStatus = functions.https.onCall(async (data, context) =>{
   var phoneNumber = data.phoneNumber;
   const amount = data.totalAmount;
   const isEqual = data.isEqual;
+  var messageBody = amount;
+  var newMessage = data.messageBody;
+  let reciever = data.recieverName;
   console.log("phone number is " + phoneNumber)
-  if (phoneNumber.indexOf("+") !== -1){
-      phoneNumber = "+1" + phoneNumber 
-  }
-  const textMessage = {
-    body: amount,
-    to: phoneNumber,
-    from: twilioNumber
-  }
+//   if (phoneNumber.indexOf("+") !== -1){
+//       phoneNumber = "+1" + phoneNumber 
+//   }
+    if (isEqual === "true") {
+        if (data.isOwed === "true"){
+            messageBody = reciever + "has requested $" + amount
+        }
+        else if(data.isOwed === "false"){
+            messageBody = "You will get " + amount + " from each participant."
+        }
+    }else if (isEqual === "false"){
+        if (data.isOwed === "true"){
+            messageBody = reciever + " has requested total amount. Here is a summary of your bill: \n" + newMessage
+        }
+        else if (data.isOwed === "false"){
+            messageBody = "you will get recieve " + amount + "from the users." 
+    }
+}
+    const textMessage = {
+        body: messageBody,
+        to: phoneNumber,
+        from: twilioNumber
+      }
 
   return client.messages.create(textMessage)
 })
