@@ -105,6 +105,10 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
+        //global variable
+        itemIndexToUserArray.removeAll()
+        itemIndexToUser.removeAll()
+        
     }
     
     // MARK: Selector
@@ -280,9 +284,15 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             }
             
             self.itemTableView.beginUpdates()
-            let itemRowNum = self.tableContents.items.count-1
+            var itemRowNum:Int = 0
+            if self.tableContents.items.count != 0 {
+                itemRowNum = self.tableContents.items.count-1
+            } else {
+                itemRowNum = 0
+            }
             self.itemTableView.insertRows(at: [IndexPath(row: itemRowNum, section: 0)], with: .automatic)
-            updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+            //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+            updateSelectedUser(user: self.participants[0])
             self.itemTableView.endUpdates()
         }))
 
@@ -386,9 +396,22 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         
         } else {
             print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
+            
+            var itemIndexToUser: [Int:String] = [:]
+            var i:Int = 0
+            while i < itemIndexToUserArray.count {
+                itemIndexToUser[i] = itemIndexToUserArray[i]
+                i += 1
+            }
+            
+            print("Map count: \(itemToPriceMap.count)")
+            print("Array count: \(itemIndexToUserArray.count)")
+            print("ITEM INDEX ARRAY: \(itemIndexToUserArray)")
+            print(itemIndexToUser)
             var userTotal: [String: Double] = [String:Double]()
             var userToItems:[String:[String:Double]] = [String:[String:Double]]()
             for(itemIndex, user) in itemIndexToUser {
+                //print(itemIndex)
                 let itemName = tableContents.items[itemIndex].description
                 if let itemPrice = itemToPriceMap[itemName] {
                     if userToItems[user] != nil {
@@ -419,16 +442,32 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     }
 }
 
-var itemIndexToUser: [Int:String] = [:]
+var itemIndexToUser: [Int:String] = [Int:String]()
+var itemIndexToUserArray:[String] = [String]()
 
-func updateSelectedUser(itemIndex: Int, user: String){
-    itemIndexToUser[itemIndex] = user
-    print(itemIndexToUser)
+//func updateSelectedUser(itemIndex: Int, user: String){
+//    itemIndexToUser[itemIndex] = user
+//    print(itemIndexToUser)
+//    return
+//}
+
+func updateSelectedUser(user:String) {
+    itemIndexToUserArray.append(user)
+    return
+}
+
+func updateSelectedUser(itemIndex: Int, user: String) {
+    itemIndexToUserArray[itemIndex] = user
     return
 }
 
 func getSelectedUsers() -> [Int:String] {
     return itemIndexToUser
+}
+
+func deleteSelectedUser(itemIndex: Int) {
+    itemIndexToUserArray.remove(at: itemIndex)
+    return
 }
 
 // MARK: Custom Receipt Class
@@ -459,7 +498,9 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow pickerRow: Int, inComponent component: Int) {
+        //updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
         updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
+        return
     }
     
 }
@@ -510,6 +551,7 @@ extension CreateViewController: UITableViewDataSource {
             if editingStyle == .delete {
                 print("deleted \(tableContents.items[indexPath.row].description)")
                 tableContents.items.remove(at: indexPath.row)
+                itemIndexToUserArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
@@ -528,7 +570,7 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
-
+            
             if isLarge {
                 if let label = currLabel {
                     if let qualifier = valueQualifier {
@@ -542,6 +584,16 @@ extension CreateViewController: RecognizedTextDataSource {
                     tableContents.items.append((label, text))
                     print(tableContents.items)
                     
+                    var itemRowNum:Int = 0
+                    if tableContents.items.count != 0 {
+                        itemRowNum = self.tableContents.items.count-1
+                    } else {
+                        itemRowNum = 0
+                    }
+                    
+                    //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+                    updateSelectedUser(user: self.participants[0])
+                    
                     currLabel = nil
                 } else if tableContents.storeName == nil && observation.boundingBox.minX < 0.5 && text.count >= 2 {
                     // Name is located on the top-left of the receipt.
@@ -551,6 +603,15 @@ extension CreateViewController: RecognizedTextDataSource {
                 if text.starts(with: "#") {
                     // Order number is the only thing that starts with #.
                     tableContents.items.append(("Order", text))
+                    var itemRowNum:Int = 0
+                    if tableContents.items.count != 0 {
+                        itemRowNum = self.tableContents.items.count-1
+                    } else {
+                        itemRowNum = 0
+                    }
+                    
+                    //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+                    updateSelectedUser(user: self.participants[0])
                 } else if currLabel == nil {
                     currLabel = text
                 } else {
@@ -561,6 +622,16 @@ extension CreateViewController: RecognizedTextDataSource {
                         let matches = detector.matches(in: text, options: .init(), range: NSRange(location: 0, length: text.count))
                         if !matches.isEmpty {
                             tableContents.items.append(("Date", text))
+                            
+                            var itemRowNum:Int = 0
+                            if tableContents.items.count != 0 {
+                                itemRowNum = self.tableContents.items.count-1
+                            } else {
+                                itemRowNum = 0
+                            }
+                            
+                            //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+                            updateSelectedUser(user: self.participants[0])
                         } else {
                             // This observation is potentially a qualifier.
                             valueQualifier = observation
