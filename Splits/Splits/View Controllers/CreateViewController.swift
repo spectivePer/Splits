@@ -351,11 +351,10 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
                     
         let totalAmountmessage = String(requestedAmount)
-        var isEqual = true
+//        var isEqual = true
         var isOwed = true
         for x in 0..<participants.count{
             let userphoneNumber = reverseParticipantMap[participants[x]]
-            print("hi there")
             isOwed = true
             let data : [String: String] = [
                 "phoneNumber": String(userphoneNumber ?? ""),
@@ -381,7 +380,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             let data : [String: String] = [
                 "phoneNumber": User.current.phoneNumber,
                 "totalAmount": totalAmountmessage,
-                "isEqual": String(isEqual),
+                "isEqual": "true",
                 "isOwed" : String(isOwed),
             ]
             // Send a message to the user for amount owed
@@ -458,6 +457,24 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                             print("ok")
                 }
                 
+            }
+            let amounttoBePaid = userTotal[User.current.name]
+            // Send the user a message too
+            let data : [String: String] = [
+                "phoneNumber": User.current.phoneNumber,
+                "totalAmount": String(format: "", amounttoBePaid ?? "0"),
+                "isEqual": "true",
+                "isOwed" : "ture",
+            ]
+            // Send a message to the user for amount owed
+            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                       if let error = error {
+                            // send alert - unable to send message
+                        print(error.localizedDescription)
+                            return
+                        }
+                        // sent message here!
+                        print("ok")
             }
             
             print(userToItems)

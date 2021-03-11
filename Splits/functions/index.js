@@ -36,9 +36,9 @@ exports.textStatus = functions.https.onCall(async (data, context) =>{
             messageBody = reciever + " has requested total amount. Here is a summary of your bill: \n" + newMessage
         }
         else if (data.isOwed === "false"){
-            messageBody = "you will get some amount" // change it to total amount
-        }
+            messageBody = "you will get recieve " + amount + "from the users." 
     }
+}
     const textMessage = {
         body: messageBody,
         to: phoneNumber,
