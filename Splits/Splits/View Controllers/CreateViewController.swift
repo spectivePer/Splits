@@ -329,32 +329,21 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             requestedAmount = evenSplitAmount
         }
         
-        var itemName:String
-        var itemPrice:Double
-        var userToItem:[String:String] = [:]
-        for(itemIndex, user) in itemIndexToUser {
-            
-            itemName = userToItem[user]
-            itemPrice = itemToPriceMap[itemName]
-        }
-        
-        print(userToitem)
-        
-        
-        
-        
 //        itemIndexToUser Int: String
 //        itemIndexToName
 //        itemToPrice: String:Double
         
-        let totalAmountmessage = String(requestedAmount)
-        let data : [String: Any] = [
-            "phoneNumber": User.current.phoneNumber,
-            "totalAmount": totalAmountmessage
-        ]
-        // Send a message to the user for amount owed
-        Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
-
+        // Creates a transaction for the split
+        if isEqualSplit {
+            print("IS EQUAL")
+            SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+            let totalAmountmessage = String(requestedAmount)
+            let data : [String: Any] = [
+                "phoneNumber": User.current.phoneNumber,
+                "totalAmount": totalAmountmessage
+            ]
+            // Send a message to the user for amount owed
+            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
                    if let error = error {
                         // send alert - unable to send message
                         print("error")
@@ -364,12 +353,20 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     // sent message here!
                     print("ok")
                  }
-        
-        // Creates a transaction for the split
-        if isEqualSplit {
-            SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
         } else {
-            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: itemToUserMap, itemToPriceMap: itemToPriceMap, users: participantMap, splitUid: splitUid, recipient: User.current)
+            print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
+            var userToItems:[String:[String:Double]] = [String:[String:Double]]()
+            for(itemIndex, user) in itemIndexToUser {
+                let itemName = tableContents.items[itemIndex].description
+                if let itemPrice = itemToPriceMap[itemName] {
+                    if userToItems[user] != nil {
+                        userToItems[user]?[itemName] = itemPrice
+                    } else {
+                        userToItems[user] = [itemName:itemPrice]
+                    }
+                }
+            }
+            print(userToItems)
         }
             
         // Update the current user with the new split
