@@ -98,6 +98,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
+        //initialize global variables
+        selectedUsers = []
+        
     }
     
     // MARK: Selector
@@ -272,6 +275,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     self.itemTableView.reloadData()
                 }
             }
+            cellNum = IndexPath(index: selectedUsers.count)
+            selectedUsers.append(self.participants[0])
         }))
 
         self.present(addAlert, animated: true)
@@ -318,6 +323,20 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
+        
+        var part2itemMap = [String:String]()
+        guard let table = itemTableView else {
+            return
+        }
+        
+        print(selectedUsers)
+        
+//        for row in item.count {
+//            let item = itemName[row]
+//            let user = selectedUsers[row]
+//            part2itemMap = [item, user]
+//        }
+        
 
         let data : [String: Any] = [
             "phoneNumber": User.current.phoneNumber,
@@ -352,6 +371,18 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     }
     
 }
+var cellNum = IndexPath()
+var selectedUsers: [String] = []
+
+func updateSelectedUser(row: Int, user: String){
+    selectedUsers[row] = user
+    return
+}
+
+func getSelectedUsers() -> [String] {
+    return selectedUsers
+}
+
 
 // MARK: Custom Receipt Class
 class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -367,6 +398,7 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             super.awakeFromNib()
         }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
         return 1
     }
     
@@ -374,8 +406,12 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         return users.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return users[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow pickerRow: Int, forComponent component: Int) -> String? {
+        return users[pickerRow]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow pickerRow: Int, inComponent component: Int) {
+        updateSelectedUser(row: cellNum.row, user: users[pickerRow])
     }
     
 }
@@ -415,6 +451,8 @@ extension CreateViewController: UITableViewDataSource {
         cell1?.users = participants
 
         print("\(field.description)\t\(field.price)")
+        
+        cellNum = indexPath
         cell1?.userPickerView.reloadAllComponents()
         return cell1 ?? cell
     }
@@ -441,6 +479,8 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
+            
+            selectedUsers.append(participants[0])
 
             if isLarge {
                 if let label = currLabel {
