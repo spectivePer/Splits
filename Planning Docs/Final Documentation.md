@@ -30,6 +30,6 @@ Paul:
    create user account UI;
    sign out UI + functionality;
    display history of splits created;
-   finalized UI - home, participants, even, and uneven;
+   finalized UI - home, participants, even, and uneven
 
 
