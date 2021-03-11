@@ -12,7 +12,7 @@ Jocelyn: OCR, delete item from list, add items to list, assign participants to s
 
 Paul: even/uneven split UI, edit items on list, itemized split UI, homeview UI
 
-Keith: linked groups and users, change split & user classes to hold transactions, calculate uneven split totals
+Keith: linked groups and users, change split & user classes to hold transactions, calculate uneven split totals, assign participants to split
 
 Shaumik: text request for even and uneven split
 
