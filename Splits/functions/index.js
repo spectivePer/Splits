@@ -1,15 +1,12 @@
-const functions = require('firebase-functions');
+const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 
 admin.initializeApp();
 
-const stripe = require("stripe")(functions.config().stripe.secret_test_key);
-
 const twilio = require("twilio");
-const stripe = require("stripe")(functions.config().stripe.secret_test_key);
 
-const accountSid = functions.config().twilio.sid
-const authToken = functions.config().twilio.token
+const accountSid = functions.config().twilio.sid;
+const authToken = functions.config().twilio.token;
 
 const client = new twilio(accountSid, authToken);
 
@@ -17,11 +14,11 @@ const twilioNumber = '+18064547805'  // twilio phone number
 
 
 exports.textStatus = functions.https.onCall(async (data, context) =>{
-  const phoneNumber = data.phoneNumber
-  const amount = data.totalAmount
-  const message = "The ammount to be paid to the creator of the split is" + amount;
+  const phoneNumber = data.phoneNumber;
+  const amount = data.totalAmount;
+
   const textMessage = {
-    body: message,
+    body: amount,
     to: phoneNumber,
     from: twilioNumber
   }
@@ -29,121 +26,122 @@ exports.textStatus = functions.https.onCall(async (data, context) =>{
   return client.messages.create(textMessage)
 })
 
-exports.createStripeCustomer = functions.auth.user().onCreate((user) => {
-  return stripe.customers.create({
-    email: user.email,
-  }).then((customer) => {
-    // var usersRef = admin.database.ref.child("users").child(user.uid);
-    // return usersRef.update({stripeId:customer.id});
-    var path = admin.database().ref(`/users/${user.phoneNumber}/stripeId`)
-    print(path)
-    return path.set(customer.id);
-  });
-});
 
+// exports.createStripeCustomer = functions.https.onCall(async (data, context) => {
+//   const email = data.email;
+//   const username = data.username;
+//   const customer = await stripe.customers.create({
+//       email: email,
+//   });
+//   console.log('new customer created: ', customer.id)
+//   return {
+//       customer_id: customer.id
+//   }
+// });
 
-exports.createCharge = functions.https.onCall(async (data, context) => {
+// exports.createCharge = functions.https.onCall(async (data, context) => {
 
-  const customerId = data.customerId;
-  const totalAmount = data.total;
-  const idempotency = data.idempotency;
-  const uid = context.auth.uid
+//   const customerId = data.customerId;
+//   const totalAmount = data.total;
+//   const idempotency = data.idempotency;
+//   const uid = context.auth.uid
 
-  if (uid === null) {
-      console.log('Illegal access attempt due to unauthenticated user');
-      throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt.')
-  }
+//   if (uid === null) {
+//       console.log('Illegal access attempt due to unauthenticated user');
+//       throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt.')
+//   }
 
-  return stripe.charges.create({
-      amount: totalAmount,
-      currency: 'usd',
-      customer: customerId
-  }, {
-      idempotency_key: idempotency
-  }).then( customer => {
-      return customer
-  }).catch( err => {
-      console.log(err);
-      throw new functions.https.HttpsError('internal', 'Unable to create charge')
-  });
-})
+//   return stripe.charges.create({
+//       amount: totalAmount,
+//       currency: 'usd',
+//       customer: customerId
+//   }, {
+//       idempotency_key: idempotency
+//   }).then( customer => {
+//       return customer
+//   }).catch( err => {
+//       console.log(err);
+//       throw new functions.https.HttpsError('internal', 'Unable to create charge')
+//   });
+// })
 
-exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
-  const customerId = data.customer_id;
-  const stripeVersion = data.stripe_version;
-  const uid = context.auth.uid;
+// exports.createEphemeralKey = functions.https.onCall(async (data, context) => {
+//   const customerId = data.stripeId;
+//   const stripeVersion = data.stripe_version;
+//   // const uid = context.auth.uid;
 
-  if (uid === null){
-    console.log("illegal access attempt due to unauthenticated user");
-    throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt')
-  }
+//   // if (uid === null){
+//   //   console.log("illegal access attempt due to unauthenticated user");
+//   //   throw new functions.https.HttpsError('permission-denied', 'Illegal access attempt')
+//   // }
+//   return stripe.ephemeralKeys.create(
+//     {customer_id: customerId},
+//     {stripe_version: stripeVersion}
+//   ).then((key) => {
+//       return key
+//   })
+//   // }).catch((err) => {
+//   //     console.log(err)
+//   //     throw new functions.https.HttpsError('internal','Unable to create epheremal key.')
+//   // })
+// })
 
-  return stripe.ephemeralKeys.create(
-    {customer: customer_id},
-    {stripe_version: stripeVersion}
-  ).then((key) => {
-      return key
-  }).catch((err) => {
-      console.log(err)
-      throw new functions.https.HttpsError('internal','Unable to create epheremal key.')
-  })
-})
+// exports.createConnectAccount = functions.https.onCall( async (data, context) => {
+  
+//   // var email = data.email
+//   var response = {}
+//   stripe.accounts.create(
+//     {
+//       type: 'express',
+//       country: 'US',
+//       requested_capabilities: [
+//         'transfers',
+//       ],
+//       business_type: 'individual',
+//     },
+//       function(err, account) {
+//         if (err) {
+//           console.log("Couldn't create stripe account: " + err)
+//           return
+//       }
+//       console.log("ACCOUNT: " + account.id)
+//       response.body = {success: account.id}
+//       return account.id
+//     }
+//   );
+// });
 
-exports.createConnectAccount = functions.https.onRequest((req, res) => {
-  // var data = req.body
-  // var email = data.email
-  var response = {}
-  stripe.accounts.create(
-    {
-      type: 'custom',
-      country: 'US',
-      requested_capabilities: [
-        'transfers',
-      ],
-      business_type: 'individual',
-    },
-      function(err, account) {
-        if (err) {
-          console.log("Couldn't create stripe account: " + err)
-          return res.send(err)
-      }
-      console.log("ACCOUNT: " + account.id)
-      response.body = {success: account.id}
-      return res.send(response)
-    }
-  );
-});
-
-exports.createStripeAccountLink = functions.https.onRequest((req, res) => {
-  var data = req.body
-  var accountID = data.stripeId
-  var response = {}
-  stripe.accountLinks.create({
-    account: accountID,
-    failure_url: 'https://example.com/failure',
-    success_url: 'https://example.com/success',
-    type: 'custom_account_verification',
-    collect: 'eventually_due',
-  }, function(err, accountLink) {
-    if (err) {
-      console.log(err)
-      response.body = {failure: err}
-      return res.send(response)
-    }
-  console.log(accountLink.url)
-    response.body = {success: accountLink.url}
-    return res.send(response)
-  });
-});
+// exports.createStripeAccountLink = functions.https.onRequest((req, res) => {
+//   var data = req.body
+//   var accountID = data.accountID
+//   var response = {}
+//   stripe.accountLinks.create({
+//     account: accountID,
+//     failure_url: 'https://example.com/failure',
+//     success_url: 'https://example.com/success',
+//     type: 'custom_account_verification',
+//     collect: 'eventually_due',
+//   }, function(err, accountLink) {
+//     if (err) {
+//       console.log(err)
+//       response.body = {failure: err}
+//       return res.send(response)
+//     }
+//   console.log(accountLink.url)
+//     response.body = {success: accountLink.url}
+//     return res.send(response)
+//   });
+// });
 
 // const currency = functions.config().stripe.currency || 'USD';
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
-// const functionConfig = () => {
-//     const fs = require('fs');
-//     return JSON.parse(fs.readFileSync('.env.json'));
-// };
+
+const functionConfig = () => {
+    const fs = require('fs');
+    return JSON.parse(fs.readFileSync('.env.json'));
+};
 
 // exports.getStripeSecretKey =  functions.https.onCall((data, context) => {
 //     return {
@@ -159,4 +157,3 @@ exports.createStripeAccountLink = functions.https.onRequest((req, res) => {
 //         .ref(`/stripe_customers/${user.uid}/customer_id`).set(customer.id);
 //   });
 // });
-

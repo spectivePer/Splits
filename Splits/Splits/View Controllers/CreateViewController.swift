@@ -332,6 +332,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                         return
                     }
                     // sent message here!
+                    print("ok")
                  }
         
         // Creates a transaction for the split
