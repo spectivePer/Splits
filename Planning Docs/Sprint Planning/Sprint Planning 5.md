@@ -50,21 +50,21 @@ Paul: [Auto layout for SE](https://github.com/ECS189E/project-w21-splits/tree/5f
 
 Jocelyn: [Even split total](https://github.com/ECS189E/project-w21-splits/tree/7bd96fd37e0afb4fbcac4ce9eff8ee91a0ddfd15)
 
-Jocelyn: [Calculate even split] (https://github.com/ECS189E/project-w21-splits/tree/4b1d2e721821897feaba8568a3c1449a803ba1bd)
+Jocelyn: [Calculate even split](https://github.com/ECS189E/project-w21-splits/tree/4b1d2e721821897feaba8568a3c1449a803ba1bd)
 
-Jocelyn: [Add item alert] (https://github.com/ECS189E/project-w21-splits/tree/f5f077e1eeb2cd5d86bba546bd686e4c6a71f1a0)
+Jocelyn: [Add item alert](https://github.com/ECS189E/project-w21-splits/tree/f5f077e1eeb2cd5d86bba546bd686e4c6a71f1a0)
 
-Keith: [added splits/transactions to splits class] (https://github.com/ECS189E/project-w21-splits/tree/c0b9e21a08e53abf15b49012fee1a8d7d547bfbc)
+Keith: [added splits/transactions to splits class](https://github.com/ECS189E/project-w21-splits/tree/c0b9e21a08e53abf15b49012fee1a8d7d547bfbc)
 
-Paul: [History] (https://github.com/ECS189E/project-w21-splits/tree/ae2cedb9deca3485166637b3cc7b4dc8da1973ab)
+Paul: [History](https://github.com/ECS189E/project-w21-splits/tree/ae2cedb9deca3485166637b3cc7b4dc8da1973ab)
 
-Jocelyn: [Requested amount] (https://github.com/ECS189E/project-w21-splits/tree/098c19b64f113de843dc1ec2270798ee3a9d5d02)
+Jocelyn: [Requested amount](https://github.com/ECS189E/project-w21-splits/tree/098c19b64f113de843dc1ec2270798ee3a9d5d02)
 
-Shaumik: [Firebase] (https://github.com/ECS189E/project-w21-splits/tree/bcea8d067ec343b01f12ebb91cbd80239e353a3f)
+Shaumik: [Firebase](https://github.com/ECS189E/project-w21-splits/tree/bcea8d067ec343b01f12ebb91cbd80239e353a3f)
 
-Shaumik: [Texting] (https://github.com/ECS189E/project-w21-splits/tree/8d13372a0175cbbd9231be9cdefbfd8a92a370f4)
+Shaumik: [Texting](https://github.com/ECS189E/project-w21-splits/tree/8d13372a0175cbbd9231be9cdefbfd8a92a370f4)
 
-Jocelyn: [Participant Pickerview] (https://github.com/ECS189E/project-w21-splits/tree/35905e4034973843f9e5f40523a3db1749130d58)
+Jocelyn: [Participant Pickerview](https://github.com/ECS189E/project-w21-splits/tree/35905e4034973843f9e5f40523a3db1749130d58)
 
 ### In-progress Tasks
 Documentation, error handling, and commenting
