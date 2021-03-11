@@ -277,11 +277,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             if let description = addAlert.textFields?.first?.text {
                 if let price = addAlert.textFields?.last?.text {
                     self.tableContents.items.append((price, description))
-                    self.itemTableView.reloadRows(at: [IndexPath(row: , section: 0)], with: .automatic)
                 }
             }
             cellNum = IndexPath(index: selectedUsers.count)
             selectedUsers.append(self.participants[0])
+            
+            self.itemTableView.beginUpdates()
+            self.itemTableView.insertRows(at: [IndexPath(row: self.tableContents.items.count-1, section: 0)], with: .automatic)
+            self.itemTableView.endUpdates()
         }))
 
         self.present(addAlert, animated: true)
