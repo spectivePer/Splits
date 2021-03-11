@@ -23,7 +23,7 @@ Jocelyn:
   
 Shaumik: 
   Firebase setup for texting;
-  Texting - split creater, and participants of split summary
+  Texting - split creator, and participants of split summary
 
 Paul: 
    Login UI + functionality; 
