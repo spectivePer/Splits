@@ -66,6 +66,8 @@ Shaumik: [Texting](https://github.com/ECS189E/project-w21-splits/tree/8d13372a01
 
 Jocelyn: [Participant Pickerview](https://github.com/ECS189E/project-w21-splits/tree/35905e4034973843f9e5f40523a3db1749130d58)
 
+Jocelyn: [itemIndexToUser to an array](https://github.com/ECS189E/project-w21-splits/tree/3c891f5703aa0b89a70a8b8010cf93dcb967678f)
+
 ### In-progress Tasks
 Documentation, error handling, and commenting
 
