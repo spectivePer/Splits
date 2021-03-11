@@ -342,25 +342,47 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     
         let totalAmountmessage = String(requestedAmount)
         var isEqual = true
+        var isOwed = true
         for x in 0..<participants.count{
             let userphoneNumber = reverseParticipantMap[participants[x]]
             print("hi there")
             print(userphoneNumber as String?)
+            isOwed = true
             let data : [String: String] = [
                 "phoneNumber": String(userphoneNumber ?? ""),
                 "totalAmount": totalAmountmessage,
-                "isEqual": String(isEqual)
+                "isEqual": String(isEqual),
+                "isOwed": String(isOwed)
             ]
             // Send a message to the user for amount owed
             Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
                        if let error = error {
                             // send alert - unable to send message
+                            print(error.localizedDescription)
                             return
                         }
                         // sent message here!
                         print("ok")
             }
         }
+            isOwed = false
+            // Send the user a message too
+            let data : [String: String] = [
+                "phoneNumber": User.current.phoneNumber,
+                "totalAmount": totalAmountmessage,
+                "isEqual": String(isEqual),
+                "isOwed" : String(isOwed)
+            ]
+            // Send a message to the user for amount owed
+            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                       if let error = error {
+                            // send alert - unable to send message
+                        print(error.localizedDescription)
+                            return
+                        }
+                        // sent message here!
+                        print("ok")
+            }
         
         } else {
             print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
@@ -376,6 +398,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 }
             }
             print(userToItems)
+            
+            
+            
         }
             
         // Update the current user with the new split
