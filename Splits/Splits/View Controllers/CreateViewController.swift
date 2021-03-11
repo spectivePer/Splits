@@ -276,7 +276,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 }
             }
             cellNum = IndexPath(index: selectedUsers.count)
-            selectedUsers.append("")
+            selectedUsers.append(self.participants[0])
         }))
 
         self.present(addAlert, animated: true)
@@ -323,7 +323,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
-<<<<<<< HEAD
         
         var part2itemMap = [String:String]()
         guard let table = itemTableView else {
@@ -338,7 +337,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
 //            part2itemMap = [item, user]
 //        }
         
-=======
 
         let data : [String: Any] = [
             "phoneNumber": User.current.phoneNumber,
@@ -354,7 +352,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     }
                     // sent message here!
                  }
->>>>>>> 8d13372a0175cbbd9231be9cdefbfd8a92a370f4
         
         // Creates a transaction for the split
         SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
@@ -409,7 +406,6 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow pickerRow: Int, forComponent component: Int) -> String? {
-        updateSelectedUser(row: cellNum.row, user: users[pickerRow])
         return users[pickerRow]
     }
     
@@ -483,7 +479,7 @@ extension CreateViewController: RecognizedTextDataSource {
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
             
-            selectedUsers.append("")
+            selectedUsers.append(participants[0])
 
             if isLarge {
                 if let label = currLabel {
