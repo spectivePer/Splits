@@ -429,10 +429,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             var userPhoneNumber = ""
             var item = ""
             var price = ""
-            
+            var totalAmt = 0.0
             for (key, value) in userToItems {
                 var messageBody = ""
                 userPhoneNumber = reverseParticipantMap[key] ?? ""
+                totalAmt = userTotal[key] ?? 0.0
                 for (innerKey, innerValue) in value {
                     item = innerKey
                     price = String(innerValue)
@@ -445,7 +446,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     "isEqual": "false",
                     "isOwed" : "true",
                     "yourname": key,
-                    "recieverName": User.current.name
+                    "recieverName": User.current.name,
+                    "totalAmt": String(totalAmt)
                 ]
                 Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
                            if let error = error {
