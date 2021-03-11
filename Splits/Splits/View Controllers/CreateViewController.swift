@@ -66,7 +66,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         print("participantMap: ", participantMap)
         self.itemTableView.dataSource = self
         self.itemTableView.rowHeight = 100.0
-        
+        for (key, values) in participantMap{
+            reverseParticipantMap[values] = key
+        }
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
 
             if let results = request.results, !results.isEmpty {
@@ -328,7 +330,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
-        
+
 //        itemIndexToUser Int: String
 //        itemIndexToName
 //        itemToPrice: String:Double
@@ -337,22 +339,29 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             print("IS EQUAL")
             SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
-            let totalAmountmessage = String(requestedAmount)
-            let data : [String: Any] = [
-                "phoneNumber": User.current.phoneNumber,
-                "totalAmount": totalAmountmessage
+                    
+        let totalAmountmessage = String(requestedAmount)
+        var isEqual = true
+        for x in 0..<participants.count{
+            let userphoneNumber = reverseParticipantMap[participants[x]]
+            print("hi there")
+            print(userphoneNumber as String?)
+            let data : [String: String] = [
+                "phoneNumber": String(userphoneNumber ?? ""),
+                "totalAmount": totalAmountmessage,
+                "isEqual": String(isEqual)
             ]
             // Send a message to the user for amount owed
             Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
-                   if let error = error {
-                        // send alert - unable to send message
-                        print("error")
-                        print(User.current.phoneNumber)
-                        return
-                    }
-                    // sent message here!
-                    print("ok")
-                 }
+                       if let error = error {
+                            // send alert - unable to send message
+                            return
+                        }
+                        // sent message here!
+                        print("ok")
+            }
+        }
+        
         } else {
             print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
             var userToItems:[String:[String:Double]] = [String:[String:Double]]()
