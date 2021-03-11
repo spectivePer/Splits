@@ -14,10 +14,12 @@ const twilioNumber = '+18064547805'  // twilio phone number
 
 
 exports.textStatus = functions.https.onCall(async (data, context) =>{
-  const phoneNumber = data.phoneNumber;
+  var phoneNumber = data.phoneNumber;
   const amount = data.totalAmount;
+  const isEqual = data.isEqual;
+  console.log("phone number is " + phoneNumber)
   if (phoneNumber.indexOf("+") !== -1){
-      const phoneNumber = "+1" + phoneNumber 
+      phoneNumber = "+1" + phoneNumber 
   }
   const textMessage = {
     body: amount,
