@@ -66,7 +66,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         print("participantMap: ", participantMap)
         self.itemTableView.dataSource = self
         self.itemTableView.rowHeight = 100.0
-        
+        for (key, values) in participantMap{
+            reverseParticipantMap[values] = key
+        }
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
 
             if let results = request.results, !results.isEmpty {
@@ -103,8 +105,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
-        //initialize global variables
-        selectedUsers = []
+        //global variable
+        itemIndexToUserArray.removeAll()
+        itemIndexToUser.removeAll()
         
     }
     
@@ -279,11 +282,17 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     self.tableContents.items.append((price, description))
                 }
             }
-            cellNum = IndexPath(index: selectedUsers.count)
-            selectedUsers.append(self.participants[0])
             
             self.itemTableView.beginUpdates()
-            self.itemTableView.insertRows(at: [IndexPath(row: self.tableContents.items.count-1, section: 0)], with: .automatic)
+            var itemRowNum:Int = 0
+            if self.tableContents.items.count != 0 {
+                itemRowNum = self.tableContents.items.count-1
+            } else {
+                itemRowNum = 0
+            }
+            self.itemTableView.insertRows(at: [IndexPath(row: itemRowNum, section: 0)], with: .automatic)
+            //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+            updateSelectedUser(user: self.participants[0])
             self.itemTableView.endUpdates()
         }))
 
@@ -331,43 +340,146 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
-        
-        var part2itemMap = [String:String]()
-        guard let table = itemTableView else {
-            return
-        }
-        
-        print(selectedUsers)
-        
-//        for row in item.count {
-//            let item = itemName[row]
-//            let user = selectedUsers[row]
-//            part2itemMap = [item, user]
-//        }
-        
-        let totalAmountmessage = String(requestedAmount)
-        let data : [String: Any] = [
-            "phoneNumber": User.current.phoneNumber,
-            "totalAmount": totalAmountmessage
-        ]
-        // Send a message to the user for amount owed
-        Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
 
-                   if let error = error {
-                        // send alert - unable to send message
-                        print("error")
-                        print(User.current.phoneNumber)
-                        return
-                    }
-                    // sent message here!
-                    print("ok")
-                 }
+//        itemIndexToUser Int: String
+//        itemIndexToName
+//        itemToPrice: String:Double
         
         // Creates a transaction for the split
         if isEqualSplit {
+            print("IS EQUAL")
             SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+                    
+        let totalAmountmessage = String(requestedAmount)
+//        var isEqual = true
+        var isOwed = true
+        for x in 0..<participants.count{
+            let userphoneNumber = reverseParticipantMap[participants[x]]
+            isOwed = true
+            let data : [String: String] = [
+                "phoneNumber": String(userphoneNumber ?? ""),
+                "totalAmount": totalAmountmessage,
+                "isEqual": "true",
+                "isOwed": String(isOwed),
+                "yourname": participants[x],
+                "recieverName": User.current.name
+            ]
+            // Send a message to the user for amount owed
+            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                       if let error = error {
+                            // send alert - unable to send message
+                            print(error.localizedDescription)
+                            return
+                        }
+                        // sent message here!
+                        print("ok")
+            }
+        }
+            isOwed = false
+            // Send the user a message too
+            let data : [String: String] = [
+                "phoneNumber": User.current.phoneNumber,
+                "totalAmount": totalAmountmessage,
+                "isEqual": "true",
+                "isOwed" : String(isOwed),
+            ]
+            // Send a message to the user for amount owed
+            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                       if let error = error {
+                            // send alert - unable to send message
+                        print(error.localizedDescription)
+                            return
+                        }
+                        // sent message here!
+                        print("ok")
+            }
+        
         } else {
-            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: itemToUserMap, itemToPriceMap: itemToPriceMap, users: participantMap, splitUid: splitUid, recipient: User.current)
+            print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
+            
+            var itemIndexToUser: [Int:String] = [:]
+            var i:Int = 0
+            while i < itemIndexToUserArray.count {
+                itemIndexToUser[i] = itemIndexToUserArray[i]
+                i += 1
+            }
+            
+            print("Map count: \(itemToPriceMap.count)")
+            print("Array count: \(itemIndexToUserArray.count)")
+            print("ITEM INDEX ARRAY: \(itemIndexToUserArray)")
+            print(itemIndexToUser)
+            var userTotal: [String: Double] = [String:Double]()
+            var userToItems:[String:[String:Double]] = [String:[String:Double]]()
+            for(itemIndex, user) in itemIndexToUser {
+                //print(itemIndex)
+                let itemName = tableContents.items[itemIndex].description
+                if let itemPrice = itemToPriceMap[itemName] {
+                    if userToItems[user] != nil {
+                        userToItems[user]?[itemName] = itemPrice
+                    } else {
+                        userToItems[user] = [itemName:itemPrice]
+                    }
+                    userTotal[user] = (userTotal[user] ?? 0.0) + itemPrice
+                }
+                
+            }
+            
+            // Text message call
+            
+            var userPhoneNumber = ""
+            var item = ""
+            var price = ""
+            
+            for (key, value) in userToItems {
+                var messageBody = ""
+                userPhoneNumber = reverseParticipantMap[key] ?? ""
+                for (innerKey, innerValue) in value {
+                    item = innerKey
+                    price = String(innerValue)
+                    messageBody += item + " $" + price + " "
+                    messageBody += "\n"
+                }
+                let data : [String: String] = [
+                    "phoneNumber": String(userPhoneNumber ),
+                    "messageBody": messageBody,
+                    "isEqual": "false",
+                    "isOwed" : "true",
+                    "yourname": key,
+                    "recieverName": User.current.name
+                ]
+                Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                           if let error = error {
+                                // send alert - unable to send message
+                                print(error.localizedDescription)
+                                return
+                            }
+                            // sent message here!
+                            print("ok")
+                }
+                
+            }
+            let amounttoBePaid = userTotal[User.current.name]
+            // Send the user a message too
+            let data : [String: String] = [
+                "phoneNumber": User.current.phoneNumber,
+                "totalAmount": String(format: "", amounttoBePaid ?? "0"),
+                "isEqual": "true",
+                "isOwed" : "ture",
+            ]
+            // Send a message to the user for amount owed
+            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                       if let error = error {
+                            // send alert - unable to send message
+                        print(error.localizedDescription)
+                            return
+                        }
+                        // sent message here!
+                        print("ok")
+            }
+            
+            print(userToItems)
+
+            print(userTotal)
         }
             
         // Update the current user with the new split
@@ -382,29 +494,34 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         
         self.displayViewController(storyboard: "Main", vcName: "homeView")
     }
-    
-//    func updateSelectedUser(row: Int, user: String){
-//        selectedUsers[row] = user
-//        return
-//    }
-//
-//    func getSelectedUsers() -> [String] {
-//        return selectedUsers
-//    }
 }
 
-var cellNum = IndexPath()
-var selectedUsers: [String] = []
-var itemIndexToUser: [Int:String] = [:]
+var itemIndexToUser: [Int:String] = [Int:String]()
+var itemIndexToUserArray:[String] = [String]()
 
-func updateSelectedUser(itemIndex: Int, user: String){
-    itemIndexToUser[itemIndex] = user
-    print(itemIndexToUser)
+//func updateSelectedUser(itemIndex: Int, user: String){
+//    itemIndexToUser[itemIndex] = user
+//    print(itemIndexToUser)
+//    return
+//}
+
+func updateSelectedUser(user:String) {
+    itemIndexToUserArray.append(user)
+    return
+}
+
+func updateSelectedUser(itemIndex: Int, user: String) {
+    itemIndexToUserArray[itemIndex] = user
     return
 }
 
 func getSelectedUsers() -> [Int:String] {
     return itemIndexToUser
+}
+
+func deleteSelectedUser(itemIndex: Int) {
+    itemIndexToUserArray.remove(at: itemIndex)
+    return
 }
 
 // MARK: Custom Receipt Class
@@ -435,7 +552,9 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow pickerRow: Int, inComponent component: Int) {
+        //updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
         updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
+        return
     }
     
 }
@@ -477,7 +596,6 @@ extension CreateViewController: UITableViewDataSource {
 
         print("\(field.description)\t\(field.price)")
         itemToPriceMap[field.description] = Double(field.price)
-        cellNum = indexPath
         cell1?.userPickerView.reloadAllComponents()
         
         return cell1 ?? cell
@@ -487,6 +605,7 @@ extension CreateViewController: UITableViewDataSource {
             if editingStyle == .delete {
                 print("deleted \(tableContents.items[indexPath.row].description)")
                 tableContents.items.remove(at: indexPath.row)
+                itemIndexToUserArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
@@ -505,9 +624,7 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
-
-            selectedUsers.append(participants[0])
-
+            
             if isLarge {
                 if let label = currLabel {
                     if let qualifier = valueQualifier {
@@ -521,6 +638,16 @@ extension CreateViewController: RecognizedTextDataSource {
                     tableContents.items.append((label, text))
                     print(tableContents.items)
                     
+                    var itemRowNum:Int = 0
+                    if tableContents.items.count != 0 {
+                        itemRowNum = self.tableContents.items.count-1
+                    } else {
+                        itemRowNum = 0
+                    }
+                    
+                    //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+                    updateSelectedUser(user: self.participants[0])
+                    
                     currLabel = nil
                 } else if tableContents.storeName == nil && observation.boundingBox.minX < 0.5 && text.count >= 2 {
                     // Name is located on the top-left of the receipt.
@@ -530,6 +657,15 @@ extension CreateViewController: RecognizedTextDataSource {
                 if text.starts(with: "#") {
                     // Order number is the only thing that starts with #.
                     tableContents.items.append(("Order", text))
+                    var itemRowNum:Int = 0
+                    if tableContents.items.count != 0 {
+                        itemRowNum = self.tableContents.items.count-1
+                    } else {
+                        itemRowNum = 0
+                    }
+                    
+                    //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+                    updateSelectedUser(user: self.participants[0])
                 } else if currLabel == nil {
                     currLabel = text
                 } else {
@@ -540,6 +676,16 @@ extension CreateViewController: RecognizedTextDataSource {
                         let matches = detector.matches(in: text, options: .init(), range: NSRange(location: 0, length: text.count))
                         if !matches.isEmpty {
                             tableContents.items.append(("Date", text))
+                            
+                            var itemRowNum:Int = 0
+                            if tableContents.items.count != 0 {
+                                itemRowNum = self.tableContents.items.count-1
+                            } else {
+                                itemRowNum = 0
+                            }
+                            
+                            //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
+                            updateSelectedUser(user: self.participants[0])
                         } else {
                             // This observation is potentially a qualifier.
                             valueQualifier = observation

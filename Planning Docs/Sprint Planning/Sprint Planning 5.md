@@ -8,11 +8,13 @@ Splits is an app that conveniently splits a bill, receipt, or payment among two 
 
 
 ### Completed Tasks
-Jocelyn: OCR, delete item from list, calculate even split total
+Jocelyn: OCR, delete item from list, add items to list, assign participants to split
 
-Paul: combine even/uneven split UI, add item to list, assign participants to split
+Paul: even/uneven split UI, edit items on list, itemized split UI, homeview UI
 
-Keith: linked groups and users
+Keith: linked groups and users, change split & user classes to hold transactions, calculate uneven split totals, assign participants to split
+
+Shaumik: text request for even and uneven split
 
 
 ### Commit History
@@ -40,16 +42,34 @@ Paul: [Finished Even & Itemized split screen](https://github.com/ECS189E/project
 
 Jocelyn: [Add sections to homeVC](https://github.com/ECS189E/project-w21-splits/tree/39c9ad93237d01dcbe7f8601d8f50c9fd70a64fe)
 
+Shaumik: [Stripe Storyboard](7d5d044e1d5b237a576f3750b2cd6703ed117999)
+
 Jocelyn: [Update delete item](https://github.com/ECS189E/project-w21-splits/tree/7bd96fd37e0afb4fbcac4ce9eff8ee91a0ddfd15)
 
 Paul: [Auto layout for SE](https://github.com/ECS189E/project-w21-splits/tree/5f0f792ed652ad50c89a362882b118d165ebbddb) 
 
 Jocelyn: [Even split total](https://github.com/ECS189E/project-w21-splits/tree/7bd96fd37e0afb4fbcac4ce9eff8ee91a0ddfd15)
 
+Jocelyn: [Calculate even split](https://github.com/ECS189E/project-w21-splits/tree/4b1d2e721821897feaba8568a3c1449a803ba1bd)
 
+Jocelyn: [Add item alert](https://github.com/ECS189E/project-w21-splits/tree/f5f077e1eeb2cd5d86bba546bd686e4c6a71f1a0)
+
+Keith: [added splits/transactions to splits class](https://github.com/ECS189E/project-w21-splits/tree/c0b9e21a08e53abf15b49012fee1a8d7d547bfbc)
+
+Paul: [History](https://github.com/ECS189E/project-w21-splits/tree/ae2cedb9deca3485166637b3cc7b4dc8da1973ab)
+
+Jocelyn: [Requested amount](https://github.com/ECS189E/project-w21-splits/tree/098c19b64f113de843dc1ec2270798ee3a9d5d02)
+
+Shaumik: [Firebase](https://github.com/ECS189E/project-w21-splits/tree/bcea8d067ec343b01f12ebb91cbd80239e353a3f)
+
+Shaumik: [Texting](https://github.com/ECS189E/project-w21-splits/tree/8d13372a0175cbbd9231be9cdefbfd8a92a370f4)
+
+Jocelyn: [Participant Pickerview](https://github.com/ECS189E/project-w21-splits/tree/35905e4034973843f9e5f40523a3db1749130d58)
+
+Jocelyn: [itemIndexToUser to an array](https://github.com/ECS189E/project-w21-splits/tree/3c891f5703aa0b89a70a8b8010cf93dcb967678f)
 
 ### In-progress Tasks
-Jocelyn: Add item to list, homeview UI
+Documentation, error handling, and commenting
 
 
 ### Notes
