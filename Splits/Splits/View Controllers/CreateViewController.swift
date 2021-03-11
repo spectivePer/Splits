@@ -346,13 +346,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         for x in 0..<participants.count{
             let userphoneNumber = reverseParticipantMap[participants[x]]
             print("hi there")
-            print(userphoneNumber as String?)
             isOwed = true
             let data : [String: String] = [
                 "phoneNumber": String(userphoneNumber ?? ""),
                 "totalAmount": totalAmountmessage,
-                "isEqual": String(isEqual),
-                "isOwed": String(isOwed)
+                "isEqual": "true",
+                "isOwed": String(isOwed),
+                "yourname": participants[x],
+                "recieverName": User.current.name
             ]
             // Send a message to the user for amount owed
             Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
@@ -371,7 +372,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 "phoneNumber": User.current.phoneNumber,
                 "totalAmount": totalAmountmessage,
                 "isEqual": String(isEqual),
-                "isOwed" : String(isOwed)
+                "isOwed" : String(isOwed),
             ]
             // Send a message to the user for amount owed
             Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
@@ -400,6 +401,42 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 }
                 
             }
+            
+            // Text message call
+            
+            var userPhoneNumber = ""
+            var item = ""
+            var price = ""
+            
+            for (key, value) in userToItems {
+                var messageBody = ""
+                userPhoneNumber = reverseParticipantMap[key] ?? ""
+                for (innerKey, innerValue) in value {
+                    item = innerKey
+                    price = String(innerValue)
+                    messageBody += item + " $" + price + " "
+                    messageBody += "\n"
+                }
+                let data : [String: String] = [
+                    "phoneNumber": String(userPhoneNumber ),
+                    "messageBody": messageBody,
+                    "isEqual": "false",
+                    "isOwed" : "true",
+                    "yourname": key,
+                    "recieverName": User.current.name
+                ]
+                Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+                           if let error = error {
+                                // send alert - unable to send message
+                                print(error.localizedDescription)
+                                return
+                            }
+                            // sent message here!
+                            print("ok")
+                }
+                
+            }
+            
             print(userToItems)
 
             print(userTotal)
