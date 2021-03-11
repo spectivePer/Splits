@@ -19,9 +19,9 @@ const twilioNumber = '+18064547805'  // twilio phone number
 exports.textStatus = functions.https.onCall(async (data, context) =>{
   const phoneNumber = data.phoneNumber
   const amount = data.totalAmount
-
+  const message = "The ammount to be paid to the creator of the split is" + amount;
   const textMessage = {
-    body: amount,
+    body: message,
     to: phoneNumber,
     from: twilioNumber
   }

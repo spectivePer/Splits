@@ -318,12 +318,22 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
-//        let data = [
-//            "phoneNumber": User.current.phoneNumber,
-//            "totalAmount": requestedAmount
-//        ]
-//        
-//        Functions.functions().httpsCallable("textStatus").call(data)
+
+        let data : [String: Any] = [
+            "phoneNumber": User.current.phoneNumber,
+            "totalAmount": String(requestedAmount)
+        ]
+        // Send a message to the user for amount owed
+        Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+
+                   if let error = error {
+                        print(error.localizedDescription)
+                        // send alert - unable to make charge
+                        return
+                    }
+                    // sent message here!
+                 }
+        
         // Creates a transaction for the split
         SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
             
