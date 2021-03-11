@@ -12,13 +12,13 @@ Keith:
    Add friends to split UI + functionality;
    import contacts from phone;
    user and split classes;
-   calculate itemized split total
+   assign participant to item functionality
    
 Jocelyn: 
   Name new split;
-  split evenly UI + functionality;
+  split evenly/unevenly UI + functionality;
   add/delete items to split - OCR and manually;
-  assign participants to split UI + functionality;
+  assign participants to item UI;
   navigation between views
   
 Shaumik: 
