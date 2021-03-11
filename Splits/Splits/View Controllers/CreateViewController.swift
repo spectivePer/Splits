@@ -103,9 +103,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
-        //initialize global variables
-        selectedUsers = []
-        
     }
     
     // MARK: Selector
@@ -279,11 +276,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     self.tableContents.items.append((price, description))
                 }
             }
-            cellNum = IndexPath(index: selectedUsers.count)
-            selectedUsers.append(self.participants[0])
             
             self.itemTableView.beginUpdates()
-            self.itemTableView.insertRows(at: [IndexPath(row: self.tableContents.items.count-1, section: 0)], with: .automatic)
+            let itemRowNum = self.tableContents.items.count-1
+            self.itemTableView.insertRows(at: [IndexPath(row: itemRowNum, section: 0)], with: .automatic)
+            updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
             self.itemTableView.endUpdates()
         }))
 
@@ -332,18 +329,23 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             requestedAmount = evenSplitAmount
         }
         
-        var part2itemMap = [String:String]()
-        guard let table = itemTableView else {
-            return
+        var itemName:String
+        var itemPrice:Double
+        var userToItem:[String:String] = [:]
+        for(itemIndex, user) in itemIndexToUser {
+            
+            itemName = userToItem[user]
+            itemPrice = itemToPriceMap[itemName]
         }
         
-        print(selectedUsers)
+        print(userToitem)
         
-//        for row in item.count {
-//            let item = itemName[row]
-//            let user = selectedUsers[row]
-//            part2itemMap = [item, user]
-//        }
+        
+        
+        
+//        itemIndexToUser Int: String
+//        itemIndexToName
+//        itemToPrice: String:Double
         
         let totalAmountmessage = String(requestedAmount)
         let data : [String: Any] = [
@@ -382,19 +384,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         
         self.displayViewController(storyboard: "Main", vcName: "homeView")
     }
-    
-//    func updateSelectedUser(row: Int, user: String){
-//        selectedUsers[row] = user
-//        return
-//    }
-//
-//    func getSelectedUsers() -> [String] {
-//        return selectedUsers
-//    }
 }
 
-var cellNum = IndexPath()
-var selectedUsers: [String] = []
 var itemIndexToUser: [Int:String] = [:]
 
 func updateSelectedUser(itemIndex: Int, user: String){
@@ -477,7 +468,6 @@ extension CreateViewController: UITableViewDataSource {
 
         print("\(field.description)\t\(field.price)")
         itemToPriceMap[field.description] = Double(field.price)
-        cellNum = indexPath
         cell1?.userPickerView.reloadAllComponents()
         
         return cell1 ?? cell
@@ -505,8 +495,6 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
-
-            selectedUsers.append(participants[0])
 
             if isLarge {
                 if let label = currLabel {
