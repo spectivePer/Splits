@@ -529,7 +529,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="camera" catalog="system">
                                                     <attributedString key="attributedTitle">
-                                                        <fragment content=" Add Receipt">
+                                                        <fragment content=" Scan Receipt">
                                                             <attributes>
                                                                 <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <font key="NSFont" size="18" name="Avenir-Black"/>
@@ -902,7 +902,7 @@
             <size key="intrinsicContentSize" width="89" height="36.5"/>
         </designable>
         <designable name="O75-Jy-qU6">
-            <size key="intrinsicContentSize" width="136.5" height="24.5"/>
+            <size key="intrinsicContentSize" width="139.5" height="24.5"/>
         </designable>
         <designable name="dCs-Df-l5X">
             <size key="intrinsicContentSize" width="42" height="36.5"/>
