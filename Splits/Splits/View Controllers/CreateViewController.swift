@@ -105,9 +105,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
-        //initialize global variables
-        selectedUsers = []
-        
     }
     
     // MARK: Selector
@@ -281,11 +278,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     self.tableContents.items.append((price, description))
                 }
             }
-            cellNum = IndexPath(index: selectedUsers.count)
-            selectedUsers.append(self.participants[0])
             
             self.itemTableView.beginUpdates()
-            self.itemTableView.insertRows(at: [IndexPath(row: self.tableContents.items.count-1, section: 0)], with: .automatic)
+            let itemRowNum = self.tableContents.items.count-1
+            self.itemTableView.insertRows(at: [IndexPath(row: itemRowNum, section: 0)], with: .automatic)
+            updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
             self.itemTableView.endUpdates()
         }))
 
@@ -333,19 +330,16 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
+
+//        itemIndexToUser Int: String
+//        itemIndexToName
+//        itemToPrice: String:Double
         
-        var part2itemMap = [String:String]()
-        guard let table = itemTableView else {
-            return
-        }
-        
-        print(selectedUsers)
-        
-//        for row in item.count {
-//            let item = itemName[row]
-//            let user = selectedUsers[row]
-//            part2itemMap = [item, user]
-//        }
+        // Creates a transaction for the split
+        if isEqualSplit {
+            print("IS EQUAL")
+            SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
+                    
         let totalAmountmessage = String(requestedAmount)
         var isEqual = true
         for x in 0..<participants.count{
@@ -368,15 +362,20 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             }
         }
         
-        
-        
-
-        
-        // Creates a transaction for the split
-        if isEqualSplit {
-            SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
         } else {
-            SplitService.createItemizedSplit(totalAmount: totalAmount, itemToUserMap: itemToUserMap, itemToPriceMap: itemToPriceMap, users: participantMap, splitUid: splitUid, recipient: User.current)
+            print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
+            var userToItems:[String:[String:Double]] = [String:[String:Double]]()
+            for(itemIndex, user) in itemIndexToUser {
+                let itemName = tableContents.items[itemIndex].description
+                if let itemPrice = itemToPriceMap[itemName] {
+                    if userToItems[user] != nil {
+                        userToItems[user]?[itemName] = itemPrice
+                    } else {
+                        userToItems[user] = [itemName:itemPrice]
+                    }
+                }
+            }
+            print(userToItems)
         }
             
         // Update the current user with the new split
@@ -391,19 +390,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         
         self.displayViewController(storyboard: "Main", vcName: "homeView")
     }
-    
-//    func updateSelectedUser(row: Int, user: String){
-//        selectedUsers[row] = user
-//        return
-//    }
-//
-//    func getSelectedUsers() -> [String] {
-//        return selectedUsers
-//    }
 }
 
-var cellNum = IndexPath()
-var selectedUsers: [String] = []
 var itemIndexToUser: [Int:String] = [:]
 
 func updateSelectedUser(itemIndex: Int, user: String){
@@ -486,7 +474,6 @@ extension CreateViewController: UITableViewDataSource {
 
         print("\(field.description)\t\(field.price)")
         itemToPriceMap[field.description] = Double(field.price)
-        cellNum = indexPath
         cell1?.userPickerView.reloadAllComponents()
         
         return cell1 ?? cell
@@ -514,8 +501,6 @@ extension CreateViewController: RecognizedTextDataSource {
             var text = candidate.string
             // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
             var valueQualifier: VNRecognizedTextObservation?
-
-            selectedUsers.append(participants[0])
 
             if isLarge {
                 if let label = currLabel {

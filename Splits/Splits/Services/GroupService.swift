@@ -44,17 +44,17 @@ struct SplitService {
         ref.updateChildValues(splitUpdates)
     }
     
-    static func createItemizedSplit(totalAmount: Double, itemToUserMap: [String:String], itemToPriceMap: [String: Double], users: [String:String], splitUid: String, recipient: User) {
-        let ref = Database.database().reference().child("splits").child(splitUid)
-        print("Updating DB with new Split")
-        let splitUpdates = [
-            "totalAmount" : totalAmount,
-//            "evenSplitAmount" : evenSplitAmount,
-            "recipient" : recipient.uid
-        ] as [String : Any]
-        
-        ref.updateChildValues(splitUpdates)
-    }
+//    static func createItemizedSplit(totalAmount: Double, itemToUserMap: [String:String], itemToPriceMap: [String: Double], users: [String:String], splitUid: String, recipient: User) {
+//        let ref = Database.database().reference().child("splits").child(splitUid)
+//        print("Updating DB with new Split")
+//        let splitUpdates = [
+//            "totalAmount" : totalAmount,
+////            "evenSplitAmount" : evenSplitAmount,
+//            "recipient" : recipient.uid
+//        ] as [String : Any]
+//        
+//        ref.updateChildValues(splitUpdates)
+//    }
 
     static func updateUserSplitIDs(user: User) {
         let ref = Database.database().reference().child(user.uid).child("splits")
