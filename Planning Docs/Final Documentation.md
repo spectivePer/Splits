@@ -26,12 +26,13 @@ Shaumik:
   Firebase setup for texting;
   Texting - split creator and split participants summary
 
-Paul: 
-   Login; 
-   create user;
-   sign out;
-   display history of splits created;
-   finalized UI - home, participants, even, and uneven
+Paul:
+   App UX and flow;
+   UI for all viewcontrollers;
+   Login flow and functionality; 
+   Create User in Database (Firebase);
+   Display History of splits created;
+   Assign participants to item UI + functionality;
 
 ### Instructions
 In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text. Receipt scan works best with Trader Joe's receipts.
