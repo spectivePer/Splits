@@ -64,6 +64,8 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         super.viewDidLoad()
         print("splitUid uid: ", splitUid)
         print("participantMap: ", participantMap)
+        
+        // initialize table
         self.itemTableView.dataSource = self
         self.itemTableView.rowHeight = 100.0
         for (key, values) in participantMap{
@@ -80,11 +82,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             }
         })
         
-        // Equal Split
+        // initialize equal split
         splitNameLabel.text = splitName
         equalSplitAmount.text = "$"
         
-        //initialize button states
+        // initialize button states
         backButton.isEnabled = false
         periodButton.isEnabled = true
         plusButton.setTitleColor(.white, for: .normal)
@@ -92,12 +94,12 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         plusButton.isHidden = true
         tempView.isHidden = false
         
-        //initialize states
+        // initialize states
         tenthsPlace = false
         hundredthsPlace = false
         stopInput = false
         
-        //View settings
+        // initialize view settings
         keyPad.isHidden = false
         itemTableView.isHidden = true
         
