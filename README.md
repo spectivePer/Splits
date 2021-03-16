@@ -39,7 +39,7 @@ When the group decides to split their bill unevenly, the split creater can manua
 The user has the option to scan a receipt to automatically import the receipt items into a table, where the user can then assign each participant to an item.
 If for any reason you want to delete an item, the user can simply swipe left and will have the option to delete the item. Please review the licensing for this sectioin.
 
-### Text Messaging
+#### Text Messaging
 The split creater will receive a text with how much each split participant owes them.
 In itemized splits, the participants are able to see the list of items that the split creater assigned them and the total amount.
 Otherwise, participants is sent the total amount that they are owed.
