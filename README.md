@@ -45,7 +45,7 @@ In itemized splits, the participants are able to see the list of items that the 
 Otherwise, participants is sent the total amount that they are owed.
 
 #### View Previous Splits
-The homeview currently displays the split names that the user has created.
+The home page currently displays the split names that the user has created.
 
 
 
