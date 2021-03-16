@@ -34,7 +34,7 @@ Paul:
    finalized UI - home, participants, even, and uneven
 
 ### Instructions
-In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text.
+In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text. Receipt scan works best with Trader Joe's receipts.
 
 ### Link to README
 https://github.com/ECS189E/project-w21-splits/blob/main/README.md
