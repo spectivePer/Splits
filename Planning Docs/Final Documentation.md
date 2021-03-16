@@ -17,8 +17,8 @@ Keith:
 Jocelyn: 
   Name new split;
   split evenly/unevenly UI + functionality;
-  add/delete items to split - OCR and manually;
-  assign participants to item UI;
+  add/delete items to split (OCR and manually);
+  assign participants to item UI + functionality;
   calculate each participant's total amount;
   navigation between views
   
@@ -33,4 +33,8 @@ Paul:
    display history of splits created;
    finalized UI - home, participants, even, and uneven
 
+### Instructions
+In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text.
 
+### Link to README
+https://github.com/ECS189E/project-w21-splits/blob/main/README.md
