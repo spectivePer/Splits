@@ -13,7 +13,7 @@ https://trello.com/b/Ez0aGlsI/splits
 
 
 ### Instructions
-In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text.
+In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text.Receipt scan works best with Trader Joe's receipts.
 
 
 ### Splits Features
