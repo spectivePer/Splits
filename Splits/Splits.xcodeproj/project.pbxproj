@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C588A8425F306D4002E001D /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8325F306D4002E001D /* StripeApi.swift */; };
-		0C588A8A25F3163C002E001D /* cloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C588A8925F3163C002E001D /* cloudFunctions.swift */; };
 		0C67622B25ECB87B002CDABB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4B9DC23825EC47E800C23AF6 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23725EC47E800C23AF6 /* GroupService.swift */; };
 		4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC23A25EC480B00C23AF6 /* Group.swift */; };
@@ -16,6 +14,8 @@
 		4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DC24125EC4CF300C23AF6 /* TransactionService.swift */; };
 		730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */; };
 		730A5B9525F3100F007DE526 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730A5B9425F3100F007DE526 /* CreateViewController.swift */; };
+		737BA3F726008262002E30AB /* CameraScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BA3F626008262002E30AB /* CameraScan.swift */; };
+		737BA3FA26008403002E30AB /* CustomReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BA3F926008403002E30AB /* CustomReceipt.swift */; };
 		7397C30D25EB4EB4007F54C2 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */; };
 		95FD1DE9252CE4518FEBEC31 /* Pods_Splits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D855B1837A99D90A924127 /* Pods_Splits.framework */; };
 		ACBE426C25F2FD3F00B64ECC /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBE426B25F2FD3F00B64ECC /* Create.storyboard */; };
@@ -34,8 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C588A8325F306D4002E001D /* StripeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApi.swift; sourceTree = "<group>"; };
-		0C588A8925F3163C002E001D /* cloudFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloudFunctions.swift; sourceTree = "<group>"; };
 		40D855B1837A99D90A924127 /* Pods_Splits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9DC23725EC47E800C23AF6 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		4B9DC23A25EC480B00C23AF6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		50CF5AD278C38FE9E39E4EFD /* Pods-Splits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splits.release.xcconfig"; path = "Target Support Files/Pods-Splits/Pods-Splits.release.xcconfig"; sourceTree = "<group>"; };
 		730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextDataSource.swift; sourceTree = "<group>"; };
 		730A5B9425F3100F007DE526 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		737BA3F626008262002E30AB /* CameraScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScan.swift; sourceTree = "<group>"; };
+		737BA3F926008403002E30AB /* CustomReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomReceipt.swift; sourceTree = "<group>"; };
 		7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		ACBE426B25F2FD3F00B64ECC /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		ACD30CAD25DE60FF00229D65 /* Splits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,15 +76,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C588A8225F3069E002E001D /* StripeApi */ = {
-			isa = PBXGroup;
-			children = (
-				0C588A8325F306D4002E001D /* StripeApi.swift */,
-				0C588A8925F3163C002E001D /* cloudFunctions.swift */,
-			);
-			path = StripeApi;
-			sourceTree = "<group>";
-		};
 		542EFDCB7F5373921883168B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +114,6 @@
 		ACD30CAF25DE60FF00229D65 /* Splits */ = {
 			isa = PBXGroup;
 			children = (
-				0C588A8225F3069E002E001D /* StripeApi */,
 				ACD30D6B25DFC2F700229D65 /* Splits.entitlements */,
 				ACD30CBE25DE610300229D65 /* Info.plist */,
 				ACD30CC725DE622300229D65 /* GoogleService-Info.plist */,
@@ -176,6 +166,8 @@
 				ACD30D3525DF399400229D65 /* HomeViewController.swift */,
 				7397C30C25EB4EB4007F54C2 /* AddContactsViewController.swift */,
 				730A5B5E25F2B967007DE526 /* RecognizedTextDataSource.swift */,
+				737BA3F626008262002E30AB /* CameraScan.swift */,
+				737BA3F926008403002E30AB /* CustomReceipt.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -337,13 +329,13 @@
 				ACD30D3A25DF3E2300229D65 /* UserService.swift in Sources */,
 				730A5B9525F3100F007DE526 /* CreateViewController.swift in Sources */,
 				ACD30CE625DEEE2700229D65 /* UserInfoViewController.swift in Sources */,
+				737BA3FA26008403002E30AB /* CustomReceipt.swift in Sources */,
 				4B9DC24225EC4CF300C23AF6 /* TransactionService.swift in Sources */,
 				ACD30CB525DE60FF00229D65 /* LoginViewController.swift in Sources */,
 				0C67622B25ECB87B002CDABB /* (null) in Sources */,
-				0C588A8425F306D4002E001D /* StripeApi.swift in Sources */,
-				0C588A8A25F3163C002E001D /* cloudFunctions.swift in Sources */,
 				4B9DC23B25EC480B00C23AF6 /* Group.swift in Sources */,
 				730A5B5F25F2B967007DE526 /* RecognizedTextDataSource.swift in Sources */,
+				737BA3F726008262002E30AB /* CameraScan.swift in Sources */,
 				ACD30CB125DE60FF00229D65 /* AppDelegate.swift in Sources */,
 				ACD30D2E25DF04FC00229D65 /* User.swift in Sources */,
 				ACD30CB325DE60FF00229D65 /* SceneDelegate.swift in Sources */,
@@ -480,14 +472,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Splits/Splits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92C9W249HN;
+				DEVELOPMENT_TEAM = VM4TLAGF3F;
 				INFOPLIST_FILE = Splits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecs189e.splits.jp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
