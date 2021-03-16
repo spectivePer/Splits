@@ -443,8 +443,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     userTotal[user] = (userTotal[user] ?? 0.0) + itemPrice
                 }
                 itemIndex += 1
-                
             }
+            
+            print(userTotal)
             
             // Text message call
             var userPhoneNumber = ""
