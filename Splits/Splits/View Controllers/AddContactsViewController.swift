@@ -65,8 +65,6 @@ class AddContactsViewController: UIViewController, UITextFieldDelegate {
     @IBAction func previousView(_ sender: UIButton) {
         displayView(storyboard: "Main", vcName: "homeView")
     }
-    //TODO: selects contacts to add to split from table
-    //TODO: recent/most splitting contacts at the top
     
     @IBAction func startSplit(_ sender: Any) {
         guard let splitName = splitName.text else {return}
@@ -87,7 +85,6 @@ class AddContactsViewController: UIViewController, UITextFieldDelegate {
             vc.splitName = splitName
             vc.splitUid = uid
             vc.participantMap = users
-            //let viewControllers = [vc]
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

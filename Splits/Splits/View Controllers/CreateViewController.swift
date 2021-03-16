@@ -1,15 +1,39 @@
-/*
-See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-View controller from which to invoke the document scanner.
-*/
+//
+//  CreateViewController.swift
+//  Splits
+//
+//  Created by Jocelyn Park on 3/15/21.
+//
 
 import UIKit
 import VisionKit
 import Vision
 import FirebaseFunctions
 
+// MARK: -Global Variables
+var itemIndexToUserArray:[String] = [String]()
+
+func updateSelectedUser(user:String) {
+    itemIndexToUserArray.append(user)
+    return
+}
+
+func updateSelectedUser(itemIndex: Int, user: String) {
+    itemIndexToUserArray[itemIndex] = user
+    return
+}
+
+func getSelectedUsers() -> [String] {
+    return itemIndexToUserArray
+}
+
+func deleteSelectedUser(itemIndex: Int) {
+    itemIndexToUserArray.remove(at: itemIndex)
+    return
+}
+
+// MARK: -Create View Controller Class
 class CreateViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
 
     // Variables from previous view
@@ -26,7 +50,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     @IBOutlet weak var pageSwitch: UISegmentedControl!
     
     // MARK: Equal Split View Variables
-    
     @IBOutlet weak var splitNameLabel: UILabel!
     @IBOutlet weak var equalSplitAmount: UILabel!
     @IBOutlet weak var keyPad: UIStackView!
@@ -40,7 +63,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     
     // MARK: Itemized Split View and Camera Variables
-    
     @IBOutlet weak var itemTableView: UITableView!
     let receiptContentsIdentifier = "receiptContentsTable"
     var textRecognitionRequest = VNRecognizeTextRequest()
@@ -103,18 +125,16 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         keyPad.isHidden = false
         itemTableView.isHidden = true
         
-        // Selecter Settings
+        // selecter settings
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.systemOrange], for: .normal)
         pageSwitch.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
         
-        //global variable
+        // global variables
         itemIndexToUserArray.removeAll()
-        itemIndexToUser.removeAll()
         
     }
     
-    // MARK: Selector
-    
+    // MARK: Select Even/Itemized View
     @IBAction func switchedView(_ sender: Any) {
         switch pageSwitch.selectedSegmentIndex {
         case 1: //unequal split
@@ -138,9 +158,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     
     
     // MARK: Equal Split View
-    
     @IBAction func keyButtonPressed(_ sender: UIButton) {
         switch sender.tag {
+        // add buttonName to total amount string
         case 1:
             if !stopInput{
                 updateTotalAmountLabel(buttonName: "1")
@@ -191,12 +211,13 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         }
     }
     
+    // updates total amount label
     func updateTotalAmountLabel(buttonName: String) {
         guard let totalAmount = equalSplitAmount.text else {
             return
         }
         
-        //if back button is pressed, remove the last character
+        // if back button is pressed, remove the last character
         if buttonName == "back" {
             if hundredthsPlace && !stopInput { //removing tenths number
                 hundredthsPlace = false
@@ -204,41 +225,41 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 stopInput = false
             }
             
-            //if removing period, enable period button
+            // if removing period, enable period button
             if(totalAmount.last == ".") {
                 periodButton.isEnabled = true
                 tenthsPlace = false
             }
             
-            //remove the last character
+            // remove the last character
             let updatedTotalAmount = totalAmount.dropLast()
             equalSplitAmount.text = String(updatedTotalAmount)
             
-            //disable the back button if no amount is inputted
+            // disable the back button if no amount is inputted
             if updatedTotalAmount == "$" {
                 backButton.isEnabled = false
             }
         } else {
-            //if back button wasn't pressed, add character
+            // if back button wasn't pressed, add character
             let updatedTotalAmount = totalAmount + buttonName
             equalSplitAmount.text = updatedTotalAmount
             
-            //enable back button if disabled
+            // enable back button if disabled
             if !backButton.isEnabled {
                 backButton.isEnabled = true
             }
             
-            //if we filled the hundredths place, then stop taking in numbers
+            // if we filled the hundredths place, then stop taking in numbers
             if hundredthsPlace {
                 stopInput = true
             }
             
-            //if we filled the tenths place, then take in 1 number
+            // if we filled the tenths place, then take in 1 number
             if tenthsPlace {
                 hundredthsPlace = true
             }
             
-            //if we set a decimal, take in 2 more numbers
+            // if we set a decimal, take in 2 more numbers
             if buttonName == "." {
                 tenthsPlace = true
             }
@@ -248,8 +269,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     }
     
     // MARK: Itemized Split and Camera View
-    
-    // Add Receipt Button
+    // Scan Receipt Button
     @IBAction func scan(_ sender: UIButton) {
         let documentCameraViewController = VNDocumentCameraViewController()
         documentCameraViewController.delegate = self
@@ -258,12 +278,12 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         switchedView(self)
     }
     
-    // Back Button
+    // Display previous vc
     @IBAction func backButtonTapped(_ sender: Any) {
         displayViewController(storyboard: "Create", vcName: "addContactsVC")
     }
 
-    // Add Item Button
+    // Add Item Button using popup alerts
     @IBAction func addButtonTapped(_ sender: Any) {
         let addAlert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
         addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -278,13 +298,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         })
 
         addAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-
+            // unwrap description and price from alert
             if let description = addAlert.textFields?.first?.text {
                 if let price = addAlert.textFields?.last?.text {
                     self.tableContents.items.append((price, description))
                 }
             }
             
+            // get next row num in item table
             self.itemTableView.beginUpdates()
             var itemRowNum:Int = 0
             if self.tableContents.items.count != 0 {
@@ -292,8 +313,9 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             } else {
                 itemRowNum = 0
             }
+            
+            // update item table
             self.itemTableView.insertRows(at: [IndexPath(row: itemRowNum, section: 0)], with: .automatic)
-            //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
             updateSelectedUser(user: self.participants[0])
             self.itemTableView.endUpdates()
         }))
@@ -305,6 +327,7 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         self.view.endEditing(true)
     }
     
+    // process the image that was scanned
     func processImage(image: UIImage) {
         guard let cgImage = image.cgImage else {
             print("Failed to get cgimage from input image")
@@ -342,32 +365,29 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
         if isEqualSplit {
             requestedAmount = evenSplitAmount
         }
-
-//        itemIndexToUser Int: String
-//        itemIndexToName
-//        itemToPrice: String:Double
         
         // Creates a transaction for the split
         if isEqualSplit {
             print("IS EQUAL")
             SplitService.createEqualSplit(totalAmount: totalAmount, evenSplitAmount: evenSplitAmount, splitUid: splitUid, recipient: User.current)
                     
-        let totalAmountmessage = String(requestedAmount)
-//        var isEqual = true
-        var isOwed = true
-        for x in 0..<participants.count{
-            let userphoneNumber = reverseParticipantMap[participants[x]]
-            isOwed = true
-            let data : [String: String] = [
-                "phoneNumber": String(userphoneNumber ?? ""),
-                "totalAmount": totalAmountmessage,
-                "isEqual": "true",
-                "isOwed": String(isOwed),
-                "yourname": participants[x],
-                "recieverName": User.current.name
-            ]
-            // Send a message to the user for amount owed
-            Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
+            // Format text message
+            let totalAmountmessage = String(requestedAmount)
+            var isOwed = true
+            for x in 0..<participants.count{
+                let userphoneNumber = reverseParticipantMap[participants[x]]
+                isOwed = true
+                let data : [String: String] = [
+                    "phoneNumber": String(userphoneNumber ?? ""),
+                    "totalAmount": totalAmountmessage,
+                    "isEqual": "true",
+                    "isOwed": String(isOwed),
+                    "yourname": participants[x],
+                    "recieverName": User.current.name
+                ]
+                
+                // Send a message to the split participant for amount owed
+                Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
                        if let error = error {
                             // send alert - unable to send message
                             print(error.localizedDescription)
@@ -375,17 +395,20 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                         }
                         // sent message here!
                         print("ok")
+                }
             }
-        }
+            
             isOwed = false
-            // Send the user a message too
+            
+            // Format split creater message
             let data : [String: String] = [
                 "phoneNumber": User.current.phoneNumber,
                 "totalAmount": totalAmountmessage,
                 "isEqual": "true",
                 "isOwed" : String(isOwed),
             ]
-            // Send a message to the user for amount owed
+            
+            // Send a message to the split creater for amount owed
             Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
                        if let error = error {
                             // send alert - unable to send message
@@ -397,24 +420,20 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             }
         
         } else {
-            print("IS ITEMIZED", itemToPriceMap, itemIndexToUser)
-            
-            var itemIndexToUser: [Int:String] = [:]
-            var i:Int = 0
-            while i < itemIndexToUserArray.count {
-                itemIndexToUser[i] = itemIndexToUserArray[i]
-                i += 1
-            }
-            
+            print("IS ITEMIZED")
+            print("Map: \(itemToPriceMap)")
             print("Map count: \(itemToPriceMap.count)")
             print("Array count: \(itemIndexToUserArray.count)")
             print("ITEM INDEX ARRAY: \(itemIndexToUserArray)")
-            print(itemIndexToUser)
+            print(itemIndexToUserArray)
+            
+            // calculate total amount per user
             var userTotal: [String: Double] = [String:Double]()
             var userToItems:[String:[String:Double]] = [String:[String:Double]]()
-            for(itemIndex, user) in itemIndexToUser {
-                //print(itemIndex)
+            var itemIndex = 0
+            while itemIndex < itemIndexToUserArray.count {
                 let itemName = tableContents.items[itemIndex].description
+                let user = itemIndexToUserArray[itemIndex]
                 if let itemPrice = itemToPriceMap[itemName] {
                     if userToItems[user] != nil {
                         userToItems[user]?[itemName] = itemPrice
@@ -423,11 +442,11 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                     }
                     userTotal[user] = (userTotal[user] ?? 0.0) + itemPrice
                 }
+                itemIndex += 1
                 
             }
             
             // Text message call
-            
             var userPhoneNumber = ""
             var item = ""
             var price = ""
@@ -463,14 +482,14 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
                 
             }
             let amounttoBePaid = userTotal[User.current.name]
-            // Send the user a message too
+            // Create split creater message
             let data : [String: String] = [
                 "phoneNumber": User.current.phoneNumber,
                 "totalAmount": String(format: "", amounttoBePaid ?? "0"),
                 "isEqual": "true",
                 "isOwed" : "ture",
             ]
-            // Send a message to the user for amount owed
+            // Send a message to the split creater for amount owed
             Functions.functions().httpsCallable("textStatus").call(data) { (result, error) in
                        if let error = error {
                             // send alert - unable to send message
@@ -482,7 +501,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
             }
             
             print(userToItems)
-
             print(userTotal)
         }
             
@@ -500,34 +518,6 @@ class CreateViewController: UIViewController, VNDocumentCameraViewControllerDele
     }
 }
 
-var itemIndexToUser: [Int:String] = [Int:String]()
-var itemIndexToUserArray:[String] = [String]()
-
-//func updateSelectedUser(itemIndex: Int, user: String){
-//    itemIndexToUser[itemIndex] = user
-//    print(itemIndexToUser)
-//    return
-//}
-
-func updateSelectedUser(user:String) {
-    itemIndexToUserArray.append(user)
-    return
-}
-
-func updateSelectedUser(itemIndex: Int, user: String) {
-    itemIndexToUserArray[itemIndex] = user
-    return
-}
-
-func getSelectedUsers() -> [Int:String] {
-    return itemIndexToUser
-}
-
-func deleteSelectedUser(itemIndex: Int) {
-    itemIndexToUserArray.remove(at: itemIndex)
-    return
-}
-
 // MARK: Custom Receipt Class
 class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -536,13 +526,13 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var priceText: UILabel!
     var itemIndex: Int = 0
     var users: [String] = []
-//    var participantMap: [String:String] =
     
     override func awakeFromNib() {
             self.userPickerView.delegate = self;
             self.userPickerView.dataSource = self;
             super.awakeFromNib()
         }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -556,152 +546,9 @@ class ReceiptTableCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow pickerRow: Int, inComponent component: Int) {
-        //updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
         updateSelectedUser(itemIndex: itemIndex, user: users[pickerRow])
         return
     }
     
-}
-
-// MARK: Camera Scan Complete
-extension CreateViewController {
-    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        
-        controller.dismiss(animated: true) {
-            DispatchQueue.global(qos: .userInitiated).async {
-                for pageNumber in 0 ..< scan.pageCount {
-                    let image = scan.imageOfPage(at: pageNumber)
-                    self.processImage(image: image)
-                }
-            }
-        }
-    }
-}
-
-// MARK: Receipt Data
-extension CreateViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(tableContents.items)
-        return tableContents.items.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell1 = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath) as? ReceiptTableCell
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "receiptTable", for: indexPath)
-    
-        let field = tableContents.items[indexPath.row]
-        cell1?.priceText.text = field.price
-        cell1?.itemText.text = field.description
-        cell1?.users = participants
-        cell1?.itemIndex = indexPath.row
-
-        print("\(field.description)\t\(field.price)")
-        itemToPriceMap[field.description] = Double(field.price)
-        cell1?.userPickerView.reloadAllComponents()
-        
-        return cell1 ?? cell
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                print("deleted \(tableContents.items[indexPath.row].description)")
-                tableContents.items.remove(at: indexPath.row)
-                itemIndexToUserArray.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        }
-}
-
-    
-    // MARK: RecognizedTextDataSource
-extension CreateViewController: RecognizedTextDataSource {
-    func addRecognizedText(recognizedText: [VNRecognizedTextObservation]) {
-        // Create a full transcript to run analysis on.
-        var currLabel: String?
-        let maximumCandidates = 1
-        for observation in recognizedText {
-            guard let candidate = observation.topCandidates(maximumCandidates).first else { continue }
-            let isLarge = (observation.boundingBox.height > CreateViewController.textHeightThreshold)
-            var text = candidate.string
-            // The value might be preceded by a qualifier (e.g A small '3x' preceding 'Additional shot'.)
-            var valueQualifier: VNRecognizedTextObservation?
-            
-            if isLarge {
-                if let label = currLabel {
-                    if let qualifier = valueQualifier {
-                        if abs(qualifier.boundingBox.minY - observation.boundingBox.minY) < 0.01 {
-                            // The qualifier's baseline is within 1% of the current observation's baseline, it must belong to the current value.
-                            let qualifierCandidate = qualifier.topCandidates(1)[0]
-                            text = qualifierCandidate.string + " " + text
-                        }
-                        valueQualifier = nil
-                    }
-                    tableContents.items.append((label, text))
-                    print(tableContents.items)
-                    
-                    var itemRowNum:Int = 0
-                    if tableContents.items.count != 0 {
-                        itemRowNum = self.tableContents.items.count-1
-                    } else {
-                        itemRowNum = 0
-                    }
-                    
-                    //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
-                    updateSelectedUser(user: self.participants[0])
-                    
-                    currLabel = nil
-                } else if tableContents.storeName == nil && observation.boundingBox.minX < 0.5 && text.count >= 2 {
-                    // Name is located on the top-left of the receipt.
-                    tableContents.storeName = text
-                }
-            } else {
-                if text.starts(with: "#") {
-                    // Order number is the only thing that starts with #.
-                    tableContents.items.append(("Order", text))
-                    var itemRowNum:Int = 0
-                    if tableContents.items.count != 0 {
-                        itemRowNum = self.tableContents.items.count-1
-                    } else {
-                        itemRowNum = 0
-                    }
-                    
-                    //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
-                    updateSelectedUser(user: self.participants[0])
-                } else if currLabel == nil {
-                    currLabel = text
-                } else {
-                    do {
-                        // Create an NSDataDetector to detect whether there is a date in the string.
-                        let types: NSTextCheckingResult.CheckingType = [.date]
-                        let detector = try NSDataDetector(types: types.rawValue)
-                        let matches = detector.matches(in: text, options: .init(), range: NSRange(location: 0, length: text.count))
-                        if !matches.isEmpty {
-                            tableContents.items.append(("Date", text))
-                            
-                            var itemRowNum:Int = 0
-                            if tableContents.items.count != 0 {
-                                itemRowNum = self.tableContents.items.count-1
-                            } else {
-                                itemRowNum = 0
-                            }
-                            
-                            //updateSelectedUser(itemIndex: itemRowNum, user: self.participants[0])
-                            updateSelectedUser(user: self.participants[0])
-                        } else {
-                            // This observation is potentially a qualifier.
-                            valueQualifier = observation
-                        }
-                    } catch {
-                        print(error)
-                    }
-
-                }
-            }
-        }
-        itemTableView.reloadData()
-    }
 }
 

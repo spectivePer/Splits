@@ -9,9 +9,6 @@ import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class Transaction: Codable {
-    // MARK: - Class Methods
-    // TODO ....
-    
     // MARK: - Properties
 
     let groupName: String                   // group's name
@@ -25,21 +22,4 @@ class Transaction: Codable {
     let equalAmount: Double                 // $10
     let isEqual: Bool                       // false -> Itemized | true -> Equal
     
-    // MARK: - Init
-
-//    init(uid: String, groupName: String, users: [String]) {
-//        self.uid = uid
-//        self.groupName = groupName
-//        self.users = [String]()
-//    }
-//
-//    init?(snapshot: DataSnapshot) {
-//        guard let dict = snapshot.value as? [String : Any],
-//            let groupName = dict["groupName"] as? String
-//            else { return nil }
-//
-//        self.uid = snapshot.key
-//        self.groupName = groupName
-//        self.users = [String]()
-//    }
 }
