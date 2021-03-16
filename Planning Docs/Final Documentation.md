@@ -32,7 +32,7 @@ Paul:
    Login flow and functionality; 
    Create User in Database (Firebase);
    Display History of splits created;
-   Assign participants to item UI + functionality;
+   Assign participants to item UI + functionality
 
 ### Instructions
 In order to see the texting feature, you must create a Twilio account (there's a free trial) and add the phone number of the person you want to text. Receipt scan works best with Trader Joe's receipts.
