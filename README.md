@@ -18,15 +18,34 @@ In order to see the texting feature, you must create a Twilio account (there's a
 
 ### Splits Features
 #### Login with email
+User has the option to log in with Google, Facebook, amd email. 
+Once the user logs in, the user will be able to create a username and add a phone number to the account.
 
 #### Sign out
+User can sign out of their account on the home page.
 
 #### Create New Split
+To create a new split, the user:
+1. Enters a split name
+2. Add participants to the split (Sp\its imports contacts from user's phone)
+3. Create an even or itemized split
 
-#### Complete Pending Splits
+#### Split Options
+The user is able to split their bill evenly or unevenly. 
+When the group decides to split their bill evenly, Sp\its takes the total amount of the bill and splits it evenly among the participants.
+When the group decides to split their bill unevenly, the split creater can manually input the items into a table and assign each participant to an item.
+
+#### Scan Receipt for Itemized Split
+The user has the option to scan a receipt to automatically import the receipt items into a table, where the user can then assign each participant to an item.
+If for any reason you want to delete an item, the user can simply swipe left and will have the option to delete the item. Please review the licensing for this sectioin.
+
+### Text Messaging
+The split creater will receive a text with how much each split participant owes them.
+In itemized splits, the participants are able to see the list of items that the split creater assigned them and the total amount.
+Otherwise, participants is sent the total amount that they are owed.
 
 #### View Previous Splits
-
+The homeview currently displays the split names that the user has created.
 
 
 
